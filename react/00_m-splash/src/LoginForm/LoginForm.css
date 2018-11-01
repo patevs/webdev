@@ -1,0 +1,79 @@
+
+/* LoginForm react component style sheet */
+
+.LoginForm {
+  text-align: center;
+  margin: 0 auto;
+  opacity: 0;
+}
+
+#login-form {
+	margin: 0 auto;
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-top: -3em;
+	margin-bottom: 3em;
+}
+
+#form-groups {
+	width: 400px;
+	margin: 0 auto;
+}
+
+#load-btns {
+  display: inline-block;
+  margin: 0 auto;
+  margin-left: 6em;
+}
+
+#load-btns > Button {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+	#form-groups {
+		width: 85%;
+		margin: 0 auto;
+	}
+  #load-btns {
+    display: inline-block;
+    margin: 0 auto;
+    margin-left: 4em;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+	#form-groups {
+		width: 85%;
+		margin: 0 auto;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 530px) {
+	#form-groups {
+		width: 400px;
+		margin: 0 auto;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	#form-groups {
+		width: 400px;
+		margin: 0 auto;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	#form-groups {
+		width: 400px;
+		margin: 0 auto;
+	}
+}

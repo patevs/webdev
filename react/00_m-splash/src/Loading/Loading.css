@@ -1,0 +1,36 @@
+
+/* Loading react component style sheet */
+
+.Loading {
+  text-align: center;
+  margin: 1em auto;
+  padding-left: 2em;
+}
+
+#load > Image {
+  width: 1em;
+  height: 1em;
+}
+
+@-webkit-keyframes rotation {
+    from{
+      -webkit-transform: rotate(0deg);
+    }
+    to{
+      -webkit-transform: rotate(359deg);
+    }
+}
+
+#load-img {
+  -webkit-animation: rotation 2s infinite linear;
+}
+
+/* Extra Small Devices, Phones */
+@media(max-width:480px){
+	#load-img {
+    margin-left: 4em;
+	}
+  #load-btns {
+    margin-left: 4em;
+  }
+}

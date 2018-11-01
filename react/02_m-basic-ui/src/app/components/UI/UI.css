@@ -1,0 +1,54 @@
+
+/*
+  src/app/components/UI/UI.css
+  UI component styles
+*/
+
+.UI {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  max-width: 500px;
+  border: 1px dotted blue;
+}
+
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+  #panes {
+		margin-left: .75em;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px){
+	#panes {
+		margin-left: 3.5em;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  #panes {
+		margin-left: 3.6em;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  #panes {
+		margin-left: 3.7em;
+	}
+}
+
+/* Large Devices, Wide Screens *
+@media only screen and (min-width : 1200px) {
+
+}
+*/
