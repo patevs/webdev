@@ -1,0 +1,12 @@
+
+/*
+  src/app/components/Signin/Signin.css
+  Signintron component styles
+*/
+
+.Signin {
+  text-align: center;
+  margin: 0 auto;
+  /*max-width: 500px;*/
+  margin-top: -1em;
+}

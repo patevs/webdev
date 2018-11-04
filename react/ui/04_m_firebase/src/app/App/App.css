@@ -1,0 +1,15 @@
+
+/*
+  src/app/App/App.css
+  app component style sheet
+*/
+
+.App {
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 1em;
+  max-width: 720px;
+
+  margin-top: -56px;
+  border: 1px dotted red;
+}
