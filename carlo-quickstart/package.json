@@ -1,0 +1,9 @@
+{
+  "name": "carlo-qs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "carlo": "^0.9.26"
+  }
+}
