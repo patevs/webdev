@@ -1,0 +1,12 @@
+{
+  "name": "3js",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.99.0"
+  }
+}
