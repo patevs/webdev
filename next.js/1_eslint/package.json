@@ -4,15 +4,15 @@
   "description": "Next.js framework eslint test",
   "author": "Patrick Evans",
   "license": "UNLICENSED",
-  "dependencies": {
-    "next": "^7.0.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
-  },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   }
 }
