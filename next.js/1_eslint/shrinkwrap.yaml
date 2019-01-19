@@ -3,8 +3,11 @@ dependencies:
   react: 16.7.0
   react-dom: 16.7.0
 devDependencies:
+  babel-eslint: 10.0.1
   eslint: 5.12.1
+  eslint-config-react-app: 3.0.6
   eslint-friendly-formatter: 4.0.1
+  eslint-plugin-flowtype: 3.2.1
   eslint-plugin-import: 2.14.0
   eslint-plugin-jsx-a11y: 6.1.2
   eslint-plugin-react: 7.12.4
@@ -42,7 +45,6 @@ packages:
       lodash: 4.17.11
       source-map: 0.5.7
       trim-right: 1.0.1
-    dev: false
     resolution:
       integrity: sha512-I4o675J/iS8k+P38dvJ3IBGqObLXyQLTxtrR4u9cSUJOURvafeEWb/pFMOTwtNrmq73mJzyF6ueTbO1BtN0Zeg==
   /@babel/helper-annotate-as-pure/7.0.0:
@@ -93,13 +95,11 @@ packages:
       '@babel/helper-get-function-arity': 7.0.0
       '@babel/template': 7.2.2
       '@babel/types': 7.2.2
-    dev: false
     resolution:
       integrity: sha512-A95XEoCpb3TO+KZzJ4S/5uW5fNe26DjBGqf1o9ucyLyCmi1dXq/B3c8iaWTfBk3VvetUxl16e8tIrd5teOCfGw==
   /@babel/helper-get-function-arity/7.0.0:
     dependencies:
       '@babel/types': 7.2.2
-    dev: false
     resolution:
       integrity: sha512-r2DbJeg4svYvt3HOS74U4eWKsUAMRH01Z1ds1zx8KNTPtpTL5JAsdFv8BNyOpVqdFhHkkRDIg5B4AsxmkjAlmQ==
   /@babel/helper-hoist-variables/7.0.0:
@@ -176,7 +176,6 @@ packages:
   /@babel/helper-split-export-declaration/7.0.0:
     dependencies:
       '@babel/types': 7.2.2
-    dev: false
     resolution:
       integrity: sha512-MXkOJqva62dfC0w85mEf/LucPPS/1+04nmmRMPEBUB++hiiThQ2zPtX/mEWQ3mtzCEjIJvPY8nuwxXtQeQwUag==
   /@babel/helper-wrap-function/7.2.0:
@@ -204,7 +203,6 @@ packages:
     resolution:
       integrity: sha512-UFMC4ZeFC48Tpvj7C8UgLvtkaUuovQX+5xNWrsIoMG8o2z+XFKjKaN9iVmS84dPwVN00W4wPmqvYoZF3EGAsfw==
   /@babel/parser/7.2.3:
-    dev: false
     engines:
       node: '>=6.0.0'
     hasBin: true
@@ -809,7 +807,6 @@ packages:
       '@babel/code-frame': 7.0.0
       '@babel/parser': 7.2.3
       '@babel/types': 7.2.2
-    dev: false
     resolution:
       integrity: sha512-zRL0IMM02AUDwghf5LMSSDEz7sBCO2YnNmpg3uWTZj/v1rcG2BmQUvaGU8GhU8BvfMh1k2KIAYZ7Ji9KXPUg7g==
   /@babel/traverse/7.2.3:
@@ -823,7 +820,6 @@ packages:
       debug: 4.1.1
       globals: 11.10.0
       lodash: 4.17.11
-    dev: false
     resolution:
       integrity: sha512-Z31oUD/fJvEWVR0lNZtfgvVt512ForCTNKYcJBGbPb1QZfve4WGH8Wsy7+Mev33/45fhP/hwQtvgusNdcCMgSw==
   /@babel/types/7.2.2:
@@ -831,7 +827,6 @@ packages:
       esutils: 2.0.2
       lodash: 4.17.11
       to-fast-properties: 2.0.0
-    dev: false
     resolution:
       integrity: sha512-fKCuD6UFUMkR541eDWL+2ih/xFZBXPOg/7EQFeTluMDebfqR4jrpaCjLhkWlQS4hT6nRa2PMEgXKbRB5/H2fpg==
   /@webassemblyjs/ast/1.7.8:
@@ -1248,6 +1243,21 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg==
+  /babel-eslint/10.0.1:
+    dependencies:
+      '@babel/code-frame': 7.0.0
+      '@babel/parser': 7.2.3
+      '@babel/traverse': 7.2.3
+      '@babel/types': 7.2.2
+      eslint-scope: 3.7.1
+      eslint-visitor-keys: 1.0.0
+    dev: true
+    engines:
+      node: '>=6'
+    peerDependencies:
+      eslint: '>= 4.12.1'
+    resolution:
+      integrity: sha512-z7OT1iNV+TjOwHNLLyJk+HN+YVWX+CLE6fPD2SymJZOZQBs+QIexFjhm4keGTm8MW9xr4EC9Q0PbaLB24V5GoQ==
   /babel-loader/8.0.2/@babel!core@7.0.0+webpack@4.20.2:
     dependencies:
       '@babel/core': 7.0.0
@@ -1668,6 +1678,10 @@ packages:
       '0': node >= 0.8
     resolution:
       integrity: sha512-27HBghJxjiZtIk3Ycvn/4kbJk/1uZuJFfuPEns6LaEvpvG1f0hTea8lilrouyo9mVc2GWdcEZ8OLoGmSADlrCw==
+  /confusing-browser-globals/1.0.5:
+    dev: true
+    resolution:
+      integrity: sha512-tHo1tQL/9Ox5RELbkCAJhnViqWlzBz3MG1bB2czbHjH2mWd4aYUgNCNLfysFL7c4LoDws7pjg2tj48Gmpw4QHA==
   /consola/1.4.5:
     dependencies:
       chalk: 2.4.2
@@ -2057,6 +2071,19 @@ packages:
       node: '>=0.8.0'
     resolution:
       integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
+  /eslint-config-react-app/3.0.6:
+    dependencies:
+      confusing-browser-globals: 1.0.5
+    dev: true
+    peerDependencies:
+      babel-eslint: 9.x
+      eslint: 5.x
+      eslint-plugin-flowtype: 2.x
+      eslint-plugin-import: 2.x
+      eslint-plugin-jsx-a11y: 6.x
+      eslint-plugin-react: 7.x
+    resolution:
+      integrity: sha512-VL5rA1EBZv7f9toc9x71or7nr4jRmwCH4V9JKB9DFVaTLOLI9+vjWLgQLjMu3xR9iUT80dty86RbCfNaKyrFFg==
   /eslint-friendly-formatter/4.0.1:
     dependencies:
       chalk: 2.4.2
@@ -2086,6 +2113,16 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-snA2LNiLGkitMIl2zn+lTphBF0Y=
+  /eslint-plugin-flowtype/3.2.1:
+    dependencies:
+      lodash: 4.17.11
+    dev: true
+    engines:
+      node: '>=4'
+    peerDependencies:
+      eslint: '>=2.0.0'
+    resolution:
+      integrity: sha512-1lymqM8Cawxu5xsS8TaCrLWJYUmUdoG4hCfa7yWOhCf0qZn/CvI8FxqkhdOP6bAosBn5zeYxKe3Q/4rfKN8a+A==
   /eslint-plugin-import/2.14.0:
     dependencies:
       contains-path: 0.1.0
@@ -2138,6 +2175,15 @@ packages:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0
     resolution:
       integrity: sha512-1puHJkXJY+oS1t467MjbqjvX53uQ05HXwjqDgdbGBqf5j9eeydI54G3KwiJmWciQ0HTBacIKw2jgwSBSH3yfgQ==
+  /eslint-scope/3.7.1:
+    dependencies:
+      esrecurse: 4.2.1
+      estraverse: 4.2.0
+    dev: true
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha1-PWPD7f2gLgbgGkUq2IyqzHzctug=
   /eslint-scope/4.0.0:
     dependencies:
       esrecurse: 4.2.1
@@ -3025,7 +3071,6 @@ packages:
     resolution:
       integrity: sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
   /jsesc/2.5.2:
-    dev: false
     engines:
       node: '>=4'
     hasBin: true
@@ -4466,7 +4511,6 @@ packages:
     resolution:
       integrity: sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
   /source-map/0.5.7:
-    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -4785,7 +4829,6 @@ packages:
     resolution:
       integrity: sha1-uDVx+k2MJbguIxsG46MFXeTKGkc=
   /to-fast-properties/2.0.0:
-    dev: false
     engines:
       node: '>=4'
     resolution:
@@ -4819,7 +4862,6 @@ packages:
     resolution:
       integrity: sha512-FWtleNAtZ/Ki2qtqej2CXTOayOH9bHDQF+Q48VpWyDXjbYxA4Yz8iDB31zXOBUlOHHKidDbqGVrTUvQMPmBGBw==
   /trim-right/1.0.1:
-    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -5189,8 +5231,11 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  babel-eslint: ^10.0.1
   eslint: ^5.12.1
+  eslint-config-react-app: ^3.0.6
   eslint-friendly-formatter: ^4.0.1
+  eslint-plugin-flowtype: ^3.2.1
   eslint-plugin-import: ^2.14.0
   eslint-plugin-jsx-a11y: ^6.1.2
   eslint-plugin-react: ^7.12.4
