@@ -8,6 +8,9 @@
 import Layout from '../components/MyLayout'
 import Divider from '../components/Divider'
 
+// remove comment to test eslint identifies unused import
+//import Blank from './'
+
 // STYLES
 const titleStyle = {
     marginTop: 40

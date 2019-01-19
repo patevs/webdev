@@ -8,6 +8,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lint": "./node_modules/.bin/eslint **/*.js",
+    "lint:fix": "./node_modules/.bin/eslint --fix **/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
