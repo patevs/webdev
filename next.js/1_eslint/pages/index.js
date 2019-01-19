@@ -5,16 +5,21 @@
 
 // IMPORTS
 
-// layout component
 import Layout from '../components/MyLayout'
+import Divider from '../components/Divider'
+
+// STYLES
+const titleStyle = {
+    marginTop: 40
+}
 
 // Index (Home page) component
 export default () => (
     <Layout>
-        <h1>Home Page</h1>
-        <hr />
+        <h2 style={titleStyle}>HOME PAGE</h2>
+        <Divider />
         <p>Next.js framework linting test using ESLint</p>
-        <p>This is the home page content</p>
+        <p>---- HOME PAGE CONTENT ----</p>
     </Layout>
 )
 

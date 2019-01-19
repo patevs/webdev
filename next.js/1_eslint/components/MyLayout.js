@@ -8,9 +8,10 @@ import Header from './Header'
 
 // STYLES
 const layoutStyle = {
-    margin: 20,
     padding: 20,
-    width: 50%,
+    margin: '2em auto',
+    width: '50%',
+    textAlign: 'center',
     border: '1px solid #DDD'
 }
 

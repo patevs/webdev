@@ -7,12 +7,18 @@
 
 // layout component
 import Layout from '../components/MyLayout'
+import Divider from '../components/Divider'
+
+// STYLES
+const titleStyle = {
+    marginTop: 40
+}
 
 // About page component
 export default () => (
     <Layout>
-        <h1>About Page</h1>
-        <hr />
-        <p>This is the About page content</p>
+        <h2 style={titleStyle}>ABOUT PAGE</h2>
+        <Divider />
+        <p>---- ABOUT PAGE CONTENT ----</p>
     </Layout>
 )
