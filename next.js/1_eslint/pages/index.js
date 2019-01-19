@@ -1,4 +1,3 @@
-
 /*
     pages/index.js
 */
@@ -25,6 +24,5 @@ export default () => (
         <p>---- HOME PAGE CONTENT ----</p>
     </Layout>
 )
-
 
 // EOF

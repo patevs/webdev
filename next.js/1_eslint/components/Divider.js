@@ -1,4 +1,3 @@
-
 /*
     components/Divider.js
 */
@@ -7,7 +6,7 @@
 const dividerStyle = {
     padding: 5,
     margin: '0 auto',
-    width: '66%',
+    width: '66%'
 }
 
 // Divider component

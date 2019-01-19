@@ -1,4 +1,3 @@
-
 /*
     components/MyLayout.js
 */
@@ -16,7 +15,7 @@ const layoutStyle = {
 }
 
 // Layout component
-const Layout = (props) => (
+const Layout = props => (
     <div style={layoutStyle}>
         <Header />
         {props.children}

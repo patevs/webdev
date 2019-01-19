@@ -5,12 +5,15 @@ dependencies:
 devDependencies:
   babel-eslint: 10.0.1
   eslint: 5.12.1
+  eslint-config-prettier: 3.5.0
   eslint-config-react-app: 3.0.6
   eslint-friendly-formatter: 4.0.1
   eslint-plugin-flowtype: 3.2.1
   eslint-plugin-import: 2.14.0
   eslint-plugin-jsx-a11y: 6.1.2
+  eslint-plugin-prettier: 3.0.1
   eslint-plugin-react: 7.12.4
+  prettier: 1.15.3
 packages:
   /@babel/code-frame/7.0.0:
     dependencies:
@@ -2071,6 +2074,15 @@ packages:
       node: '>=0.8.0'
     resolution:
       integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
+  /eslint-config-prettier/3.5.0:
+    dependencies:
+      get-stdin: 6.0.0
+    dev: true
+    hasBin: true
+    peerDependencies:
+      eslint: '>=3.14.1'
+    resolution:
+      integrity: sha512-LcZEoAY5lL3/H2NTFSeUl/z8X8oMea1IxLEIb5uDbRxPTdQeeT7oGpRWT6UwHXGcoRbYH0TZmfRsh8iXbpyW7A==
   /eslint-config-react-app/3.0.6:
     dependencies:
       confusing-browser-globals: 1.0.5
@@ -2159,6 +2171,17 @@ packages:
       eslint: ^3 || ^4 || ^5
     resolution:
       integrity: sha512-7gSSmwb3A+fQwtw0arguwMdOdzmKUgnUcbSNlo+GjKLAQFuC2EZxWqG9XHRI8VscBJD5a8raz3RuxQNFW+XJbw==
+  /eslint-plugin-prettier/3.0.1:
+    dependencies:
+      prettier-linter-helpers: 1.0.0
+    dev: true
+    engines:
+      node: '>=6.0.0'
+    peerDependencies:
+      eslint: '>= 5.0.0'
+      prettier: '>= 1.13.0'
+    resolution:
+      integrity: sha512-/PMttrarPAY78PLvV3xfWibMOdMDl57hmlQ2XqFeA37wd+CJ7WSxV7txqjVPHi/AAFKd2lX0ZqfsOc/i5yFCSQ==
   /eslint-plugin-react/7.12.4:
     dependencies:
       array-includes: 3.0.3
@@ -2377,6 +2400,10 @@ packages:
   /fast-deep-equal/2.0.1:
     resolution:
       integrity: sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
+  /fast-diff/1.2.0:
+    dev: true
+    resolution:
+      integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
   /fast-json-stable-stringify/2.0.0:
     resolution:
       integrity: sha1-1RQsDK7msRifh9OnYREGT4bIu/I=
@@ -2553,6 +2580,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
+  /get-stdin/6.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-jp4tHawyV7+fkkSKyvjuLZswblUtz+SQKzSWnBbii16BuZksJlU1wuBYXY75r+duh/llF1ur6oNwi+2ZzjKZ7g==
   /get-value/2.0.6:
     dev: false
     engines:
@@ -3921,6 +3954,21 @@ packages:
       node: '>= 0.8.0'
     resolution:
       integrity: sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
+  /prettier-linter-helpers/1.0.0:
+    dependencies:
+      fast-diff: 1.2.0
+    dev: true
+    engines:
+      node: '>=6.0.0'
+    resolution:
+      integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==
+  /prettier/1.15.3:
+    dev: true
+    engines:
+      node: '>=4'
+    hasBin: true
+    resolution:
+      integrity: sha512-gAU9AGAPMaKb3NNSUUuhhFAS7SCO4ALTN4nRIn6PJ075Qd28Yn2Ig2ahEJWdJwJmlEBTUfC7mMUSFy8MwsOCfg==
   /pretty-time/1.1.0:
     dev: false
     engines:
@@ -5233,12 +5281,15 @@ shrinkwrapVersion: 3
 specifiers:
   babel-eslint: ^10.0.1
   eslint: ^5.12.1
+  eslint-config-prettier: ^3.5.0
   eslint-config-react-app: ^3.0.6
   eslint-friendly-formatter: ^4.0.1
   eslint-plugin-flowtype: ^3.2.1
   eslint-plugin-import: ^2.14.0
   eslint-plugin-jsx-a11y: ^6.1.2
+  eslint-plugin-prettier: ^3.0.1
   eslint-plugin-react: ^7.12.4
   next: ^7.0.2
+  prettier: ^1.15.3
   react: ^16.7.0
   react-dom: ^16.7.0
