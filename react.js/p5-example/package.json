@@ -1,0 +1,28 @@
+{
+  "name": "dino_web",
+  "version": "0.0.2",
+  "author": "patevs",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "p5": "^0.7.3",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-p5-wrapper": "^0.0.4",
+    "react-scripts": "2.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
