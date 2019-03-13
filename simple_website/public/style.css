@@ -1,0 +1,107 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	font-size: 62.5%;
+	font-family: Ariel;
+	position: relative;
+	overflow: hidden;
+	
+}
+
+.menu {
+	position: fixed;
+	left: -320px; /* menu starts out hidden off screen */
+	width: 320px;
+	height: 100%;
+	background: #202024;
+	z-index: 1.0;
+}
+
+.menu img {
+	cursor: pointer;
+	margin: 10px;
+}
+
+.menu ul{
+	border-top: 1px solid #636366;
+	list-style: none;
+}
+
+.menu ul li {
+	border-bottom: 1px solid #636366;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 45px;
+	padding-bottom: 3px;
+	padding-left: 20px;
+	padding-top: 3px;
+}
+
+.menu ul li a {
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.main {
+	height: 10000px;
+	width: 700px;
+	padding-left: 1em;
+	overflow: hidden;
+	background: #ffff99; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left top, #FFFF31, #ffff99); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #FFFF31, #ffff99); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #FFFF31, #ffff99); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #FFFF31, #ffff99); /* Standard syntax */
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.main h1{
+	font-size: 6em;
+	padding-bottom: 25px;
+	padding-left: -10px;
+	padding-top: 25px;
+	text-align: center;
+}
+
+.main h3{
+	width: 99%;
+	font-size: 3em;
+	padding-bottom: 35px;
+	padding-top: 25px;
+	text-align: center;
+	border-bottom: 2px solid #828E84;
+}
+
+.icon-menu {
+	position: absolute;
+	font-size: 4em;
+	padding-bottom: 35px;
+	padding-left: 25px;
+	padding-top: 25px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.icon-menu a {
+	color: black;
+	text-decoration: none;
+	letter-spacing: 2.5px;
+	z-index: 0.9;
+}
+
+.player {
+	border: 1px solid black;
+	width: 98%;
+	margin-bottom: 50px;
+	margin-top: 75px;
+}
+.player iframe{
+	padding: 0;
+}

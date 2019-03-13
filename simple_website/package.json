@@ -1,0 +1,14 @@
+{
+  "name": "simple_website",
+  "version": "1.0.0",
+  "description": "A simple website",
+  "main": "index.js",
+  "engines": {
+    "node": "6.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "patevs",
+  "license": "MIT"
+}
