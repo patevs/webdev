@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="infoApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Info226 Project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- TITLE -->
+    <title>INFO226 PROJECT</title>
+    <!-- ANGULAR.JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <!-- JS CODE -->
+    <script src="app.js"></script>
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>INFO226 PROJECT!</h1>
+
+    <hr>
+
+    <div ng-init="qty=1;cost=2">
+        <h3>Data Binding Example</h3>
+        <b>Invoice:</b>
+        <div>
+            Quantity: <input type="number" min="0" ng-model="qty">
+        </div>
+        <div>
+            Costs: <input type="number" min="0" ng-model="cost">
+        </div>
+        <div>
+            <b>Total:</b> {{qty * cost | currency}}
+        </div>
+    </div>
+    
+    <hr>
+
+    <h3>Phones List Example</h3>
+    <ul ng-controller="PhoneListController">
+        <li ng-repeat="phone in phones">
+            <span>{{phone.name}}</span>
+            <p>{{phone.snippet}}</p>
+        </li>
+    </ul>
+
+    <hr>
+
+</body>
+
+</html>

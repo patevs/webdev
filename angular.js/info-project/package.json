@@ -1,0 +1,18 @@
+{
+  "name": "info226-project",
+  "version": "0.0.1",
+  "description": "info226 project",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Evans",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.7.8"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
