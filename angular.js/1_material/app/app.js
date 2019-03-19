@@ -6,7 +6,7 @@
 //var angular = require('angular');
 
 // Declare app level module 'infoApp'
-var infoApp = angular.module('infoApp', []);
+var infoApp = angular.module('infoApp', ['ngMaterial', 'ngMessages']);
 
 // Define the `PhoneListController` controller on the `infoApp` module
 infoApp.controller('PhoneListController', function PhoneListController($scope) {
