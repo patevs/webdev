@@ -1,7 +1,7 @@
 {
-  "name": "info226-project",
+  "name": "angularjs-boilerplate",
   "version": "0.0.1",
-  "description": "info226 project",
+  "description": "angularjs-boilerplate",
   "author": "Patrick Evans",
   "license": "MIT",
   "scripts": {
