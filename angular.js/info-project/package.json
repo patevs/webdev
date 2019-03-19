@@ -2,17 +2,22 @@
   "name": "info226-project",
   "version": "0.0.1",
   "description": "info226 project",
+  "author": "Patrick Evans",
+  "license": "MIT",
   "scripts": {
+    "postinstall": "npm run copy-libs",
+    "update-deps": "npm update",
+    "postupdate-deps": "npm run copy-libs",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*}/**/*\" app/lib -C",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Patrick Evans",
-  "license": "MIT",
   "dependencies": {
     "angular": "^1.7.8"
   },
   "devDependencies": {
+    "cpx": "^1.5.0",
     "http-server": "^0.11.1"
   }
 }
