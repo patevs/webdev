@@ -8,22 +8,18 @@
 // Declare app level module 'infoApp'
 var infoApp = angular.module('infoApp', ['ngMaterial', 'ngMessages']);
 
-// Define the `PhoneListController` controller on the `infoApp` module
-infoApp.controller('PhoneListController', function PhoneListController($scope) {
-    $scope.phones = [
-        {
-            name: 'Nexus S',
-            snippet: 'Fast just got faster with Nexus S.'
-        }, 
-        {
-            name: 'Motorola XOOM™ with Wi-Fi',
-            snippet: 'The Next, Next Generation tablet.'
-        }, 
-        {
-            name: 'MOTOROLA XOOM™',
-            snippet: 'The Next, Next Generation tablet.'
-        }
-    ];
+// Define the `InputController` controller on the `infoApp` module
+infoApp.controller('InputController', function InputController($scope) {
+    $scope.user = {
+        name: '',
+        email: '',
+    };
+})
+.config(function($mdThemingProvider) {
+    // Configure a dark theme with primary foreground yellow
+    $mdThemingProvider.theme('docs-dark', 'default')
+        .primaryPalette('green')
+        .dark();
 });
 
 // EOF

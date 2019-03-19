@@ -18,34 +18,29 @@
 </head>
 
 <body>
-    <h1>INFO226 PROJECT!</h1>
+    
+    <h1>Please sign in</h1>
 
     <hr>
 
-    <div ng-init="qty=1;cost=2">
-        <h3>Data Binding Example</h3>
-        <b>Invoice:</b>
-        <div>
-            Quantity: <input type="number" min="0" ng-model="qty">
-        </div>
-        <div>
-            Costs: <input type="number" min="0" ng-model="cost">
-        </div>
-        <div>
-            <b>Total:</b> {{qty * cost | currency}}
-        </div>
+    <div ng-controller="InputController" layout="column" ng-cloak class="md-inline-form">
+        <md-content md-theme="docs-dark" layout-gt-sm="row" layout-align="center center" layout-padding>
+            <div>
+                <md-input-container>
+                    <label for="LabelUsername">Username</label>
+                    <input id="LabelUsername" type="text" ng-model="user.name" />
+                </md-input-container>
+                <md-input-container>
+                    <label for="LabelEmail">Email</label>
+                    <input id="LabelEmail" ng-model="user.email" type="email">
+                </md-input-container>
+                <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                    <md-button class="md-raised md-primary">Submit</md-button>
+                </section>
+            </div>
+        </md-content>
     </div>
     
-    <hr>
-
-    <h3>Phones List Example</h3>
-    <ul ng-controller="PhoneListController">
-        <li ng-repeat="phone in phones">
-            <span>{{phone.name}}</span>
-            <p>{{phone.snippet}}</p>
-        </li>
-    </ul>
-
     <hr>
 
     <!-- In production use:
