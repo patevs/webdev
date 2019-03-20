@@ -1,0 +1,203 @@
+# Page settings
+
+baseurl = "http://localhost:1313"
+languageCode = "en-us"
+title = "Personal Profile"
+theme = "hugo-orbit-theme"
+# googleAnalytics = "UA-XXXXXXX-Y"
+
+# Do not build files for websites. Need them? Set to false
+disableRSS = true
+disableSitemap = true
+disable404 = true
+
+[params]
+
+# Meta
+    description = "Personal Profile"
+    author = "Patrick Evans"
+
+# Theme styles
+
+    # The original template comes with 6 colour schemes. You may choose styles below.
+    # "styles.css", "styles-2.css", "styles-3.css", "styles-4.css", "styles-5.css", "styles-6.css"
+    # are available. Also the source LESS files are included so
+    # it’s quick and easy to change the styling and colour scheme.
+
+    # styles   -> blue
+    # styles-2 -> teal
+    # styles-3 -> green
+    # styles-4 -> pink/purple
+    # styles-5 -> orange
+    # styles-6 -> grey
+
+    styles = "styles-3.css"
+
+# Sidebar sections
+
+    # Profile section
+    [params.profile]
+        name = "Patrick Evans"
+        tagline = "Software Engineering Student"
+        avatar = "profile.png"
+
+    # Contact section
+    [params.contact]
+        enable = true
+
+        [[params.contact.list]]
+        class = "email"
+        icon = "fa-envelope"
+        url = "mailto: ppevans11@gmail.com"
+        title = "ppevans11@gmail.com"
+
+        [[params.contact.list]]
+        class = "phone"
+        icon = "fa-phone"
+        url = "tel:021-161-0093"
+        title = "021-161-0093"
+
+#        [[params.contact.list]]
+#        class = "website"
+#        icon = "fa-globe"
+#        url = "//portfoliosite.com"
+#        title = "portfoliosite.com"
+
+#        [[params.contact.list]]
+#        class = "linkedin"
+#        icon = "fa-linkedin"
+#        url = "//linkedin.com/in/johndoe"
+#        title = "linkedin.com/in/johndoe"
+
+        [[params.contact.list]]
+        class = "github"
+        icon = "fa-github"
+        url = "//github.com/patevs"
+        title = "github.com/patevs"
+
+#        [[params.contact.list]]
+#        class = "twitter"
+#        icon = "fa-twitter"
+#        url = "//twitter.com/username"
+#        title = "@twittername"
+
+    # Education section
+    [params.education]
+        enable = true
+        title = "Education"
+
+        [[params.education.list]]
+        degree = "BE in Software Engineering"
+        college = "Victoria University, Wellington"
+        dates = "2015 - present"
+        
+        [[params.education.list]]
+        degree = "NCEA L3 Excellence"
+        college = "Sacred Heart College, Auckland"
+        dates = "2007 - 2014"
+
+
+    # Languages section
+    [params.language]
+        enable = false
+        title = "Languages"
+
+        [[params.language.list]]
+        language = "English"
+        level = "Native"
+
+    # Interests section
+    [params.interests]
+        enable = true
+        title = "Interests"
+
+        [[params.interests.list]]
+        interest = "Electronics & Circuits"
+        
+        [[params.interests.list]]
+        interest = "Micro-controllers; Arduino, Raspberry Pi"
+
+# Main body sections
+
+    # You may use markdown in summary, details and intro fields. But don't overdose, it's resume!:)
+
+    # Summary section
+    [params.summary]
+        enable = true
+        icon = "fa-user"
+        title = "Profile"
+        summary = "I am a 22 year old student originally from Auckland but now living in Wellington, New Zealand. I currently study at University of Wellington where I am starting my fourth year towards a Bachelor of Engineering majoring in Software. \n\nI am extremely interested in everything to do with engineering especially electronics, computer systems, and software design and development. \n\nI am an honest, hardworking, and reliable individual. I’m highly motivated to learn new skills and to seek out new experiences that will support my professional development. I would describe myself as a friendly person and I get along well with others. I am able to pick up new things quickly and am currently seeking employment to expand my skills and knowledge and to gain professional experience to support my bachelor of engineering."
+
+    # Experiences section
+    [params.experiences]
+        enable = true
+        icon = "fa-briefcase"
+        title = "Experiences"
+
+        [[params.jobs.list]]
+        position = "DevOps and Testing"
+        dates = "2017 - 2018"
+        company = "Ministry for Primary Industries"
+        details = "**Developer Intern** at *Ministry for Primary Industries* (MPI) where I was a part of the *Food Safety Applications* team. My key involvements included constructing and maintaining various CI/CD workflows primarily using Jenkins Pipelines written in Groovy. TODO: which were used to run various suites of unit and regression tests against the current development of various applications including the MPI website (mpi.govt.nz) among others."
+
+    # Projects section
+    [params.projects]
+        enable = true
+        icon = "fa-archive"
+        title = "Projects"
+        intro = "**You can list your side projects or open source libraries in this section.** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus"
+
+        [[params.projects.list]]
+        title = "Hugrid"
+        url = "https://github.com/aerohub/hugrid"
+        tagline = "Grid theme for Hugo. It's a kind of boilerplate to perform anyone or anything quickly. Portfolio, collection, bookmarks, contacts and so on"
+
+    # Skills section
+    [params.skills]
+        enable = true
+        icon = "fa-rocket"
+        title = "Skills & Proficiency"
+        
+        [[params.skills.list]]
+        skill = "Object Oriented Programming;\nJava, Python, Groovy"
+        level = "95%"
+
+        [[params.skills.list]]
+        skill = "SCM: Git & GitFlow"
+        level = "85%"
+
+        [[params.skills.list]]
+        skill = "HTML5 & CSS"
+        level = "85%"
+
+        [[params.skills.list]]
+        skill = "Javascript, NodeJS, & NPM"
+        level = "80%"
+
+        [[params.skills.list]]
+        skill = "Frameworks; Angular, React, SilverStripe"
+        level = "75%"
+
+        [[params.skills.list]]
+        skill = "Testing; Unit, Regression, QA"
+        level = "75%"
+
+        [[params.skills.list]]
+        skill = "Automated Regression Testing w/ Selenium"
+        level = "75%"
+
+        [[params.skills.list]]
+        skill = "CI/CD & Jenkins Pipelines"
+        level = "70%"
+
+    # Footer section
+
+    # The original template is released under the Creative Commons Attribution 3.0 License.
+    # Please keep the original attribution link when using for your own project.
+    # If you'd like to use the template without the attribution,
+    # you can check out other license options via template author's website: themes.3rdwavemedia.com
+    # 
+    # As for Hugo port you may rewrite the "Ported for..." line with setting your name below.
+
+    [params.footer]
+        copyright = "Patrick Evans"
