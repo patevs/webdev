@@ -1,0 +1,150 @@
+body {
+  background-color: white
+
+
+
+}
+
+#header{
+  color: #F75A5A  ;
+  font-family: 'Lobster';
+  font-size: 500%;
+}
+#header2{
+  color: black;
+  font-family: 'cabib';
+}
+#header3{
+  color: black;
+  font-family: 'cabib';
+  text-align: center
+}
+#header4{
+  color: black;
+  font-family: 'cabib';
+  text-align: center;
+}
+
+#footer{
+  position: relative;
+  margin: 0 auto;
+  top: 725px;
+  height: 40px;
+  background: #444;
+}
+#footer p{
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  margin: 0 auto;
+}
+
+h1 { 
+  text-align: center; 
+  font-size:300%;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-decoration: underline;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-size:100%;
+}
+
+.button{
+  height:50px; 
+  width:200px; 
+  position:relative;
+  font-size: 22px;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#btn {
+  margin: 30px -100px;
+  top:625px; 
+  left:50%;
+}
+
+#btn1{
+  margin: 10px -100px;
+  top:50px; 
+  left:30%;
+  color: green;
+  border-radius: 15px;
+  background-color: white;
+  border: 2px solid green;
+}
+#btn2{
+  margin: 10px -100px;
+  top:50px; 
+  left:50%;
+  color: orange;
+  border-radius: 15px;
+  background-color: white;
+  border: 2px solid orange;
+}
+
+#btn3{
+  margin: 10px -100px;
+  top:50px; 
+  left:70%;
+  color: red;
+  border-radius: 15px;
+  background-color: white;
+  border: 2px solid red;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+img{
+  position: absolute;
+  display: inline-block;
+}
+#img1{
+  margin: 10px -100px;
+  top:350px; 
+  left:32%;
+}
+#img2{
+  margin: 10px -100px;
+  top:350px; 
+  left:52%;
+}
+#img3{
+  margin: 10px -100px;
+  top:350px; 
+  left:72%;
+}
+ 
+#robs{
+  border-radius: 50%;
+  left: 44%;
+}
+
