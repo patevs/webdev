@@ -1,0 +1,87 @@
+/* Custom CSS
+ * --------------------------------------- */
+body{
+	font-family: arial,helvetica;
+	color: #F2F2F2;
+}
+h1{
+	font-size: 3em;
+}
+p{
+	font-size: 1.3em;
+}
+.content{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+}
+
+/* Section 1
+ * --------------------------------------- */
+#section0{
+	background-color: white;
+}
+#section0 .menu{
+	padding-top: 33px;
+	width: 100%; 
+	background-color: white;
+}
+#section0 .menu img {
+	padding-left: 33px;
+}
+#section0 #content {
+	padding: 0 33px;
+}
+#section0 img{
+	
+	height: 22px;
+	background-color: white;
+}
+#section0 li{
+	display: inline-block;
+	opacity: 0.9;
+}
+#section0 li .page-icon{
+	padding: 0 33px;
+}
+
+
+/* Section 2
+ * --------------------------------------- */
+#section1{
+	background-color: lightgreen;
+}
+#section1 h1{
+	padding: 10px;
+	font-size: 28px;
+	color: #fff;
+}
+#section1 p{
+	opacity: 0.8;
+}
+
+
+/* Section 3
+ * --------------------------------------- */
+#section2{
+	background-color: #2C3E50;
+}
+#section2 h1{
+	color: #F2F2F2;
+}
+#section2 p{
+	opacity: 0.6;
+}
+
+/* Section 4
+ * --------------------------------------- */
+#section3{
+	background-color: #2C3E50;
+}
+#section3 h1{
+	color: #F2F2F2;
+}
+#section3 p{
+	opacity: 0.6;
+}

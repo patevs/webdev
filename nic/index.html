@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> Nicolas Little </title>
+	<meta name="author" content="" />
+	<meta name="description" content="fullPage plugin by Alvaro Trigo. Pure javascript version of full screen slider." />
+	<meta name="keywords"  content="fullpage,jquery,alvaro,trigo,plugin,fullscren,screen,full,iphone5,apple,pure,javascript,slider,hijacking" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" type="text/css" href="javascript.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+	<style>
+		/* Reset CSS
+		 * --------------------------------------- */
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+		form,fieldset,input,textarea,p,blockquote,th,td {
+		    padding: 0;
+		    margin: 0;
+		}
+		a{
+			text-decoration:none;
+		}
+		table {
+		    border-spacing: 0;
+		}
+		fieldset,img {
+		    border: 0;
+		}
+		address,caption,cite,code,dfn,em,strong,th,var {
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		strong{
+			font-weight: bold;
+		}
+		ol,ul {
+		    list-style: none;
+		    margin:0;
+		    padding:0;
+		}
+		caption,th {
+		    text-align: left;
+
+		}
+		h1,h2,h3,h4,h5,h6 {
+		    font-weight: normal;
+		    font-size: 100%;
+		    margin:0;
+		    padding:0;
+		    color:#444;
+		}
+		q:before,q:after {
+		    content:'';
+		}
+		abbr,acronym { border: 0;
+		}
+	</style>
+</head>
+<body>
+
+
+<div id="fullpage">
+	<div class="section " id="section0">
+		<div class="menu">
+			<img src="images/menu.png" />
+		</div>
+		<div class="content">
+			<ul>
+				<li><a href="#secondPage"> 
+					<div class="page-icon">
+						<img src="images/main1.png" style="height:165px"/>
+						<p> art </p>
+					</div>
+				</a></li>
+				<li><a href="#3rdPage"> 
+					<div class="page-icon">
+						<img src="images/main2.png"  style="height:195px"/>
+						<p style="padding-left:30px"> about </p>
+					</div>
+				</a></li>				
+				<li><a href="#lastPage"> 
+					<div class="page-icon">
+						<img src="images/main3.png"  style="height:195px;padding-right:28px"/>
+						<p> contact </p>
+					</div>
+				</a></li>	
+			</ul>
+		</div>
+	</div>
+	<div class="section" id="section1">
+		<div class="slide" id="slide1">
+			<div class="content">
+				<h1> art </h1>
+				<img src="https://format-com-cld-res.cloudinary.com/image/private/s--1gRP7dPH--/c_limit,g_center,h_550,w_65535/a_auto,fl_keep_iptc.progressive,q_95/v1/6871ada306478d5d5eb19a4d4cebc90b/Worldslikethese.jpg">
+			</div>
+		</div>
+		<div class="slide" id="slide2">
+			<div class="content">
+				<img src="https://format-com-cld-res.cloudinary.com/image/private/s--rGuDGkH_--/c_limit,g_center,h_550,w_65535/a_auto,fl_keep_iptc.progressive,q_95/v1/854d2ce2cc8dfd0ad1674fe946bc37cd/DSCF1676-2.jpg">	
+			</div>
+		</div>
+		<div class="slide" id="slide2">
+			<div class="content">
+				<img src="https://format-com-cld-res.cloudinary.com/image/private/s--9HzDalGe--/c_limit,g_center,h_550,w_65535/a_auto,fl_keep_iptc.progressive,q_95/v1/b586b2f140a2ddf3b9c4a941c6295073/skully.gif">
+			</div>
+		</div>
+	</div>
+	<div class="section" id="section2">
+		<div class="content">
+			<h1> About Me </h1>
+			<p> $$$$$$$$ </p>
+		</div>
+	</div>
+	<div class="section" id="section3">
+		<div class="content">
+			<h1> Contact </h1>
+			<p> email support. </p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="javascript.fullPage.js"></script>
+<script type="text/javascript">
+	fullpage.initialize('#fullpage', {
+		anchors: ['firstPage', 'secondPage', '3rdPage', 'lastPage'],
+		menu: '#menu',
+		css3:true
+	});
+
+</script>
+
+</body>
+</html>
