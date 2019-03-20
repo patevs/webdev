@@ -1,0 +1,133 @@
+* {
+	margin: 0;
+	padding: 5px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+body {
+	background: #999;
+}
+
+h1 {
+	text-align: center;
+	border-bottom: 0.5px solid black;
+	padding-bottom: 10px;
+}
+
+#todo {
+	width: 400px;
+	background: white;
+	border: 2px solid black;
+}
+
+form {
+	text-align: center;
+	margin-top: 0.75em;
+	margin-left: -3.5em;
+}
+
+input {
+	width: 275px;
+	height: 1.5em;
+	opacity: 0.8;
+	border: 1px solid black;
+}
+
+input[type="text"] {
+    font-size:24px;
+}
+
+form button {
+	float left;
+	line-height: 22px;
+	position: absolute;
+	left: 325px;
+	top: 87px;
+}
+
+button {
+	width: 50px;
+	cursor: pointer;
+}
+
+ul {
+	width: 98%; 
+	margin: 0; 
+	padding: 0;
+	padding-left: 23px;
+	font-size: 1em;
+}
+
+ul li {
+	cursor: pointer;
+	background: white; 
+	position:relative;
+	margin: 0.75em 0; 
+	padding: 0.75em; 
+	border: 2px solid gray; 
+	padding-left: 20px;
+}
+
+ul li span { 
+	position: absolute; 
+	margin-left: -1.2em; 
+	margin-top: -1em;
+}
+
+ul li:hover {
+	border: 1px solid red;
+}
+
+ul .del {
+    display: table-cell;
+    display: none;
+    border: 2px outset #aaa;
+    border-radius: 4px;
+    margin-top: -6px;
+    float: right;
+}
+
+.del { 
+	width: 50px; 
+	min-height: 20px; 
+	color: blue; 
+	display: none; 
+}
+
+li:hover .del, li.hover .del { 
+	display: table-cell; 
+}
+
+.controls {
+	text-align: center;
+	width: 99%;
+	margin: 1em auto;
+	padding: 0.5em;
+	border-top: 1px solid black;
+}
+
+#btnsave {
+	float: left;
+	margin-left: 55px;
+	padding: 10px;
+	width: 80px;
+}
+
+#btnclear {
+	float: right;
+	margin-right: 70px;
+	padding: 10px;
+	width: 80px;
+}
+
+#btnsave a, #btnclear a {
+	text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.end {
+	clear: both;
+}

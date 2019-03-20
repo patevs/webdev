@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title> To-Do </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+<div id="todo">
+  <h1 id="title">To-Do:</h1>
+  <form id="todo-form">
+  	<input type="text" id="todo-text" placeholder="enter text here" autocomplete="off">
+  	<button type="button" id="btn"> Add! </button>
+  </form>
+  <ul id="sortable">
+  	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span> Add something to-do 
+      <button class="del">delete</button>
+    </li>
+  </ul>
+  <div class="controls">
+  <button id="btnsave"><a id="save" href="javascript:void(0);">Save</a></button>
+  <button id="btnclear"><a id="clear" href="javascript:void(0);">Clear</a></button>
+  </div>
+  <br class="end">
+</div>
+</body>
+</html>
