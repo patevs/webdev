@@ -1,0 +1,28 @@
+{
+  "name": "info226-project",
+  "version": "0.0.3",
+  "description": "angularjs material boilerplate",
+  "author": "Patrick Evans",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "rm -rf node_modules/*/.git",
+    "postinstall": "pnpm run copy-libs",
+    "update-deps": "pnpm update",
+    "postupdate-deps": "pnpm run copy-libs",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*}/**/*\" app/lib -C",
+    "prestart": "pnpm install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "angular": "^1.7.8",
+    "angular-animate": "^1.7.8",
+    "angular-aria": "^1.7.8",
+    "angular-material": "^1.1.14",
+    "angular-messages": "^1.7.8"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "http-server": "^0.11.1"
+  }
+}

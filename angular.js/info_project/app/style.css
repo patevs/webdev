@@ -1,0 +1,28 @@
+/* Styles go here */
+
+body {
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: .5em;
+}
+
+h3 {
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+hr {
+    max-width: 55vw;
+}
+
+#form-login {
+    margin: 0 auto;
+    padding-bottom: 1em;
+    max-width: 330px;
+}
+
