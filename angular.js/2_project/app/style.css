@@ -1,0 +1,13 @@
+/* Styles go here */
+
+body {
+    width: 33%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
