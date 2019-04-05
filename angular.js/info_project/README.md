@@ -12,3 +12,15 @@
 
 ----
 
+```
+    "angular": "^1.7.8",
+    "angular-animate": "^1.7.8",
+    "angular-aria": "^1.7.8",
+    "angular-material": "^1.1.14",
+    "angular-messages": "^1.7.8",
+    "angular-ui-bootstrap": "^2.5.6",
+    "angular-ui-router": "^1.0.22",
+```
+
+----
+

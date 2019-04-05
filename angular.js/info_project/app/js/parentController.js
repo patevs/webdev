@@ -1,7 +1,7 @@
 
 
 angular.module('loginApp').
-controller('ParentController', ['$scope', '$rootScope', '$modal', 'Auth', 'AUTH_EVENTS','USER_ROLES',
+controller('ParentController', ['$scope', '$rootScope', '$uibModal', 'Auth', 'AUTH_EVENTS','USER_ROLES',
 function($scope, $rootScope, $modal, Auth, AUTH_EVENTS, USER_ROLES){
 	// this is the parent controller for all controllers.
 	// Manages auth login functions and each controller

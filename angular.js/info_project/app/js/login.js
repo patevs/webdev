@@ -1,7 +1,7 @@
 
 
 angular.module('loginApp')
-.controller('LoginCtrl', [ '$scope', '$state', '$modalInstance' , '$window', 'Auth', 
+.controller('LoginCtrl', [ '$scope', '$state', '$uibModalInstance' , '$window', 'Auth', 
 function($scope, $state, $modalInstance, $window, Auth ) {
 	$scope.credentials = {};
 	$scope.loginForm = {};

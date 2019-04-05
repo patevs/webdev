@@ -14,7 +14,7 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pdapHxIh7EYuwy6K7iE41uXVxGCXY0sAjBzaElYGJUrzwodck3Lx6IE2lA0rFREo" crossorigin="anonymous">	
 	-->
 	<!-- Angular Material CSS -->
-    <link rel="stylesheet" href="lib/angular-material/angular-material.css">
+    <!--<link rel="stylesheet" href="lib/angular-material/angular-material.css">-->
 	<!-- BOOTSTRAP 3 CSS -->
 	<link rel="stylesheet" href="lib/bootstrap3/dist/css/bootstrap.min.css">
 	<!-- GLOBAL STYLES -->
@@ -22,6 +22,7 @@
 </head>
 
 <body ng-controller="ParentController">
+	
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -66,19 +67,21 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js" integrity="sha256-6vbKDGwy9JmzGKxxeypGzCjyOmACDtgheaOQT6ZVafA=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.min.js" integrity="sha256-h/82i+45nj45rnRUHrB7A7OVqYZgkUVL2cuklteNW+o=" crossorigin="anonymous"></script>
 	-->
-		
+	
 	<script src="lib/jquery/dist/jquery.min.js"></script>
 	<script src="lib/bootstrap3/dist/js/bootstrap.min.js"></script>
 
 	<script src="lib/angular/angular.js"></script>
+	<!--
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-aria/angular-aria.js"></script>
     <script src="lib/angular-messages/angular-messages.js"></script>
 	<script src="lib/angular-material/angular-material.js"></script>
-
-	<script src="lib/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+	-->
+	<script src="lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+	<!-- TODO: refactor to remove ui-router -->
 	<script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
-
+	
 	<script src="js/app.js"></script>
 	<script src="js/routing.js"></script>
 	<script src="js/globalFunctions.js"></script>
