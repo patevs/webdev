@@ -10,7 +10,7 @@ const path = require("path");
 const port = process.env.PORT || 3000;
 
 http.createServer((request, response) => {
-	const staticDir = path.normalize(__dirname + '/../public');
+	const staticDir = path.normalize(__dirname + '/../app');
 	let filePath = path.normalize(staticDir + request.url);
 	if (request.url == '/'){
 		filePath = path.normalize(staticDir + '/index.html');
@@ -27,9 +27,11 @@ http.createServer((request, response) => {
 			break;
 		case '.json' :
 			contentType = 'application/json';
+			
 			break;
 		case '.png' :
 			contentType = 'image/png';
+			
 			break;
 		case '.jpg' :
 			contentType = 'image/jpg';
