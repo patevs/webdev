@@ -74,10 +74,10 @@ function($http, $rootScope, $window, Session, AUTH_EVENTS) {
 	//e.g. <p ng-if="isAuthorized(authorizedRoles)">show this only to admins</p>
 	authService.isAuthorized = function(authorizedRoles) {
 		if (!angular.isArray(authorizedRoles)) {
-	      authorizedRoles = [authorizedRoles];
-	    }
-	    return (authService.isAuthenticated() &&
-	      authorizedRoles.indexOf(Session.userRole) !== -1);
+			authorizedRoles = [authorizedRoles];
+		}
+		return (authService.isAuthenticated() &&
+			authorizedRoles.indexOf(Session.userRole) !== -1);
 	};
 	
 	//log out the user and broadcast the logoutSuccess event

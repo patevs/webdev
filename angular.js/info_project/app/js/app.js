@@ -1,7 +1,7 @@
 
 
 // Configure the main application module.
-var loginApp = angular.module('loginApp', ['ui.router', 'ui.bootstrap'])
+var loginApp = angular.module('loginApp', ['ui.bootstrap']) //'ui.router', 
 /*Constants regarding user login defined here*/
 .constant('USER_ROLES', {
 	all : '*',

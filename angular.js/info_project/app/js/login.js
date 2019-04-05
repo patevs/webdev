@@ -1,8 +1,8 @@
 
 
 angular.module('loginApp')
-.controller('LoginCtrl', [ '$scope', '$state', '$uibModalInstance' , '$window', 'Auth', 
-function($scope, $state, $modalInstance, $window, Auth ) {
+.controller('LoginCtrl', [ '$scope', '$uibModalInstance' , '$window', 'Auth', //, '$state'
+function($scope, $modalInstance, $window, Auth ) { //, $state
 	$scope.credentials = {};
 	$scope.loginForm = {};
 	$scope.error = false;
@@ -24,7 +24,7 @@ function($scope, $state, $modalInstance, $window, Auth ) {
 		Auth.login(credentials, function(user) {
 			//success function
 			$modalInstance.close();
-			$state.go('home');
+			//$state.go('home');
 		}, function(err) {
 			console.log("error");
 			$scope.error = true;
