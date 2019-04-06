@@ -21,12 +21,12 @@ angular.module('trackrApp', ['ui.bootstrap'])
 
     $ctrl.open = function (size, parentSelector) {
         var parentElem = parentSelector ?
-            angular.element($document[0].querySelector('.modal-demo' + parentSelector)) : undefined;
+            angular.element($document[0].querySelector('.modal-login' + parentSelector)) : undefined;
         var modalInstance = $uibModal.open({
             animation: $ctrl.animationsEnabled,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
-            templateUrl: 'myModalContent.html',
+            templateUrl: 'partials/loginModal.html',
             controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl',
             size: size,
