@@ -4,7 +4,7 @@
  * if the user doesn't have access to something runs the according
  * event, given the response status codes from the server. 
  */
-angular.module('loginApp')
+angular.module('trackrApp')
 .factory('AuthInterceptor', [ '$rootScope', '$q', 'Session', 'AUTH_EVENTS',
 function($rootScope, $q, Session, AUTH_EVENTS) {
 	return {
