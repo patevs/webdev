@@ -25,7 +25,12 @@ p {
 
 .title {
     text-align: center;
-    padding-top: 8vh;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}
+
+.title h1 {
+    color: green;
 }
 
 .content {
@@ -35,19 +40,22 @@ p {
 
 #btn-signin {
     margin-top: 10vh;
-    padding: 1em 2em;
+    margin-bottom: 8vh;
+    padding: 1em 1.5em;
+    font-size: 1.7em;
 }
 
 @media(max-width:767px){
     .title {
-        padding-top: 4vh;
+        padding-top: 2vh;
     }
     .content {
         padding-top: 8vh;
     }
     #btn-signin {
         margin-top: 8vh;
-        padding: .5em 1em;
+        padding: 1em 1em;    
+        font-size: 1.2em;
     }
 }
 

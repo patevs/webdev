@@ -27,17 +27,22 @@
 
         <script type="text/ng-template" src="partials/loginModal.html"></script>
 
-        <div class="content">
-            <p>You are currently not logged in.</p>
-            <p>Click the button below to signin.</p>
-            <button 
-                type="button"
-                id="btn-signin" 
-                class="btn btn-success" 
-                ng-click="$ctrl.open('lg')">
-                <strong>SIGNIN</strong>
-            </button>
+        <div class="col-xs-1 col-sm-3 col-md-4"></div>
+        <div class="well col-xs-10 col-sm-6 col-md-4">
+            <div class="content">
+                <p>You are currently not logged in.</p>
+                <br>
+                <p>Click the button login button below to continue to signin.</p>
+                <button 
+                    type="button"
+                    id="btn-signin" 
+                    class="btn btn-success" 
+                    ng-click="$ctrl.open('sm')">
+                    <strong>LOGIN</strong>
+                </button>
+            </div>
         </div>
+        <div class="col-xs-1 col-sm-3 col-md-4"></div>
 
     </div>
 
