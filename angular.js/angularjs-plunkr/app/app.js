@@ -9,7 +9,7 @@
 //import angular from 'angular';
 
 // create trackrApp root angular module and MainCtrl controller 
-angular.module('trackrApp', [])
+angular.module('trackrApp', ['ui.bootstrap'])
 .controller('MainCtrl', function($scope) {
     
     $scope.name = 'TRACKR';
