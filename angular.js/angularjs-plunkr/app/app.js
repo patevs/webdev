@@ -24,7 +24,6 @@ angular.module('trackrApp', ['ui.bootstrap'])
     notAuthorized : 'auth-not-authorized'
 })
 /* Adding the auth interceptor here, to check every $http request*/
-/*
 .config(function ($httpProvider) {
     $httpProvider.interceptors.push([
         '$injector',
@@ -32,15 +31,15 @@ angular.module('trackrApp', ['ui.bootstrap'])
             return $injector.get('AuthInterceptor');
         }
     ]);
-})*/
+})
 .controller('MainCtrl', function ($scope) {
     $scope.title = 'TRACKR';
 })
 .controller('ModalCtrl', function ($uibModal, $log, $document) {
     var $ctrl = this;
 
-    //$ctrl.items = ['item1', 'item2', 'item3'];
-    //$ctrl.animationsEnabled = true;
+    $ctrl.items = ['item1', 'item2', 'item3'];
+    $ctrl.animationsEnabled = true;
 
     $ctrl.open = function (size, parentSelector) {
         var parentElem = parentSelector ?
