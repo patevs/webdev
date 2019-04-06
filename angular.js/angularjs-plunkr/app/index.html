@@ -18,15 +18,38 @@
 
 <body ng-app="trackrApp" ng-cloak>
 
-    <div class="title">
+    <div ng-controller="MainCtrl" class="title">
         <h3>Welcome to</h3>
         <h1>TRACKR</h1>
     </div>
 
-    <div ng-controller="MainCtrl">
-        <p>You are currently not logged in.</p>
-        <p>Please click the button below to signin.</p>
-        <button>SIGNIN</button>
+    <div ng-controller="ModalCtrl as $ctrl" class="modal-demo">
+
+        <!-- TODO: move script content to a seprate file -->
+        <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <ul>
+                    <li ng-repeat="item in $ctrl.items">
+                        <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+                    </li>
+                </ul>
+                Selected: <b>{{ $ctrl.selected.item }}</b>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+            </div>
+        </script>
+        
+        <div style="text-align: center; padding-top: 15vh">
+            <p>You are currently not logged in.</p>
+            <p>Please click the button below to signin.</p>
+            <button type="button" class="btn btn-default" ng-click="$ctrl.open('lg')">SIGNIN</button>
+        </div>
+
     </div>
 
     <!-- JQUERY & BOOTSTRAP -->
