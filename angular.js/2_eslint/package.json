@@ -1,0 +1,14 @@
+{
+  "name": "angularjs-eslint",
+  "version": "1.0.0",
+  "description": "angularjs eslint",
+  "author": "Patrick Evans",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "angular": "^1.4.14"
+  }
+}
