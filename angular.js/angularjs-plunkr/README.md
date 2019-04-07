@@ -10,6 +10,10 @@
 
     * https://angular-ui.github.io/bootstrap/
 
+* AngularStrap
+
+    * http://mgcrea.github.io/angular-strap/#/getting-started
+
 
 ----
 
