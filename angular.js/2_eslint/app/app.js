@@ -10,7 +10,10 @@
 
 angular.module('ngEslintApp', [])
 .controller('MainCtrl', function ($scope) {
-    $scope.title = 'NG ESLINT';
+    // view-model
+    var vm = this;
+    vm.scope = $scope;
+    vm.scope.title = 'NG ESLINT';   
 });
 
 
