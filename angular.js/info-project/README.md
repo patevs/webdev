@@ -3,8 +3,9 @@
 
 ## Links & Resources
 
-  * [eslint-plugin-angular](https://github.com/EmmanuelDemey/eslint-plugin-angular)
-  * [eslint-config-angular](https://github.com/dustinspecker/eslint-config-angular)
+* [angularjs CDN](https://cdnjs.com/libraries/angular.js/1.4.14)
+* [eslint-plugin-angular](https://github.com/EmmanuelDemey/eslint-plugin-angular)
+* [eslint-config-angular](https://github.com/dustinspecker/eslint-config-angular)
   
 ----
 
