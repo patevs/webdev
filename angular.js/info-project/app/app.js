@@ -3,7 +3,7 @@
  *  app/app.js
  */
 
-//"use strict";
+"use strict";
 
 //var angular = require('angular');
 //import angular from 'angular';
