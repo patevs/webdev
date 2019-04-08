@@ -1,30 +1,39 @@
 
 # angularjs-eslint
 
-### Links & Resources
-
-* __Eslint Setup__
+## Links & Resources
 
   * [eslint-plugin-angular](https://github.com/EmmanuelDemey/eslint-plugin-angular)
+  * [eslint-config-angular](https://github.com/dustinspecker/eslint-config-angular)
+  
+----
 
-  * Usage:
+__Eslint Setup__
 
-    1. Install `eslint` as a dev-dependency
+1. Install `eslint` as a dev-dependency
 
     ```
     npm install --save-dev eslint
     ```
 
-    1. Install `eslint-plugin-angular` as a dev-dependency
+2. Install `eslint-plugin-angular` as a dev-dependency
 
     ```
     npm install --save-dev eslint-plugin-angular
     ```
 
-    1. Use the shareable config by adding it to your `.eslintrc`
+3. Install `eslint-config-angular` as a dev-dependency
 
     ```
-    extends: plugin:angular/johnpapa
+    npm install --save-dev eslint-config-angular
+    ```
+
+4. Create `.eslintrc` file containing:
+
+    ```
+    {
+        "extends" : "angular"
+    }
     ```
 
 
