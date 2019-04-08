@@ -10,7 +10,7 @@
 
 angular.module('ngEslintApp', [])
 .controller('MainCtrl', function ($scope) {
-    $scope.title = 'NG-ESLINT-APP';
+    $scope.title = 'NG ESLINT';
 });
 
 
