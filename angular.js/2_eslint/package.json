@@ -6,9 +6,22 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
+    "preinstall": "rm -rf node_modules/*/.git",
+    "postinstall": "pnpm run copy-libs",
+    "update-deps": "pnpm update",
+    "postupdate-deps": "pnpm run copy-libs",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*,bootstrap3/dist,jquery/dist}/**/*\" app/lib -C",
+    "prestart": "pnpm install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "angular": "^1.4.14"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-angular": "^4.0.0",
+    "http-server": "^0.11.1"
   }
 }
