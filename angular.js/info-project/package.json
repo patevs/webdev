@@ -1,7 +1,7 @@
 {
-  "name": "angularjs-eslint",
-  "version": "0.0.2",
-  "description": "angularjs eslint",
+  "name": "info-project",
+  "version": "1.0.0",
+  "description": "angularjs info project",
   "author": "Patrick Evans",
   "license": "UNLICENSED",
   "private": true,

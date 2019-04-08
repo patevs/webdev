@@ -1,5 +1,5 @@
 
-# angularjs-eslint
+# angularjs-info-project
 
 ## Links & Resources
 
