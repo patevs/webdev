@@ -47,3 +47,7 @@ typings/
 .env
 .env.test
 
+pnpm-lock.yaml
+
+app/lib
+
