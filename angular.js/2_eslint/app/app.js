@@ -8,9 +8,9 @@
 //var angular = require('angular');
 //import angular from 'angular';
 
-angular.module('ngApp', [])
+angular.module('ngEslintApp', [])
 .controller('MainCtrl', function ($scope) {
-    $scope.title = 'NG-APP';
+    $scope.title = 'NG-ESLINT-APP';
 });
 
 
