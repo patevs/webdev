@@ -25,21 +25,25 @@
         <h1><strong>{{ title }}</strong></h1>
     </div>
 
+    <div ng-controller="ModalCtrl">
+        <!-- Button to trigger a default modal with a scope as an object {title:'', content:'', etc.} -->
+        <button type="button" class="btn btn-lg btn-primary" data-animation="am-fade-and-scale" data-placement="center" bs-modal="modal">Click to toggle modal
+            <br>
+            <small>(using an object)</small>
+        </button>
+    </div>
+
     <!-- JQuery JS -->
     <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     -->
-    <!--
     <script src="lib/jquery/dist/jquery.min.js"></script>
-    -->
 
     <!-- Bootstrap 3 JS -->
     <!--
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     -->
-    <!--
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    -->
 
     <!-- Angular JS -->
     <!--
@@ -52,8 +56,10 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/v2.3.12/angular-strap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/v2.3.12/angular-strap.tpl.min.js"></script> 
     -->
+    <script src="lib/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="lib/angular-strap/dist/angular-strap.tpl.min.js"></script>
 
-    <!-- angularjs root -->
+    <!-- angularjs root module -->
     <script src="app.js"></script>
 
 </body> <!-- END of BODY -->
