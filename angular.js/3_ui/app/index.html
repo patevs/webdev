@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+    <meta name="description" content="INFO226 Project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <!-- TITLE -->
+    <title>NG UI</title>
+	<!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="style.css" />
+</head> <!-- END of HEAD -->
+
+<body ng-app="ngUI" ng-cloak>
+
+    <div ng-controller="MainCtrl" class="title">
+        <h3>Welcome to</h3>
+        <h1><strong>{{ title }}</strong></h1>
+    </div>
+
+    <!-- ANGULARJS LIBS -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.14/angular.min.js"></script>-->
+    <script src="lib/angular/angular.min.js"></script>
+    
+    <!-- angularjs root -->
+    <script src="app.js"></script>
+
+</body> <!-- END of BODY -->
+
+</html> <!-- END of HTML -->
+
+
+<!-- EOF -->
+
