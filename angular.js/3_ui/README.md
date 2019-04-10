@@ -1,6 +1,0 @@
-
-# angularjs-ui
-
-## Links & Resources
-
-----
