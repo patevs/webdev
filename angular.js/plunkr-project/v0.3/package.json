@@ -1,7 +1,7 @@
 {
-  "name": "angularjs-plunkr",
-  "version": "1.0.0",
-  "description": "angularjs plunkr",
+  "name": "plunkr-project",
+  "version": "0.3.0",
+  "description": "angularjs plunkr info project",
   "author": "Patrick Evans",
   "license": "UNLICENSED",
   "private": true,
