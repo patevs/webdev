@@ -15,7 +15,7 @@ function($scope, $rootScope, $modal, Auth, AUTH_EVENTS, USER_ROLES){
 		if(!$scope.modalShown){
 			$scope.modalShown = true;
 			var modalInstance = $modal.open({
-				templateUrl : 'login.html',
+				templateUrl : 'partials/loginModal.html',
 				controller : "LoginCtrl",
 				backdrop : 'static',
 			});

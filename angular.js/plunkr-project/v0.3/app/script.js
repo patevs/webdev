@@ -29,9 +29,8 @@ angular.module('trackrApp', ['ui.bootstrap'])
     logoutSuccess : 'auth-logout-success',
     notAuthenticated : 'auth-not-authenticated',
     notAuthorized : 'auth-not-authorized'
-});
+})
 /* Adding the auth interceptor here, to check every $http request*/
-/*
 .config(function ($httpProvider) {
     $httpProvider.interceptors.push([
         '$injector',
@@ -39,8 +38,7 @@ angular.module('trackrApp', ['ui.bootstrap'])
             return $injector.get('AuthInterceptor');
         }
     ]);
-})
-*/
+});
 
 
 /* EOF */
