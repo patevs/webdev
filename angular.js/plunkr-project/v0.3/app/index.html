@@ -40,7 +40,17 @@
   				</ul>
   				-->
   				<ul class="nav navbar-nav navbar-right">
-  				  <div ng-if="currentUser"><li><a href="#" ng-click="logout()">LogOut</a></li></div>
+  				  <div ng-if="currentUser">
+              <li>
+                <button
+                  style="float: right; margin-right: 1em"
+                  type="button"
+                  class="btn btn-danger"
+                  ng-click="logout()">
+                  <strong>LogOut</strong>
+                </button>
+              </li>
+            </div>
   				  <div ng-if="!currentUser">
   				    <li>            
   				      <button 
@@ -49,7 +59,8 @@
                   class="btn btn-success" 
                   ng-click="logout()">
                   <strong>LogIn</strong>
-                </button></li>
+                </button>
+              </li>
   				  </div>
   					<!--<li><a href="#" ng-click="logout()">Log Out</a></li>-->
   				</ul>
@@ -89,7 +100,16 @@
   	<div class="container">
 	  	<div ng-if="currentUser"><b>Welcome, {{ currentUser.username }}</b></div>
 		  <div ui-view></div>
-  	</div>
+    </div>
+    
+    <div class="container">
+      <div ng-if="currentUser">
+        <p> --- SAMPLE CONTENT --- </p>
+        <div class="well col-xs-10 col-sm-6 col-md-4">
+          <p> --- MORE CONTENT --- </p>
+        </div>
+      </div>
+    </div>
     
     <!-- JQuery JS -->
     <script data-require="jquery@*" data-semver="3.2.1" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
