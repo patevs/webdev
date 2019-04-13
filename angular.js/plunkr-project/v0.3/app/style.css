@@ -21,8 +21,13 @@ body {
 */
 
 .navbar-brand {
-  padding-left: 6vw;
-  margin-left: 2vw;
+  padding-left: 4em;
+}
+
+.navbar-brand img {
+  margin-left: .5em;
+  margin-right: .5em;
+  margin-top: -.25em;
 }
 
 .navbar-toggle {
@@ -59,6 +64,9 @@ p {
 }
 
 @media(max-width:767px){
+  .navbar-brand {
+    padding-left: 1em;
+  }
   .title {
       padding-top: -4vh;
   }
