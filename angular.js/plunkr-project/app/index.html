@@ -26,12 +26,11 @@
   					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
   				</button>
   				<a class="navbar-brand" href="#">
-            <span>
-              <img src="assets/favicon-32x32.png">
-              <!--<img src="https://raw.githubusercontent.com/patevs/webdev/master/angular.js/plunkr-project/v0.3/app/assets/favicon-32x32.png" />-->
-              TRACKR
-            </span>
-          </a>
+  				  <span>
+  				    <img src="https://raw.githubusercontent.com/patevs/webdev/master/angular.js/plunkr-project/app/assets/favicon-32x32.png" />
+  				    TRACKR
+  				  </span>
+  				</a>
   			</div>
   			
   			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -104,8 +103,6 @@
 	  	<div ng-if="currentUser"><b>Welcome, {{ currentUser.username }}</b></div>
 		  <div ui-view></div>
     </div>
-    
-    <hr />
     
     <div class="container">
       <div ng-if="currentUser">
