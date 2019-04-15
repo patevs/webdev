@@ -3,6 +3,8 @@
  *  js/auth.js
  */
 
+"use strict";
+
 var usersJson = {
     "users": {
         "inspector": {
@@ -27,8 +29,6 @@ angular.module('trackrApp')
 .factory('Auth', [ '$http', '$rootScope', '$window', 'Session', 'AUTH_EVENTS', 
 function($http, $rootScope, $window, Session, AUTH_EVENTS) {
 	var authService = {};
-	
-	
 	//the login function
 	authService.login = function(user, success, error) {
 	  //$http.post('users.json').success(function(data) {
@@ -41,8 +41,9 @@ function($http, $rootScope, $window, Session, AUTH_EVENTS) {
 			//insert your custom login function here 
 			if(user.username == loginData.username && user.password == loginData.username){
 				//set the browser session, to avoid relogin on refresh
-				$window.sessionStorage["userInfo"] = JSON.stringify(loginData);
-				
+				//$window.sessionStorage["userInfo"] = JSON.stringify(loginData);
+				$window.sessionStorage.userInfo = angular.toJson(loginData);
+
 				//delete password not to be seen clientside 
 				delete loginData.password;
 				
@@ -88,7 +89,7 @@ function($http, $rootScope, $window, Session, AUTH_EVENTS) {
 		Session.destroy();
 		$window.sessionStorage.removeItem("userInfo");
 		$rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
-	}
+	};
 
 	return authService;
 }]);

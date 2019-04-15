@@ -3,18 +3,20 @@
  *  js/globalFunctions.js
  */
 
+"use strict";
+
 /**
  * Contains functions that are added to the root AngularJs scope.
  */
-angular.module('trackrApp').run(function($rootScope, Auth, AUTH_EVENTS) { //, $state
-	
+angular.module('trackrApp')
+.run(function($rootScope, Auth, AUTH_EVENTS) { //, $state
 	//before each state change, check if the user is logged in
 	//and authorized to move onto the next state
-	$rootScope.$on('$stateChangeStart', function (event, next) {
+	var unregister = $rootScope.$on('$stateChangeStart', function (event, next) {
 		var authorizedRoles = next.data.authorizedRoles;
 		if (!Auth.isAuthorized(authorizedRoles)) {
 			event.preventDefault();
-			if (Auth.isAuthenticated()) {
+			if (Auth.isAuthenicated()) {
 				// user is not allowed
 				$rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
 			} else {
@@ -35,6 +37,7 @@ angular.module('trackrApp').run(function($rootScope, Auth, AUTH_EVENTS) { //, $s
 	*/
 	$rootScope.logout = function(){
 		Auth.logout();
+		$rootScope.$on('$destroy', unregister);
 	};
 
 });

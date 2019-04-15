@@ -3,6 +3,8 @@
  *  js/authInterceptor.js
  */
 
+"use strict";
+
 /**
  * This interceptor will make sure that, after each $http request
  * if the user doesn't have access to something runs the according

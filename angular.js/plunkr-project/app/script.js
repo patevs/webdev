@@ -4,7 +4,7 @@
  *  angularjs root module
  */
 
-//"use strict";
+"use strict";
 
 //var angular = require('angular');
 //import angular from 'angular';
