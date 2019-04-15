@@ -7,6 +7,7 @@
 body {
   margin : 0;
   padding : 0;
+  min-width: 270px;
 }
 
 /*
@@ -20,6 +21,11 @@ body {
 }
 */
 
+.navbar {
+  margin: 0 auto;
+  width: 75%;
+}
+
 .navbar-brand {
   padding-left: 4em;
 }
@@ -31,12 +37,17 @@ body {
 }
 
 .navbar-toggle {
-  margin-right: 8vw;
+  margin-right: 2em;
 }
 
 .navbar-right {
   padding: .5em;
   margin-right: .5em;
+}
+
+.navbar-right button {
+  float: right;
+  margin-right: 1em;
 }
 
 h1,
@@ -46,36 +57,27 @@ p {
 }
 
 .title {
-  text-align: center;
-  padding-top: -8vh;
-  padding-bottom: 4vh;
-}
-
-.content {
-  text-align: center;
-  padding-top: 4vh;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 #btn-signin {
-  margin-top: 4vh;
-  margin-bottom: 2vh;
+  margin-top: 1em;
+  margin-bottom: 1em;
   padding: .5em .75em;
   font-size: 1.5em;
 }
 
+/* Styles for small displays such as mobile */
 @media(max-width:767px){
+  .navbar {
+    width: 100%;
+  }
   .navbar-brand {
     padding-left: 1em;
   }
-  .title {
-      padding-top: -4vh;
-  }
-  .content {
-      padding-top: 4vh;
-  }
   #btn-signin {
-      margin-top: 4vh;
-      margin-bottom: 4vh;
+      margin-bottom: 0;
       padding: .5em .5em;    
       font-size: 1.2em;
   }
