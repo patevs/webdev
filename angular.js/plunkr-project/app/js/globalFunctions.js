@@ -37,7 +37,7 @@ angular.module('trackrApp')
 	*/
 	$rootScope.logout = function(){
 		Auth.logout();
-		$rootScope.$on('$destroy', unregister);
+		//$rootScope.$on('$destroy', unregister);
 	};
 
 });
