@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
+    "clean": "rm -rf node_modules app/lib",
     "preinstall": "rm -rf node_modules/*/.git",
     "postinstall": "pnpm run copy-libs",
     "update-deps": "pnpm update",
