@@ -12,7 +12,7 @@ angular.module('trackrApp')
     var vm = this;
     vm.scope = $scope;
 
-    var _selected;
+    //var _selected;
 
     vm.scope.selected = undefined;
     vm.scope.states = 
@@ -28,6 +28,7 @@ angular.module('trackrApp')
         'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah',
         'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
+    /*
     vm.scope.ngModelOptionsSelected = function(value) {
         if (arguments.length) {
             _selected = value;
@@ -43,5 +44,10 @@ angular.module('trackrApp')
         },
         getterSetter: true
     };
+    */
 
 });
+
+
+/* EOF */
+

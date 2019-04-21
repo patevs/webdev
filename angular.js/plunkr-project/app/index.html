@@ -103,32 +103,11 @@
     </div>
 
     <!-- Road directory -->
-    <div ng-if="currentUser" class="container" style="width: 35%; margin: 0 auto">
-      <div class="well row">
-        <h4>Road Directory - button dropdown</h4>
-        <!-- button dropdown -->
-        <div class="btn-group">
-          <button 
-            type="button" 
-            class="btn btn-default dropdown-toggle" 
-            data-toggle="dropdown" 
-            aria-haspopup="true" 
-            aria-expanded="false">
-            Road Directory <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="#">Road 1</a></li>
-            <li><a href="#">Road 2</a></li>
-            <li><a href="#">Road 3</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
+    <!--
     <div ng-if="currentUser" class="container" style="width: 35%; margin: 0 auto">
       <div class="well row">
         <h4>Road Directory - list group</h4>
-        <!-- list group -->
         <ul class="list-group">
           <li class="list-group-item">Road 1</li>
           <li class="list-group-item">Road 2</li>
@@ -136,72 +115,44 @@
         </ul>  
       </div>
     </div>
+    -->
 
+    <!-- TODO: remove hardcoded width -->
     <div ng-if="currentUser" class="container" style="width: 35%; margin: 0 auto">
       <div class="well row">
-        <h4>Road Directory - typeahead</h4>
+
+        <h4>Road Directory List</h4>
+
         <!-- typeahead -->
-
-        <style>
-          .typeahead-demo .custom-popup-wrapper {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 1000;
-            display: none;
-            background-color: #f9f9f9;
-          }
-        
-          .typeahead-demo .custom-popup-wrapper > .message {
-            padding: 10px 20px;
-            border-bottom: 1px solid #ddd;
-            color: #868686;
-          }
-        
-          .typeahead-demo .custom-popup-wrapper > .dropdown-menu {
-            position: static;
-            float: none;
-            display: block;
-            min-width: 160px;
-            background-color: transparent;
-            border: none;
-            border-radius: 0;
-            box-shadow: none;
-          }
-        </style>
-        
-        <script type="text/ng-template" id="customPopupTemplate.html">
-          <div 
-            class="custom-popup-wrapper"
-            ng-style="{top: position().top+'px', left: position().left+'px'}"
-            style="display: block;"
-            ng-show="isOpen() && !moveInProgress"
-            aria-hidden="{{!isOpen()}}">
-            <p class="message">select location from drop down.</p>
-        
-            <ul class="dropdown-menu" role="listbox">
-              <li class="uib-typeahead-match" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
-                ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
-                <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
-              </li>
-            </ul>
-          </div>
-        </script>
-
-        <div class="container-fluid typeahead-demo" ng-controller="TypeaheadCtrl">
-            <h4>Static arrays</h4>
-            <pre>Model: {{selected | json}}</pre>
-            <input type="text" ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
-
-            <h4>ngModelOptions</h4>
-            <pre>Model: {{ngModelOptionsSelected | json}}</pre>
-            <input type="text" ng-model="ngModelOptionsSelected" ng-model-options="modelOptions" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
-
-            <h4>Custom popup template</h4>
-            <pre>Model: {{customPopupSelected | json}}</pre>
-            <input type="text" ng-model="customPopupSelected" placeholder="Custom popup template" uib-typeahead="state as state.name for state in states | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+        <div class="container-fluid typeahead-demo" ng-controller="TypeaheadCtrl">  
+          <h6>Search by road name:</h6>
+          <!--<pre>Selected: {{selected | json}}</pre>-->
+          <input 
+            type="text" ng-model="selected" 
+            uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" 
+            class="form-control">
         </div>
-      
+
+        <!-- dropdown button -->
+        <div class="container-fluid">  
+            <h6>Or select from dropdown:</h6>
+            <div class="btn-group">
+              <button 
+                type="button" 
+                class="btn btn-default dropdown-toggle" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+                Road Directory <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Road 1</a></li>
+                <li><a href="#">Road 2</a></li>
+                <li><a href="#">Road 3</a></li>
+              </ul>
+            </div>
+        </div>
+
       </div>
     </div>
     
