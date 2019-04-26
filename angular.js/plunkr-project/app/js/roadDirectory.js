@@ -6,6 +6,11 @@
 "use strict";
 
 angular.module('trackrApp')
+.controller('RoadDirCtrl', function() {
+    // To style all selects
+    //$('select').selectpicker();
+    angular.element('select').selectpicker();
+})
 .controller('TypeaheadCtrl', function($scope) {
 
     // view-modal

@@ -111,19 +111,23 @@
         <div class="container-fluid typeahead-demo" ng-controller="TypeaheadCtrl">
           <h6>Search by road name:</h6>
           <!--<pre>Selected: {{selected | json}}</pre>-->
-          <input type="text" ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control" />
+          <input 
+            type="text" ng-model="selected" 
+            uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" 
+            class="form-control" />
         </div>
       </div>
     </div>
     
     <br />
-
-    <div class="container text-center">
+    
+    <!-- TODO: implement bootstrap-select picker -->
+    <div class="container text-center" ng-if="currentUser" ng-controller="RoadDirCtrl">
       <h4>Bootstrap-Select</h4>
-      <select class="selectpicker">
-        <option>Mustard</option>
-        <option>Ketchup</option>
-        <option>Barbecue</option>
+      <select>
+        <option>Road 1</option>
+        <option>Road 2</option>
+        <option>Road 3</option>
       </select>
     </div>
     
