@@ -8,12 +8,16 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon-16x16.png" />
     <link rel="icon" type="image/x-icon" href="assets/favicon-32x32.png" />
     <title>TRACKR</title>
+    <!-- Production styles -->
     <!-- Bootstrap 3 CSS -->
-    <link data-require="bootstrap@3.3.7" data-semver="3.3.7" 
-          rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" data-require="bootstrap@3.3.7" data-semver="3.3.7" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <!-- Bootstrap Select CSS -->
-    <link data-require="bootstrap-select@1.13.9" data-semver="1.13.9" 
-          rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" data-require="bootstrap-select@1.13.9" data-semver="1.13.9" 
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" />
+    <!-- Development styles
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    -->
     <!-- GLOBAL STYLES -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -145,8 +149,10 @@
     
     <br />
     
+    <!-- EXTERNAL LIBRARIES -->
+    <!-- Production scripts -->
     <!-- JQuery JS -->
-    <script data-require="jquery@*" data-semver="3.2.1" 
+    <script data-require="jquery@3.2.1" data-semver="3.2.1" 
             src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
     <!-- Bootstrap 3 JS -->
     <script data-require="bootstrap@3.3.7" data-semver="3.3.7" 
@@ -159,11 +165,19 @@
             src="https://code.angularjs.org/1.4.9/angular.js"></script>
     <!-- Angular-ui-bootstrap -->
     <!--<script data-require="angular-ui-bootstrap@*" data-semver="1.3.3" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.js"></script>-->
-    <script data-require="angular-ui-bootstrap@*" data-semver="1.3.3" 
+    <script data-require="angular-ui-bootstrap@1.3.3" data-semver="1.3.3" 
             src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>
-    
+
+    <!-- Development scripts
+    <script src="lib/jquery/dist/jquery.min.js"></script>    
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>  
+    -->
+
     <!-- Angularjs root module -->
     <script src="script.js"></script>
+    <!-- angularjs scripts -->
     <script src="js/auth.js"></script>
     <script src="js/authInterceptor.js"></script>
     <script src="js/globalFunctions.js"></script>
