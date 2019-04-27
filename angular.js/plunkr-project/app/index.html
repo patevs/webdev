@@ -108,33 +108,24 @@
       <!--<div ui-view></div>-->
     </div>
     
-    <!-- Road directory -->
-    <!-- TODO: remove hardcoded width -->
-    <div ng-if="currentUser" class="container" style="width: 35%; margin: 0 auto">
-      <div class="well row">
-        <h4>Road Directory List</h4>
-        <!-- typeahead -->
-        <div class="container-fluid typeahead-demo" ng-controller="TypeaheadCtrl">
-          <h6>Search by road name:</h6>
-          <!--<pre>Selected: {{selected | json}}</pre>-->
-          <input 
-            type="text" ng-model="selected" 
-            uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" 
-            class="form-control" />
-        </div>
-      </div>
-    </div>
-    
     <br />
     
-    <!-- TODO: implement bootstrap-select picker -->
+    <!-- Road Directory -->
     <div class="container text-center" ng-if="currentUser" ng-controller="RoadDirCtrl">
-      <h4>Bootstrap-Select</h4>
-      <select>
-        <option>Road 1</option>
-        <option>Road 2</option>
-        <option>Road 3</option>
-      </select>
+      <div class="col-xs-1 col-sm-4"></div>
+      <div class="well col-xs-10 col-sm-4">
+        <h4>Road Directory List</h4>
+        <h6>Select or search for a road:</h6>
+        <select 
+          class="show-tick" data-header="Select a road" 
+          data-width="150px" data-live-search="true" 
+          data-style="btn-success">
+          <option>Road 1</option>
+          <option>Road 2</option>
+          <option>Road 3</option>
+        </select>
+      </div>
+      <div class="col-xs-1 col-sm-4"></div>
     </div>
     
     <div class="container">
