@@ -6,51 +6,57 @@
 "use strict";
 
 angular.module('trackrApp')
-.controller('RoadDirCtrl', function() {
-    // To style all selects
-    //$('select').selectpicker();
-    angular.element('select').selectpicker();
-})
-.controller('TypeaheadCtrl', function($scope) {
-
-    // view-modal
+.controller('RoadDirCtrl', function($scope) {
+    // view model
     var vm = this;
     vm.scope = $scope;
 
-    //var _selected;
-
+    // currently selected road
     vm.scope.selected = undefined;
-    vm.scope.states = 
-        ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 
-        'California', 'Colorado', 'Connecticut', 'Delaware', 
-        'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 
-        'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 
-        'Maine', 'Maryland', 'Massachusetts', 'Michigan', 
-        'Minnesota', 'Mississippi', 'Missouri', 'Montana', 
-        'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 
-        'New Mexico', 'New York', 'North Dakota', 'North Carolina', 
-        'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 
-        'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah',
-        'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
-    /*
-    vm.scope.ngModelOptionsSelected = function(value) {
-        if (arguments.length) {
-            _selected = value;
-        } else {
-            return _selected;
-        }
-    };
+    // list of roads - Wellington Central
+    // TODO: convert this to json object
+    vm.scope.roads = 
+        [
+            "Allenby Tce",
+            "Athol Cres",
+            "Ballance St",
+            "Bolton St",
+            "Bond St",
+            "Boulcott St",
+            "Bowen St",
+            "Brandon St",
+            "Cable Car Lane",
+            "Chews Lane",
+            "Church St",
+            "Customhouse Qy",
+            "Farmers Lane",
+            "Featherston St",
+            "Gilmer Tce",
+            "Grey St",
+            "Harris St",
+            "Hunter St",
+            "Jervois Qy",
+            "Johnston St",
+            "Lambton Qy",
+            "Maginnity St",
+            "Masons Lane",
+            "Mercer St",
+            "Mowbray St",
+            "Panama St",
+            "Plimmers Stps",
+            "Post Office Sq",
+            "Queens Wrf",
+            "Salamanca Rd",
+            "Stout St",
+            "The Terrace",
+            "Waring Taylor St",
+            "Whitmore St",
+            "Willeston St",
+            "Woodward St"
+        ];
 
-    vm.scope.modelOptions = {
-        debounce: {
-            default: 500,
-            blur: 250
-        },
-        getterSetter: true
-    };
-    */
-
+    angular.element('select').selectpicker();
 });
 
 
