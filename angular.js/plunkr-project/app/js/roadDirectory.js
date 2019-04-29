@@ -55,8 +55,14 @@ angular.module('trackrApp')
             "Willeston St",
             "Woodward St"
         ];
-
-    angular.element('select').selectpicker();
+    
+    // create selectpicker element
+    var selectRoadDir = angular.element('select');
+    //angular.element('select').selectpicker();
+    // add options to selectpicker
+    // TODO: iterate over all roads and add each as an option
+    //selectRoadDir.html('<option>Road 0</option>').selectpicker('refresh');
+    
 });
 
 
