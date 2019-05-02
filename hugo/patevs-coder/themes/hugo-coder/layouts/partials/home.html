@@ -1,0 +1,27 @@
+<section class="container centered">
+  <div class="about">
+    {{ with .Site.Params.avatarurl }}
+      <div style="margin-top: -2em;" class="avatar"><img src="{{ . | relURL }}" alt="avatar"></div>
+    {{ end }}
+    <h1 style="color: green">{{ .Site.Params.author }}</h1>
+    <h4 style="color: darkgreen; margin-bottom: -2em; margin-top: 1em;">{{ .Site.Params.info1 }}</h4>
+    <h3 style="color: darkgreen; margin-bottom: 2.5em;">{{ .Site.Params.info }}</h3>
+    {{ with .Site.Params.social }}
+    <ul>
+      {{ range sort .}}
+        {{ if .icon }}
+          <li>
+            <a href="{{ .url }}" aria-label="{{ .name }}">
+              <i style="color: green;" class="{{ .icon }}" aria-hidden="true"></i>
+            </a>
+          </li>
+        {{ else }}
+          <li>
+            <a href="{{ .url }}" aria-label="{{ .name }}">{{ .name }}</a>
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+</section>
