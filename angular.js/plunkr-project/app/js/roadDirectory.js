@@ -56,13 +56,23 @@ angular.module('trackrApp')
             "Woodward St"
         ];
     
-    // create selectpicker element
-    var selectRoadDir = angular.element('select');
-    //angular.element('select').selectpicker();
-    // add options to selectpicker
-    // TODO: iterate over all roads and add each as an option
-    //selectRoadDir.html('<option>Road 0</option>').selectpicker('refresh');
+    // get road directory select picker element
+    var selectRoad = angular.element('#selectRoad');
+    // initialize select picker element
+    selectRoad.selectpicker();
     
+    // get number of roads
+    var numRoads = vm.scope.roads.length;
+    // select picker options
+    var selectRoadOptions = "";
+    // iterate over all roads
+    for(var i=0; i<numRoads; i++){
+        var road = vm.scope.roads[i];
+        selectRoadOptions += "<option>" + road + "</option>";
+    }
+    // add all options to select picker
+    selectRoad.html(selectRoadOptions).selectpicker('refresh');
+
 });
 
 
