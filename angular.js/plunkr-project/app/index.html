@@ -55,14 +55,14 @@
             <div ng-if="currentUser">
               <li>
                 <button type="button" class="btn btn-danger" ng-click="logout()">
-                  <strong>Logout</strong>
+                  <strong>LOGOUT </strong><span class="glyphicon glyphicon-log-out"></span>
                 </button>
               </li>
             </div>
             <div ng-if="!currentUser">
               <li>
                 <button type="button" class="btn btn-success" ng-click="logout()">
-                  <strong>Login</strong>
+                  <strong>LOGIN </strong><span class="glyphicon glyphicon-log-in"></span>
                 </button>
               </li>
             </div>
@@ -94,7 +94,7 @@
         <br />
         <p>Please click login to continue.</p>
         <button  id="btn-signin" type="button" class="btn btn-success" ng-click="logout()">
-          <strong>LOGIN</strong>
+          <strong>LOGIN </strong><span class="glyphicon glyphicon-log-in"></span>
         </button>
       </div>
       <div class="col-xs-1 col-sm-4"></div>
@@ -129,7 +129,7 @@
         </select>
         <br />
         <button id="btn-roadDir" type="button" class="btn btn-success">
-          <strong>Submit</strong>
+          <strong>SUBMIT </strong><!--<span class="glyphicon glyphicon-arrow-right"></span>-->
         </button>
       </div>
       <div class="col-xs-1 col-sm-4"></div>
