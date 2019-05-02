@@ -55,15 +55,14 @@
             <div ng-if="currentUser">
               <li>
                 <button type="button" class="btn btn-danger" ng-click="logout()">
-                  <!-- TODO: check this method is working correctly -->
-                  <strong>LogOut</strong>
+                  <strong>Logout</strong>
                 </button>
               </li>
             </div>
             <div ng-if="!currentUser">
               <li>
                 <button type="button" class="btn btn-success" ng-click="logout()">
-                  <strong>LogIn</strong>
+                  <strong>Login</strong>
                 </button>
               </li>
             </div>
@@ -88,12 +87,13 @@
     <div ng-if="!currentUser" class="container text-center">
       <div class="col-xs-1 col-sm-4"></div>
       <div class="well col-xs-10 col-sm-4">
+        <br />
         <p>
           <strong>Currently not logged in.</strong>
         </p>
         <br />
         <p>Please click login to continue.</p>
-        <button type="button" id="btn-signin" class="btn btn-success" ng-click="logout()">
+        <button  id="btn-signin" type="button" class="btn btn-success" ng-click="logout()">
           <strong>LOGIN</strong>
         </button>
       </div>
@@ -113,12 +113,12 @@
     <div class="container text-center" ng-if="currentUser" ng-controller="RoadDirCtrl">
       <div class="col-xs-1 col-sm-4"></div>
       <div class="well col-xs-10 col-sm-4">
-        <h4>Road Directory List</h4>
+        <h4><strong>Road Directory List</strong></h4>
         <h6>Select or search for a road:</h6>
         <select id="selectRoad" class="show-tick" 
-                data-header="Select a road" title="Select a road"
+                data-header="Road Directory" title="Select a road"
                 data-live-search="true" data-live-search-placeholder="Search for a road" 
-                data-width="75%" data-style="btn-success">
+                data-width="75%">
           <!--
           <optgroup label="Wellington Central">
             <option>Road 1</option>
@@ -127,10 +127,15 @@
           </optgroup>
           -->
         </select>
+        <br />
+        <button id="btn-roadDir" type="button" class="btn btn-success">
+          <strong>Submit</strong>
+        </button>
       </div>
       <div class="col-xs-1 col-sm-4"></div>
     </div>
-    
+
+    <!-- TODO: implement project directory -->
     <div class="container">
       <div ng-if="currentUser">
         <p> --- PROJECTS --- </p>
