@@ -15,7 +15,7 @@ angular.module('trackrApp')
     vm.scope.selected = undefined;
 
     // list of roads - Wellington Central
-    // TODO: convert this to json object
+    // TODO: convert to json object
     vm.scope.roads = 
         [
             "Allenby Tce",
