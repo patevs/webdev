@@ -73,8 +73,11 @@ angular.module('trackrApp')
     // add all options to select picker
     selectRoad.html(selectRoadOptions).selectpicker('refresh');
 
+    // search road called on submit
     vm.scope.searchRoad = function(){
-        $log.info("Search road..");
+        var selected = selectRoad.val();
+        $log.info("Selected: " + selected);
+        // TODO: display road infomation
     };
 
 });
