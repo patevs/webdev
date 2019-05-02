@@ -82,6 +82,9 @@ p {
   .navbar-brand {
     padding-left: 1em;
   }
+  .navbar-right button {
+    margin-right: 0;
+  }
   #btn-signin {
       margin-bottom: 0;
       padding: .5em .5em;    

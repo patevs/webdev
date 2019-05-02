@@ -55,7 +55,7 @@
             <div ng-if="currentUser">
               <li>
                 <button type="button" class="btn btn-danger" ng-click="logout()">
-                  <strong>LOGOUT </strong><span class="glyphicon glyphicon-log-out"></span>
+                  <strong>LOGOUT </strong><span class="glyphicon glyphicon-log-out" style="margin-left: 0.5em"></span>
                 </button>
               </li>
             </div>
@@ -103,7 +103,7 @@
     <!-- User welcome -->
     <div ng-if="currentUser" class="container text-center">
       <span>Welcome, <strong>{{ currentUser.username }}</strong></span>
-      <hr style="width: 50%" />
+      <hr style="width: 50%;" />
       <!--<div ui-view></div>-->
     </div>
     
@@ -128,9 +128,11 @@
           -->
         </select>
         <br />
-        <button id="btn-roadDir" type="button" class="btn btn-success">
-          <strong>SUBMIT </strong><!--<span class="glyphicon glyphicon-arrow-right"></span>-->
-        </button>
+        <button id="btn-roadDir" 
+          type="button" class="btn btn-success"
+          ng-click="searchRoad()">
+          <strong>SUBMIT </strong><span class="glyphicon glyphicon-arrow-right" style="margin-left: 0.5em"></span>
+        </button>`
       </div>
       <div class="col-xs-1 col-sm-4"></div>
     </div>

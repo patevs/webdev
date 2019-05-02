@@ -6,7 +6,7 @@
 "use strict";
 
 angular.module('trackrApp')
-.controller('RoadDirCtrl', function($scope) {
+.controller('RoadDirCtrl', function($scope, $log) {
     // view model
     var vm = this;
     vm.scope = $scope;
@@ -72,6 +72,10 @@ angular.module('trackrApp')
     }
     // add all options to select picker
     selectRoad.html(selectRoadOptions).selectpicker('refresh');
+
+    vm.scope.searchRoad = function(){
+        $log.info("Search road..");
+    };
 
 });
 
