@@ -1,16 +1,11 @@
 
+/* eslint angular/log: 0 */  // --> Disable angular/log rule
+
 "use strict";
 
-//const http = require("http");
-//const fs = require("fs");
-//const path = require("path");
-
-import http from 'http';
-import fs from 'fs';
-import path from 'path';
-
-import window from 'window';
-let console = window.console;
+const http = require("http");
+const fs = require("fs");
+const path = require("path");
 
 const port = process.env.PORT || 3000;
 
