@@ -1,9 +1,16 @@
 
 "use strict";
 
-const http = require("http");
-const fs = require("fs");
-const path = require("path");
+//const http = require("http");
+//const fs = require("fs");
+//const path = require("path");
+
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+
+import window from 'window';
+let console = window.console;
 
 const port = process.env.PORT || 3000;
 
@@ -15,7 +22,7 @@ http.createServer((request, response) => {
 	}
 
 	const extname = path.extname(filePath);
-	let contentType = 'text/html'
+	let contentType = 'text/html';
 	switch(extname){
 		case '.js' :
 			contentType = 'text/javascript';
@@ -57,4 +64,7 @@ http.createServer((request, response) => {
 }).listen(port);
 
 console.log("Server is running on port: " + port);
+
+
+/* EOF */
 
