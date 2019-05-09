@@ -12,7 +12,7 @@ angular.module('trackrApp')
     vm.scope = $scope;
 
     // currently selected road
-    vm.scope.selected = undefined;
+    //vm.scope.selected = undefined;
 
     // list of roads - Wellington Central
     // TODO: convert to json object
@@ -73,10 +73,28 @@ angular.module('trackrApp')
     // add all options to select picker
     selectRoad.html(selectRoadOptions).selectpicker('refresh');
 
+    // currently selected road
+    var selectedRoad = selectRoad.val();
+    //$log.info("Selected road: " + selectedRoad);
+
+    // road directory select picker on change event
+    selectRoad.on('changed.bs.select', function(){
+        //$log.log(selectRoad.val()); // for testing
+        // update selected road
+        selectedRoad = selectRoad.val();
+        // show search button
+        var btnSearchRoad = angular.element('#btn-search-road');
+        if(selectedRoad !== '') {
+            btnSearchRoad.removeClass('ng-hide');
+        }
+    });
+
     // search road called on submit
     vm.scope.searchRoad = function(){
-        var selected = selectRoad.val();
-        $log.info("Selected: " + selected);
+        selectedRoad = selectRoad.val();
+        //$log.info("Selected: " + selectedRoad); // for testing
+        var output = angular.element('#road-selection');
+        output.html("Display infomation for: " + selectedRoad);
         // TODO: display road infomation
     };
 
