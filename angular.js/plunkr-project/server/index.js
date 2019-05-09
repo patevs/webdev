@@ -1,3 +1,6 @@
+
+"use strict";
+
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
@@ -5,7 +8,7 @@ const path = require("path");
 const port = process.env.PORT || 3000;
 
 http.createServer((request, response) => {
-	const staticDir = path.normalize(__dirname + '/../public');
+	const staticDir = path.normalize(__dirname + '/../app');
 	let filePath = path.normalize(staticDir + request.url);
 	if (request.url == '/'){
 		filePath = path.normalize(staticDir + '/index.html');
