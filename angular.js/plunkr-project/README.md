@@ -1,7 +1,7 @@
 
 # Plunkr-Project
 
-> 23/04/2019
+> 10/05/2019
 
 ----
 
@@ -17,6 +17,9 @@
 
 * [Bootstrap-Select](https://github.com/snapappointments/bootstrap-select)
   * [Documentation](https://developer.snapappointments.com/bootstrap-select/)
+
+* [Bootstrap-Table](https://github.com/wenzhixin/bootstrap-table)
+  * [Documentation](https://bootstrap-table.com/docs/getting-started/introduction/)
 
 * [Angular UI Bootstrap](https://angular-ui.github.io/bootstrap/)
 
