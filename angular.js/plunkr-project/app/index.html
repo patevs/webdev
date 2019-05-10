@@ -157,6 +157,31 @@
 
         <!-- Manager Options -->
         <!-- TODO: align buttons in columns -->
+        <div ng-if="currentUser.userRole === 'manager'">
+          <p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
+
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+              <button type="button" class="btn btn-warning" style="margin-bottom: .5em;">
+                <strong>Archive Selected</strong><span class="glyphicon glyphicon-remove" style="margin-left: 0.5em"></span>
+              </button>
+            </div>
+
+            <div class="col-md-3" style="margin-left: 1em; margin-right: 1em;">
+              <button type="button" class="btn btn-primary" style="margin-bottom: .5em;">
+                <strong>Update Selected</strong><span class="glyphicon glyphicon-circle-arrow-right" style="margin-left: 0.5em"></span>
+              </button>
+            </div>
+
+            <div class="col-md-3">
+              <button type="button" class="btn btn-success" style="margin-bottom: .5em;" ng-click="createNewRoad()">
+                <strong>Create New</strong><span class="glyphicon glyphicon-plus" style="margin-left: 0.5em"></span>
+              </button>
+            </div>
+          </div>
+
+        </div>
         <!--
         <div ng-if="currentUser.userRole === 'manager'" ng-controller="RoadUpdateCtrl">
           <p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>

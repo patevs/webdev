@@ -6,7 +6,7 @@
 "use strict";
 
 angular.module('trackrApp')
-.controller('RoadDirCtrl', function($scope, $http, $log) {
+.controller('RoadDirCtrl', function($scope, $http, $uibModal, $log) {
     // view model
     var vm = this;
     vm.scope = $scope;
@@ -29,6 +29,7 @@ angular.module('trackrApp')
     var target = 'https://track.sim.vuw.ac.nz/api/evanspatr/road_dir.json';
     var object = null;
 
+    // road directory list get request
     $http.get(target).then(
         function sucessCall(response) {
             object = response.data;
@@ -129,9 +130,51 @@ angular.module('trackrApp')
                 gps: roadGPS
             }]
         });
+    };
+
+    // open create new road modal
+    vm.scope.open = function (index) {
+
+        var modalInstance = $uibModal.open({
+            templateUrl: 'partials/newRoadModal.html',
+            controller: 'NewRoadModalInstanceCtrl',
+            resolve: {
+                newRoadIndex: function () {
+                    return vm.scope.numRoads;
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
 
     };
 
+    // create new road
+    vm.scope.createNewRoad = function(){
+        $log.info("Opening creating new road modal...");
+        vm.scope.open();
+    };
+
+})
+.controller('NewRoadModalInstanceCtrl', function ($scope, $uibModalInstance, newRoadIndex) {
+    // view modal
+    var vm = this;
+    vm.scope = $scope;
+    
+    // index of new road
+    vm.scope.newIndex = newRoadIndex;
+
+    vm.scope.ok = function () {
+        $uibModalInstance.close();
+    };
+
+    vm.scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
 });
 
 
