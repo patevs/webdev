@@ -1,6 +1,6 @@
 
 /**
- *  js/login.js
+ *  js/Authentication/login.js
  */
 
 "use strict";

@@ -1,6 +1,6 @@
 
 /**
- *  js/authInterceptor.js
+ *  js/Authentication/authInterceptor.js
  */
 
 "use strict";

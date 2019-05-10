@@ -154,7 +154,7 @@
             <table id="road-info-table"></table>
           </div>
         </div>
-        <!-- Manager Panel -->
+        <!-- Manager Options -->
         <div ng-if="currentUser.userRole === 'manager'">
           <p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
           <button ng-if="selected" type="button" class="btn btn-warning" style="margin-right: 1em; margin-bottom: .5em">
@@ -249,15 +249,15 @@
     <!-- Angularjs root module -->
     <script src="script.js"></script>
     <!-- angularjs scripts -->
+    <script src="js/globalFunctions.js"></script>
+    <script src="js/parentController.js"></script>
+    <!-- Authentication scripts -->
     <script src="js/Authentication/auth.js"></script>
     <script src="js/Authentication/authInterceptor.js"></script>
     <script src="js/Authentication/login.js"></script>
     <script src="js/Authentication/session.js"></script>
-    
-    <script src="js/globalFunctions.js"></script>
-    <script src="js/parentController.js"></script>
-    
-    <script src="js/roadDirectory.js"></script>
+    <!-- RoadDirectory scripts -->
+    <script src="js/RoadDirectory/roadDirectory.js"></script>
   
   </body>
 
