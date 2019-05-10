@@ -13,79 +13,47 @@ angular.module('trackrApp')
 
     // currently selected road
     //vm.scope.selected = undefined;
+    
+    // list of all roads
+    vm.scope.allRoads = undefined;
+
+    // get road directory select picker element
+    var selectRoad = angular.element('#selectRoad');
+    // initialize select picker element
+    selectRoad.selectpicker();
 
     //Get list of roads via api request to server
-    var target = 'https://track.sim.vuw.ac.nz/api/testuser/road_dir.json';
+    var target = 'https://track.sim.vuw.ac.nz/api/evanspatr/road_dir.json';
     var object = null;
 
     $http.get(target).then(
         function sucessCall(response) {
             object = response.data;
-            vm.scope.feedback = "File read successfully: " + object.Roads[0].Location;
+
+            vm.scope.allRoads = object.Roads;
+            var numRoads = vm.scope.allRoads.length;
+
+            $log.info("Successfully retrived road list\nNumber of roads: " + numRoads);
+
+            // select picker options
+            var selectRoadOptions = "";
+            // iterate over all roads
+            for(var i=0; i<numRoads; i++){
+                var road = vm.scope.allRoads[i];
+                let roadID = road.ID;
+                let roadLocation = road.Location;
+                //$log.info("Road ID: " + roadID + " location: " + roadLocation);
+                selectRoadOptions += "<option value=" + roadID + ">" + roadLocation + "</option>";
+            }
+
+            // add all options to select picker
+            selectRoad.html(selectRoadOptions).selectpicker('refresh');
+
         },
         function errorCall() {
-            vm.scope.feedback = "Error reading file.";
+            vm.scope.feedback = "Error reading road directory list.";
         }
     );
-
-    // list of roads - Wellington Central
-    // TODO: get road list from server
-    vm.scope.roads = 
-        [
-            "Allenby Tce",
-            "Athol Cres",
-            "Ballance St",
-            "Bolton St",
-            "Bond St",
-            "Boulcott St",
-            "Bowen St",
-            "Brandon St",
-            "Cable Car Lane",
-            "Chews Lane",
-            "Church St",
-            "Customhouse Qy",
-            "Farmers Lane",
-            "Featherston St",
-            "Gilmer Tce",
-            "Grey St",
-            "Harris St",
-            "Hunter St",
-            "Jervois Qy",
-            "Johnston St",
-            "Lambton Qy",
-            "Maginnity St",
-            "Masons Lane",
-            "Mercer St",
-            "Mowbray St",
-            "Panama St",
-            "Plimmers Stps",
-            "Post Office Sq",
-            "Queens Wrf",
-            "Salamanca Rd",
-            "Stout St",
-            "The Terrace",
-            "Waring Taylor St",
-            "Whitmore St",
-            "Willeston St",
-            "Woodward St"
-        ];
-    
-    // get road directory select picker element
-    var selectRoad = angular.element('#selectRoad');
-    // initialize select picker element
-    selectRoad.selectpicker();
-    
-    // get number of roads
-    var numRoads = vm.scope.roads.length;
-    // select picker options
-    var selectRoadOptions = "";
-    // iterate over all roads
-    for(var i=0; i<numRoads; i++){
-        var road = vm.scope.roads[i];
-        selectRoadOptions += "<option>" + road + "</option>";
-    }
-    // add all options to select picker
-    selectRoad.html(selectRoadOptions).selectpicker('refresh');
 
     // currently selected road
     var selectedRoad = selectRoad.val();
@@ -105,11 +73,24 @@ angular.module('trackrApp')
 
     // search road called on submit
     vm.scope.searchRoad = function(){
-        selectedRoad = selectRoad.val();
-        //$log.info("Selected: " + selectedRoad); // for testing
+        let roadIndex = selectRoad.val() - 1;
+        // get road information
+        var road = vm.scope.allRoads[roadIndex];
+        let roadID = road.ID;
+        let roadCode = road.Code;
+        let roadType = road.Type;
+        //let roadSection = road.Kapiti;
+        //"<p>section: " + roadSection + "</p>" +
+        let roadLocation = road.Location;
+        //let roadGPS = road.GPS;
+        //"<p>gps: " + roadGPS + "</p>"
+        // TODO: output road info as a table
+        var roadInfo = "<p>Road ID: " + roadID + "</p>" + 
+                        "<p>Code: " + roadCode + "</p>" +
+                        "<p>Type: " + roadType + "</p>" +
+                        "<p>Location: " + roadLocation + "</p>";
         var output = angular.element('#road-selection');
-        output.html("Display infomation for: " + selectedRoad);
-        // TODO: display road infomation
+        output.html(roadInfo);
     };
 
 });
