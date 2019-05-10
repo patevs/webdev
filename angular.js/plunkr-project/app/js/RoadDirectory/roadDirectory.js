@@ -11,8 +11,11 @@ angular.module('trackrApp')
     var vm = this;
     vm.scope = $scope;
 
-    // currently selected road
+    // currently selected road and index
     vm.scope.selected = undefined;
+    vm.scope.selectedIndex = -1;
+    // total number of roads
+    vm.scope.numRoads = -1;
     
     // list of all roads
     vm.scope.allRoads = undefined;
@@ -31,18 +34,18 @@ angular.module('trackrApp')
             object = response.data;
 
             vm.scope.allRoads = object.Roads;
-            var numRoads = vm.scope.allRoads.length;
+            //var numRoads = vm.scope.allRoads.length;
+            vm.scope.numRoads = vm.scope.allRoads.length;
 
-            $log.info("Successfully retrived road list\nNumber of roads: " + numRoads);
+            $log.info("Successfully retrived road list\nNumber of roads: " + vm.scope.numRoads);
 
             // select picker options
             var selectRoadOptions = "";
             // iterate over all roads
-            for(var i=0; i<numRoads; i++){
+            for(var i=0; i<vm.scope.numRoads; i++){
                 var road = vm.scope.allRoads[i];
                 let roadID = road.ID;
                 let roadLocation = road.Location;
-                //$log.info("Road ID: " + roadID + " location: " + roadLocation);
                 selectRoadOptions += "<option value=" + roadID + ">" + roadLocation + "</option>";
             }
 
@@ -57,11 +60,9 @@ angular.module('trackrApp')
 
     // currently selected road
     var selectedRoad = selectRoad.val();
-    //$log.info("Selected road: " + selectedRoad);
 
     // road directory select picker on change event
     selectRoad.on('changed.bs.select', function(){
-        //$log.log(selectRoad.val()); // for testing
         // update selected road
         selectedRoad = selectRoad.val();
         // show search button
@@ -89,8 +90,11 @@ angular.module('trackrApp')
         let roadLocation = road.Location;
         let roadGPS = road.GPS;
 
-        // update currently selected road
+        $log.info("Selected: " + roadLocation);
+
+        // update currently selected road location and index
         vm.scope.selected = roadLocation;
+        vm.scope.selectedIndex = roadIndex;
         
         // get road info data element
         let roadInfoTable = angular.element('#road-info-table');

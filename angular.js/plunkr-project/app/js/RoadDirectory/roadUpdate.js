@@ -11,23 +11,8 @@ angular.module('trackrApp')
     var vm = this;
     vm.scope = $scope;
 
-    // archive a given road
-    vm.scope.archiveRoad = function() {
-        $log.log("Archive road...");
-    };
-
-    // update a given road
-    vm.scope.updateRoad = function() {
-        $log.log("Updating road...");
-    };
-
-    // add a new road
-    vm.scope.newRoad = function() {
-        $log.log("New road...");
-    };
-
     // open modal
-    vm.scope.open = function () {
+    vm.scope.open = function (index) {
 
         var modalInstance = $uibModal.open({
             templateUrl: 'partials/newRoadModal.html',
@@ -40,6 +25,22 @@ angular.module('trackrApp')
             $log.info('Modal dismissed at: ' + new Date());
         });
 
+    };
+
+    // archive a given road
+    vm.scope.archiveRoad = function() {
+        $log.log("Archive road...");
+    };
+
+    // update a given road
+    vm.scope.updateRoad = function(index) {
+        $log.log("Updating road... index: " + index);
+    };
+
+    // add a new road
+    vm.scope.newRoad = function(index) {
+        $log.log("New road... index: " + index);
+        vm.scope.open(index);
     };
 
     // update road api

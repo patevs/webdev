@@ -107,11 +107,11 @@
       <span>Welcome, <strong>{{ currentUser.username }}</strong></span>
       <hr style="width: 50%;" />
       <!--<div ui-view></div>-->
+      <br />
     </div>
 
-    <br />
-
     <!-- TESTING -->
+    <!--
     <div class="container text-center" ng-if="currentUser">
       <div class="col-xs-1 col-sm-3"></div>
       <div class="well col-xs-10 col-sm-6">
@@ -126,9 +126,9 @@
       </div>
       <div class="col-xs-1 col-sm-3"></div>
     </div>
-    
     <br />
-    
+    -->
+
     <!-- Road Directory -->
     <div class="container text-center" ng-if="currentUser" ng-controller="RoadDirCtrl">
       <div class="col-xs-0 col-sm-2"></div>
@@ -154,21 +154,26 @@
             <table id="road-info-table"></table>
           </div>
         </div>
+
         <!-- Manager Options -->
+        <!-- TODO: align buttons in columns -->
+        <!--
         <div ng-if="currentUser.userRole === 'manager'" ng-controller="RoadUpdateCtrl">
           <p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
           <button ng-click="archiveRoad()" ng-if="selected" type="button" class="btn btn-warning" style="margin-right: 2em; margin-bottom: .5em">
               <strong>Archive Selected</strong><span class="glyphicon glyphicon-remove" style="margin-left: 0.5em"></span>
           </button>
-          <button ng-click="updateRoad()" ng-if="selected" type="button" class="btn btn-success" style="margin-right: 2em; margin-bottom: .5em">
+          <button ng-click="updateRoad(selectedIndex)" ng-if="selected" type="button" class="btn btn-success" style="margin-right: 2em; margin-bottom: .5em">
             <strong>Update Selected</strong><span class="glyphicon glyphicon-circle-arrow-right" style="margin-left: 0.5em"></span>
           </button>
-          <button ng-click="open()" type="button" class="btn btn-primary" style="margin-bottom: .5em">
+          <button ng-click="newRoad(numRoads)" type="button" class="btn btn-primary" style="margin-bottom: .5em">
             <strong>Create New</strong><span class="glyphicon glyphicon-plus" style="margin-left: 0.5em"></span>
           </button>
           <br />
         </div>
+        -->
         <br />
+
       </div>
       <div class="col-xs-1 col-sm-2"></div>
     </div>
