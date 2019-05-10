@@ -73,24 +73,32 @@ angular.module('trackrApp')
 
     // search road called on submit
     vm.scope.searchRoad = function(){
+        // get road info panel element
+        let roadInfoPanel = angular.element('#road-info');
+        // get selected road index
         let roadIndex = selectRoad.val() - 1;
+        if(roadIndex !== ''){
+            roadInfoPanel.removeClass('ng-hide');
+        }
         // get road information
         var road = vm.scope.allRoads[roadIndex];
         let roadID = road.ID;
         let roadCode = road.Code;
         let roadType = road.Type;
-        //let roadSection = road.Kapiti;
-        //"<p>section: " + roadSection + "</p>" +
+        let roadSection = road.Section;
         let roadLocation = road.Location;
-        //let roadGPS = road.GPS;
-        //"<p>gps: " + roadGPS + "</p>"
-        // TODO: output road info as a table
-        var roadInfo = "<p>Road ID: " + roadID + "</p>" + 
-                        "<p>Code: " + roadCode + "</p>" +
-                        "<p>Type: " + roadType + "</p>" +
-                        "<p>Location: " + roadLocation + "</p>";
-        var output = angular.element('#road-selection');
-        output.html(roadInfo);
+        let roadGPS = road.GPS;
+        // create road info table data
+        let roadInfoData = "<td>" + roadID + "</td>" +
+                            "<td>" + roadCode + "</td>" +
+                            "<td>" + roadType + "</td>" + 
+                            "<td>" + roadSection + "</td>" + 
+                            "<td>" + roadLocation + "</td>" + 
+                            "<td>" + roadGPS + "</td>";
+        // get road info data element
+        let roadInfoTable = angular.element('#road-info-table');
+        // output road data
+        roadInfoTable.html(roadInfoData);
     };
 
 });
