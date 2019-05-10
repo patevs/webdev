@@ -21,6 +21,7 @@
     <!-- Development styles -->
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="lib/bootstrap-select/dist/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap-table/dist/bootstrap-table.min.css" />
     <!-- GLOBAL STYLES -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -151,25 +152,7 @@
           <hr />
           <div class="panel panel-success text-left">
             <div class="panel-heading text-center"><strong>Road Information</strong></div>
-            <!-- Road Info Table -->
-            <table class="table">
-              <tr>
-                <th>ID</th>
-                <th>Code</th>
-                <th>Type</th>
-                <th>Section</th>
-                <th>Location</th>
-                <th>GPS</th>
-              </tr>
-              <tr id="road-info-table">
-                <td>roadID</td>
-                <td>roadCode</td>
-                <td>roadType</td>
-                <td>roadSection</td>
-                <td>roadLocation</td>
-                <td>roadGPS</td>
-              </tr>
-            </table>
+            <table id="road-info-table"></table>
           </div>
         </div>
       </div>
@@ -248,6 +231,7 @@
     <script src="lib/jquery/dist/jquery.min.js"></script>    
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 

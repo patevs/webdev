@@ -88,17 +88,41 @@ angular.module('trackrApp')
         let roadSection = road.Section;
         let roadLocation = road.Location;
         let roadGPS = road.GPS;
-        // create road info table data
-        let roadInfoData = "<td>" + roadID + "</td>" +
-                            "<td>" + roadCode + "</td>" +
-                            "<td>" + roadType + "</td>" + 
-                            "<td>" + roadSection + "</td>" + 
-                            "<td>" + roadLocation + "</td>" + 
-                            "<td>" + roadGPS + "</td>";
+        
         // get road info data element
         let roadInfoTable = angular.element('#road-info-table');
-        // output road data
-        roadInfoTable.html(roadInfoData);
+        
+        // create bootstrap table
+        roadInfoTable.bootstrapTable({
+            columns: [{
+                field: 'id',
+                title: 'ID'
+            }, {
+                field: 'code',
+                title: 'Code'
+            }, {
+                field: 'type',
+                title: 'Type'
+            }, {
+                field: 'section',
+                title: 'Section'
+            }, {
+                field: 'location',
+                title: 'Location'
+            }, {
+                field: 'gps',
+                title: 'GPS'
+            }],
+            data: [{
+                id: roadID,
+                code: roadCode,
+                type: roadType,
+                section: roadSection,
+                location: roadLocation,
+                gps: roadGPS
+            }]
+        });
+
     };
 
 });
