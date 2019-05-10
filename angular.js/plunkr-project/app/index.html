@@ -155,11 +155,14 @@
           </div>
         </div>
         <!-- Manager Options -->
-        <div ng-if="currentUser.userRole === 'manager'">
+        <div ng-if="currentUser.userRole === 'manager'" ng-controller="RoadUpdateCtrl">
           <p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
-          <button ng-if="selected" type="button" class="btn btn-warning" style="margin-right: 1em; margin-bottom: .5em">
+          <button ng-if="selected" type="button" class="btn btn-warning" style="margin-right: 2em; margin-bottom: .5em">
               <strong>Archive Selected</strong><span class="glyphicon glyphicon-remove" style="margin-left: 0.5em"></span>
-            </button>
+          </button>
+          <button ng-if="selected" type="button" class="btn btn-success" style="margin-right: 2em; margin-bottom: .5em">
+            <strong>Update Selected</strong><span class="glyphicon glyphicon-circle-arrow-right" style="margin-left: 0.5em"></span>
+          </button>
           <button type="button" class="btn btn-primary" style="margin-bottom: .5em">
             <strong>Create New</strong><span class="glyphicon glyphicon-plus" style="margin-left: 0.5em"></span>
           </button>
