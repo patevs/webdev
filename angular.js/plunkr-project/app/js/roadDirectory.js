@@ -6,7 +6,7 @@
 "use strict";
 
 angular.module('trackrApp')
-.controller('RoadDirCtrl', function($scope, $log) {
+.controller('RoadDirCtrl', function($scope, $http, $log) {
     // view model
     var vm = this;
     vm.scope = $scope;
@@ -14,8 +14,22 @@ angular.module('trackrApp')
     // currently selected road
     //vm.scope.selected = undefined;
 
+    //Get list of roads via api request to server
+    var target = 'https://track.sim.vuw.ac.nz/api/testuser/road_dir.json';
+    var object = null;
+
+    $http.get(target).then(
+        function sucessCall(response) {
+            object = response.data;
+            vm.scope.feedback = "File read successfully: " + object.Roads[0].Location;
+        },
+        function errorCall() {
+            vm.scope.feedback = "Error reading file.";
+        }
+    );
+
     // list of roads - Wellington Central
-    // TODO: convert to json object
+    // TODO: get road list from server
     vm.scope.roads = 
         [
             "Allenby Tce",
