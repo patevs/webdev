@@ -12,7 +12,7 @@ angular.module('trackrApp')
     vm.scope = $scope;
 
     // currently selected road
-    //vm.scope.selected = undefined;
+    vm.scope.selected = undefined;
     
     // list of all roads
     vm.scope.allRoads = undefined;
@@ -88,6 +88,9 @@ angular.module('trackrApp')
         let roadSection = road.Section;
         let roadLocation = road.Location;
         let roadGPS = road.GPS;
+
+        // update currently selected road
+        vm.scope.selected = roadLocation;
         
         // get road info data element
         let roadInfoTable = angular.element('#road-info-table');
