@@ -11,10 +11,11 @@ angular.module('trackrApp')
     var vm = this;
     vm.scope = $scope;
     
+    vm.scope.selectedRoad = undefined;
     // json object containing all roads
-    vm.scope.allRoads = undefined;
+    //vm.scope.allRoads = undefined;
     // total number of roads
-    vm.scope.numRoads = -1;
+    //vm.scope.numRoads = -1;
 
     // get road directory select picker element
     vm.scope.roadSelectPicker = angular.element('#selectRoad');
@@ -31,8 +32,11 @@ angular.module('trackrApp')
         // road directory list get request
         $http.get(ROAD_DIR_TARGET).then(
             function sucessCall(response) {
+                // get json response data
                 object = response.data;
+                // json object containing all roads
                 vm.scope.allRoads = object.Roads;
+                // total number of roads
                 vm.scope.numRoads = vm.scope.allRoads.length;
                 $log.info("Successfully retrived road list\nNumber of roads: " + vm.scope.numRoads);
                 // select picker options
@@ -60,7 +64,13 @@ angular.module('trackrApp')
     vm.scope.roadSelectPicker.on('changed.bs.select', function(){
         // update selected road
         vm.scope.selectedRoadID = vm.scope.roadSelectPicker.val();
+
+        let index = -1;
+        for(let i=0; i<vm.scope.numRoads; i++){
+            // TODO: get road index
+        }
         $log.log("Selected road id: " + vm.scope.selectedRoadID);
+        // TODO: fix getting road index
         vm.scope.selectedRoadIndex = vm.scope.selectedRoadID - 1;
         $log.log("Selected road index: " + vm.scope.selectedRoadIndex);
         vm.scope.selectedRoad = vm.scope.allRoads[vm.scope.selectedRoadIndex].Location;

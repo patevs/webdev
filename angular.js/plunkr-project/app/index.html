@@ -146,6 +146,7 @@
           ng-click="searchRoad()">
           <strong>SEARCH </strong><span class="glyphicon glyphicon-search" style="margin-left: 0.5em"></span>
         </button>
+        
         <!-- Road Info Panel -->
         <div id="road-info" class="ng-hide col-xs-12">
           <br />
@@ -154,39 +155,30 @@
             <table id="road-info-table"></table>
           </div>
         </div>
+        <!-- END of RoadInfoPanel -->
 
         <!-- Manager Options -->
-        <!-- TODO: fix alignment of buttons -->
-        <div ng-if="currentUser.userRole === 'manager'">
+        <div class="container-fluid" ng-if="currentUser.userRole === 'manager'">
           <p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
-
-          <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-              <button type="button" class="btn btn-warning" style="margin-bottom: .5em;" ng-click="archiveSelectedRoad()">
-                <strong>Archive Selected</strong><span class="glyphicon glyphicon-remove" style="margin-left: 0.5em"></span>
-              </button>
-            </div>
-
-            <div class="col-md-3" style="margin-left: 1em; margin-right: 1em;">
-              <button type="button" class="btn btn-primary" style="margin-bottom: .5em;" ng-click="updateSelectedRoad()">
-                <strong>Update Selected</strong><span class="glyphicon glyphicon-circle-arrow-right" style="margin-left: 0.5em"></span>
-              </button>
-            </div>
-
-            <div class="col-md-3">
-              <button type="button" class="btn btn-success" style="margin-bottom: .5em;" ng-click="createNewRoad()">
-                <strong>Create New</strong><span class="glyphicon glyphicon-plus" style="margin-left: 0.5em"></span>
-              </button>
-            </div>
+          <div class="row text-center">
+            <button type="button" class="btn btn-warning road-manager-option" ng-if="selectedRoad" ng-click="archiveSelectedRoad()">
+              <strong>Archive</strong><span class="glyphicon glyphicon-remove" style="margin-left: 0.5em"></span>
+            </button>
+            <button type="button" class="btn btn-primary road-manager-option" ng-if="selectedRoad" ng-click="updateSelectedRoad()">
+              <strong>Update</strong><span class="glyphicon glyphicon-circle-arrow-right" style="margin-left: 0.5em"></span>
+            </button>
+            <button type="button" class="btn btn-success road-manager-option" ng-click="createNewRoad()">
+              <strong>New</strong><span class="glyphicon glyphicon-plus" style="margin-left: 0.5em"></span>
+            </button>
           </div>
-
         </div>
+        <!-- END of ManagerOptions -->
+
         <br />
 
       </div>
-      <div class="col-xs-1 col-sm-2"></div>
     </div>
+    <!-- END of RoadDirectory -->
 
     <!-- TODO: implement project directory -->
     <div class="container text-center" ng-if="currentUser">

@@ -72,6 +72,11 @@ p {
   margin-top: 1em;
 }
 
+.road-manager-option {
+    width: 20%; 
+    margin-bottom: .5em;
+}
+
 /* Styles for small displays such as mobile */
 @media(max-width:767px){
   .navbar {
@@ -87,6 +92,9 @@ p {
       margin-bottom: 0;
       padding: .5em .5em;    
       font-size: 1.2em;
+  }
+  .road-manager-option {
+    width: 180px;
   }
 }
 
