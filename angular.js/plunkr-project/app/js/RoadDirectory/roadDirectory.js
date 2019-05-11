@@ -211,6 +211,7 @@ angular.module('trackrApp')
         }
     };
 
+    // valid form submission
     vm.scope.ok = function () {
         vm.scope.error = false;
         // get submitted road data
