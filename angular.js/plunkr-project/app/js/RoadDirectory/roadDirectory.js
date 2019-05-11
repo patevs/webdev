@@ -10,38 +10,31 @@ angular.module('trackrApp')
     // view model
     var vm = this;
     vm.scope = $scope;
-
-    // currently selected road and index
-    vm.scope.selected = undefined;
-    vm.scope.selectedIndex = -1;
+    
+    // json object containing all roads
+    vm.scope.allRoads = undefined;
     // total number of roads
     vm.scope.numRoads = -1;
-    
-    // list of all roads
-    vm.scope.allRoads = undefined;
 
     // get road directory select picker element
-    var selectRoad = angular.element('#selectRoad');
+    vm.scope.roadSelectPicker = angular.element('#selectRoad');
     // initialize select picker element
-    selectRoad.selectpicker();
+    //vm.scope.roadSelectPicker.selectpicker();
 
     //Get list of roads via api request to server
-    var target = 'https://track.sim.vuw.ac.nz/api/evanspatr/road_dir.json';
+    const ROAD_DIR_TARGET = 'https://track.sim.vuw.ac.nz/api/evanspatr/road_dir.json';
     var object = null;
 
     // update road directory list
-    let updateRoadDirectory = function(){
+    vm.scope.updateRoadDirectory = function(){
+        $log.info("Updating road directory...");
         // road directory list get request
-        $http.get(target).then(
+        $http.get(ROAD_DIR_TARGET).then(
             function sucessCall(response) {
                 object = response.data;
-
                 vm.scope.allRoads = object.Roads;
-                //var numRoads = vm.scope.allRoads.length;
                 vm.scope.numRoads = vm.scope.allRoads.length;
-
                 $log.info("Successfully retrived road list\nNumber of roads: " + vm.scope.numRoads);
-
                 // select picker options
                 var selectRoadOptions = "";
                 // iterate over all roads
@@ -51,10 +44,8 @@ angular.module('trackrApp')
                     let roadLocation = road.Location;
                     selectRoadOptions += "<option value=" + roadID + ">" + roadLocation + "</option>";
                 }
-
                 // add all options to select picker
-                selectRoad.html(selectRoadOptions).selectpicker('refresh');
-
+                vm.scope.roadSelectPicker.html(selectRoadOptions).selectpicker('refresh');
             },
             function errorCall() {
                 vm.scope.feedback = "Error reading road directory list.";
@@ -63,18 +54,20 @@ angular.module('trackrApp')
     };
 
     // update the road directory
-    updateRoadDirectory();
-
-    // currently selected road
-    var selectedRoad = selectRoad.val();
+    vm.scope.updateRoadDirectory();
 
     // road directory select picker on change event
-    selectRoad.on('changed.bs.select', function(){
+    vm.scope.roadSelectPicker.on('changed.bs.select', function(){
         // update selected road
-        selectedRoad = selectRoad.val();
+        vm.scope.selectedRoadID = vm.scope.roadSelectPicker.val();
+        $log.log("Selected road id: " + vm.scope.selectedRoadID);
+        vm.scope.selectedRoadIndex = vm.scope.selectedRoadID - 1;
+        $log.log("Selected road index: " + vm.scope.selectedRoadIndex);
+        vm.scope.selectedRoad = vm.scope.allRoads[vm.scope.selectedRoadIndex].Location;
+        $log.log("Selected road: " + vm.scope.selectedRoad);
         // show search button
         var btnSearchRoad = angular.element('#btn-search-road');
-        if(selectedRoad !== '') {
+        if(vm.scope.selectedRoadID !== '') {
             btnSearchRoad.removeClass('ng-hide');
         }
     });
@@ -83,13 +76,12 @@ angular.module('trackrApp')
     vm.scope.searchRoad = function(){
         // get road info panel element
         let roadInfoPanel = angular.element('#road-info');
-        // get selected road index
-        let roadIndex = selectRoad.val() - 1;
-        if(roadIndex !== ''){
+        // show road info panel
+        if(vm.scope.selectedRoadIndex !== ''){
             roadInfoPanel.removeClass('ng-hide');
         }
         // get road information
-        var road = vm.scope.allRoads[roadIndex];
+        var road = vm.scope.allRoads[vm.scope.selectedRoadIndex];
         let roadID = road.ID;
         let roadCode = road.Code;
         let roadType = road.Type;
@@ -97,14 +89,13 @@ angular.module('trackrApp')
         let roadLocation = road.Location;
         let roadGPS = road.GPS;
 
-        $log.info("Selected: " + roadLocation);
-
-        // update currently selected road location and index
-        vm.scope.selected = roadLocation;
-        vm.scope.selectedIndex = roadIndex;
+        $log.info("Searched: " + roadLocation);
         
         // get road info data element
         let roadInfoTable = angular.element('#road-info-table');
+
+        // destroy old table
+        roadInfoTable.bootstrapTable('destroy');
         
         // create bootstrap table
         roadInfoTable.bootstrapTable({
@@ -140,24 +131,21 @@ angular.module('trackrApp')
 
     // open create new road modal
     vm.scope.open = function (index) {
-
         var modalInstance = $uibModal.open({
             templateUrl: 'partials/newRoadModal.html',
             controller: 'NewRoadModalInstanceCtrl',
             resolve: {
                 newRoadIndex: function () {
-                    return vm.scope.numRoads;
+                    return vm.scope.numRoads + 1;
                 }
             }
         });
-
         modalInstance.result.then(function () {
             $log.info('Modal dismissed at: ' + new Date());
-            updateRoadDirectory();
+            vm.scope.updateRoadDirectory();
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
-
     };
 
     // create new road
@@ -179,15 +167,13 @@ angular.module('trackrApp')
     // index of new road
     vm.scope.newIndex = newRoadIndex;
 
-    //Get list of roads via api request to server
-    var target = 'https://track.sim.vuw.ac.nz/api/testuser/update.road.json';
+    // update road via api post request to server
+    const UPDATE_ROAD_TARGET = 'https://track.sim.vuw.ac.nz/api/evanspatr/update.road.json';
     var object = null;
 
     // send new road data to server
     vm.scope.addNewRoad = function(data){
-        // TODO: post new road data to server
-        /*
-        $http.post(target, data).then(
+        $http.post(UPDATE_ROAD_TARGET, data).then(
             function sucessCall(response) {
                 object = response.data;
                 $log.log("object data: " + object);
@@ -196,7 +182,6 @@ angular.module('trackrApp')
                 vm.scope.feedback = "Error updating road";
             }
         );
-        */
     };
 
     //when the form is submitted
