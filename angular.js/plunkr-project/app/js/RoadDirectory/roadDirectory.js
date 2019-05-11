@@ -29,35 +29,41 @@ angular.module('trackrApp')
     var target = 'https://track.sim.vuw.ac.nz/api/evanspatr/road_dir.json';
     var object = null;
 
-    // road directory list get request
-    $http.get(target).then(
-        function sucessCall(response) {
-            object = response.data;
+    // update road directory list
+    let updateRoadDirectory = function(){
+        // road directory list get request
+        $http.get(target).then(
+            function sucessCall(response) {
+                object = response.data;
 
-            vm.scope.allRoads = object.Roads;
-            //var numRoads = vm.scope.allRoads.length;
-            vm.scope.numRoads = vm.scope.allRoads.length;
+                vm.scope.allRoads = object.Roads;
+                //var numRoads = vm.scope.allRoads.length;
+                vm.scope.numRoads = vm.scope.allRoads.length;
 
-            $log.info("Successfully retrived road list\nNumber of roads: " + vm.scope.numRoads);
+                $log.info("Successfully retrived road list\nNumber of roads: " + vm.scope.numRoads);
 
-            // select picker options
-            var selectRoadOptions = "";
-            // iterate over all roads
-            for(var i=0; i<vm.scope.numRoads; i++){
-                var road = vm.scope.allRoads[i];
-                let roadID = road.ID;
-                let roadLocation = road.Location;
-                selectRoadOptions += "<option value=" + roadID + ">" + roadLocation + "</option>";
+                // select picker options
+                var selectRoadOptions = "";
+                // iterate over all roads
+                for(var i=0; i<vm.scope.numRoads; i++){
+                    var road = vm.scope.allRoads[i];
+                    let roadID = road.ID;
+                    let roadLocation = road.Location;
+                    selectRoadOptions += "<option value=" + roadID + ">" + roadLocation + "</option>";
+                }
+
+                // add all options to select picker
+                selectRoad.html(selectRoadOptions).selectpicker('refresh');
+
+            },
+            function errorCall() {
+                vm.scope.feedback = "Error reading road directory list.";
             }
+        );
+    };
 
-            // add all options to select picker
-            selectRoad.html(selectRoadOptions).selectpicker('refresh');
-
-        },
-        function errorCall() {
-            vm.scope.feedback = "Error reading road directory list.";
-        }
-    );
+    // update the road directory
+    updateRoadDirectory();
 
     // currently selected road
     var selectedRoad = selectRoad.val();
@@ -147,6 +153,7 @@ angular.module('trackrApp')
 
         modalInstance.result.then(function () {
             $log.info('Modal dismissed at: ' + new Date());
+            updateRoadDirectory();
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
@@ -160,19 +167,72 @@ angular.module('trackrApp')
     };
 
 })
-.controller('NewRoadModalInstanceCtrl', function ($scope, $uibModalInstance, newRoadIndex) {
+.controller('NewRoadModalInstanceCtrl', function ($scope, $http, $uibModalInstance, newRoadIndex, $log) {
     // view modal
     var vm = this;
     vm.scope = $scope;
+
+    vm.scope.data = {};
+    vm.scope.newRoadForm = {};
+    vm.scope.error = false;
     
     // index of new road
     vm.scope.newIndex = newRoadIndex;
 
+    //Get list of roads via api request to server
+    var target = 'https://track.sim.vuw.ac.nz/api/testuser/update.road.json';
+    var object = null;
+
+    // send new road data to server
+    vm.scope.addNewRoad = function(data){
+        // TODO: post new road data to server
+        /*
+        $http.post(target, data).then(
+            function sucessCall(response) {
+                object = response.data;
+                $log.log("object data: " + object);
+            },
+            function errorCall() {
+                vm.scope.feedback = "Error updating road";
+            }
+        );
+        */
+    };
+
+    //when the form is submitted
+    vm.scope.submit = function() {
+        vm.scope.submitted = true;
+        if (!vm.scope.newRoadForm.$invalid) {
+            //vm.scope.login($scope.credentials);
+            vm.scope.ok();
+        } else {
+            vm.scope.error = true;
+            return;
+        }
+    };
+
     vm.scope.ok = function () {
+        vm.scope.error = false;
+        // get submitted road data
+        let roadID = vm.scope.newIndex;
+        let roadCode = vm.scope.data.code;
+        let roadType = vm.scope.data.type;
+        let roadLocation = vm.scope.data.location;
+        let roadData = {
+            "ID" : roadID,
+            "Code" : roadCode,
+            "Type" : roadType,
+            "Section" : roadLocation,
+            "Location" : roadLocation,
+            "GPS" : roadLocation
+        };
+        vm.scope.addNewRoad(roadData);
+        $log.info("id: " + roadID + " code: " + roadCode + " type: " + roadType + " location: " + roadLocation);
         $uibModalInstance.close();
     };
 
     vm.scope.cancel = function () {
+        vm.scope.error = true;
         $uibModalInstance.dismiss('cancel');
     };
 });
