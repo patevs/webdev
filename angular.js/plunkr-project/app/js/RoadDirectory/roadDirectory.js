@@ -130,7 +130,7 @@ angular.module('trackrApp')
     };
 
     // open create new road modal
-    vm.scope.open = function (index) {
+    vm.scope.open = function () {
         var modalInstance = $uibModal.open({
             templateUrl: 'partials/newRoadModal.html',
             controller: 'NewRoadModalInstanceCtrl',
@@ -152,6 +152,29 @@ angular.module('trackrApp')
     vm.scope.createNewRoad = function(){
         $log.info("Opening creating new road modal...");
         vm.scope.open();
+    };
+
+    // archive selected road
+    vm.scope.archiveSelectedRoad = function(){
+        // delete road target url
+        const DELETE_ROAD_TARGET = "https://track.sim.vuw.ac.nz/api/evanspatr/delete.road." + vm.scope.selectedRoadID + ".json";
+        $log.info("Archiving selected road... road id: " + vm.scope.selectedRoadID);
+        // road delete request
+        $http.delete(DELETE_ROAD_TARGET).then(
+            function sucessCall(response) {
+                object = response.data;
+                $log.log("object data: " + object);
+                vm.scope.updateRoadDirectory();
+            },
+            function errorCall() {
+                vm.scope.feedback = "Error deleting road.";
+            }
+        );
+    };
+
+    // update selected road
+    vm.scope.updateSelectedRoad = function(){
+        $log.info("Updating selected road...");
     };
 
 })
@@ -212,9 +235,9 @@ angular.module('trackrApp')
             "Location" : roadLocation,
             "GPS" : roadLocation
         };
-        vm.scope.addNewRoad(roadData);
         $log.info("id: " + roadID + " code: " + roadCode + " type: " + roadType + " location: " + roadLocation);
         $uibModalInstance.close();
+        vm.scope.addNewRoad(roadData);
     };
 
     vm.scope.cancel = function () {

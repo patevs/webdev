@@ -136,8 +136,8 @@
         <h4><strong>ROAD DIRECTORY</strong></h4>
         <h6>Select or search to view more information for a given road:</h6>
         <select id="selectRoad" class="show-tick" 
-                data-header="Road Directory" title="Select a road"
-                data-live-search="true" data-live-search-placeholder="Search for a road" 
+                data-header="Road Directory" title="Select a location"
+                data-live-search="true" data-live-search-placeholder="Search for a location" 
                 data-width="175px">
         </select>
         <br />
@@ -156,20 +156,20 @@
         </div>
 
         <!-- Manager Options -->
-        <!-- TODO: align buttons in columns -->
+        <!-- TODO: fix alignment of buttons -->
         <div ng-if="currentUser.userRole === 'manager'">
           <p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
 
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-3">
-              <button type="button" class="btn btn-warning" style="margin-bottom: .5em;">
+              <button type="button" class="btn btn-warning" style="margin-bottom: .5em;" ng-click="archiveSelectedRoad()">
                 <strong>Archive Selected</strong><span class="glyphicon glyphicon-remove" style="margin-left: 0.5em"></span>
               </button>
             </div>
 
             <div class="col-md-3" style="margin-left: 1em; margin-right: 1em;">
-              <button type="button" class="btn btn-primary" style="margin-bottom: .5em;">
+              <button type="button" class="btn btn-primary" style="margin-bottom: .5em;" ng-click="updateSelectedRoad()">
                 <strong>Update Selected</strong><span class="glyphicon glyphicon-circle-arrow-right" style="margin-left: 0.5em"></span>
               </button>
             </div>
@@ -182,21 +182,6 @@
           </div>
 
         </div>
-        <!--
-        <div ng-if="currentUser.userRole === 'manager'" ng-controller="RoadUpdateCtrl">
-          <p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
-          <button ng-click="archiveRoad()" ng-if="selected" type="button" class="btn btn-warning" style="margin-right: 2em; margin-bottom: .5em">
-              <strong>Archive Selected</strong><span class="glyphicon glyphicon-remove" style="margin-left: 0.5em"></span>
-          </button>
-          <button ng-click="updateRoad(selectedIndex)" ng-if="selected" type="button" class="btn btn-success" style="margin-right: 2em; margin-bottom: .5em">
-            <strong>Update Selected</strong><span class="glyphicon glyphicon-circle-arrow-right" style="margin-left: 0.5em"></span>
-          </button>
-          <button ng-click="newRoad(numRoads)" type="button" class="btn btn-primary" style="margin-bottom: .5em">
-            <strong>Create New</strong><span class="glyphicon glyphicon-plus" style="margin-left: 0.5em"></span>
-          </button>
-          <br />
-        </div>
-        -->
         <br />
 
       </div>
