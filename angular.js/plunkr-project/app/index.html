@@ -1,117 +1,126 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="INFO226 Project" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/x-icon" href="assets/favicon-16x16.png" />
+		<link rel="icon" type="image/x-icon" href="assets/favicon-32x32.png" />
+		<title>TRACKR</title>
 
-  <head>
-    <meta charset="utf-8" />
-    <meta name="description" content="INFO226 Project" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="assets/favicon-16x16.png" />
-    <link rel="icon" type="image/x-icon" href="assets/favicon-32x32.png" />
-    <title>TRACKR</title>
-
-    <!-- Production styles -->
-    <!-- Bootstrap 3 CSS -->
-    <!--
+		<!-- Production styles -->
+		<!-- Bootstrap 3 CSS -->
+		<!--
     <link rel="stylesheet" data-require="bootstrap@3.3.7" data-semver="3.3.7" 
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
-    <!-- Bootstrap Select CSS -->
-    <!--<link rel="stylesheet" data-require="bootstrap-select@1.13.9" data-semver="1.13.9" 
+		<!-- Bootstrap Select CSS -->
+		<!--<link rel="stylesheet" data-require="bootstrap-select@1.13.9" data-semver="1.13.9" 
           href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" />-->
 
-    <!-- Development styles -->
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="lib/bootstrap-select/dist/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="lib/bootstrap-table/dist/bootstrap-table.min.css" />
-    <!-- GLOBAL STYLES -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
+		<!-- Development styles -->
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="lib/bootstrap-select/dist/css/bootstrap-select.min.css" />
+		<link rel="stylesheet" href="lib/bootstrap-table/dist/bootstrap-table.min.css" />
+		<!-- GLOBAL STYLES -->
+		<link rel="stylesheet" href="style.css" />
+	</head>
 
-  <body ng-app="trackrApp" ng-controller="parentController">
-    
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">
-            <span>
-              <img src="https://raw.githubusercontent.com/patevs/webdev/master/angular.js/plunkr-project/app/assets/favicon-32x32.png" />
-              <strong>TRACKR</strong>
-            </span>
-          </a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <!-- nav-bar links
+	<body ng-app="trackrApp" ng-controller="parentController">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button
+						type="button"
+						class="navbar-toggle collapsed"
+						data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1"
+					>
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">
+						<span>
+							<img
+								src="https://raw.githubusercontent.com/patevs/webdev/master/angular.js/plunkr-project/app/assets/favicon-32x32.png"
+							/>
+							<strong>TRACKR</strong>
+						</span>
+					</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<!-- nav-bar links
           <ul class="nav navbar-nav">
             <li ng-class="getClass('nav-link-1')"><a ui-sref="navlink1">navlink1</a></li>
             <li ng-class="getClass('nav-link-2')"><a ui-sref="navlink2">navlink2</a></li>
           </ul>
           -->
-          <ul class="nav navbar-nav navbar-right">
-            <div ng-if="currentUser">
-              <li>
-                <button type="button" class="btn btn-danger" ng-click="logout()">
-                  <strong>LOGOUT </strong><span class="glyphicon glyphicon-log-out" style="margin-left: 0.5em"></span>
-                </button>
-              </li>
-            </div>
-            <div ng-if="!currentUser">
-              <li>
-                <button type="button" class="btn btn-success" ng-click="logout()">
-                  <strong>LOGIN </strong><span class="glyphicon glyphicon-log-in"></span>
-                </button>
-              </li>
-            </div>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-    </nav>
-    
-    <!-- Main title -->
-    <div ng-controller="MainCtrl" class="title text-center">
-      <div ng-if="!currentUser">
-        <h3>Welcome to</h3>
-      </div>
-      <h1>
-        <strong>{{ title }}</strong>
-      </h1>
-    </div>
-    
-    <!-- Login container -->
-    <div ng-if="!currentUser" class="container text-center">
-      <div class="col-xs-1 col-sm-4"></div>
-      <div class="well col-xs-10 col-sm-4">
-        <br />
-        <p>
-          <strong>Currently not logged in.</strong>
-        </p>
-        <br />
-        <p>Please click login to continue.</p>
-        <button id="btn-signin" type="button" class="btn btn-success" ng-click="logout()">
-          <strong>LOGIN </strong><span class="glyphicon glyphicon-log-in" style="padding-right: .1em"></span>
-        </button>
-      </div>
-      <div class="col-xs-1 col-sm-4"></div>
-    </div>
-    
-    <!-- User welcome -->
-    <div ng-if="currentUser" class="container text-center">
-      <span>Welcome, <strong>{{ currentUser.username }}</strong></span>
-      <hr style="width: 50%;" />
-      <!--<div ui-view></div>-->
-      <br />
-    </div>
+					<ul class="nav navbar-nav navbar-right">
+						<div ng-if="currentUser">
+							<li>
+								<button type="button" class="btn btn-danger" ng-click="logout()">
+									<strong>LOGOUT </strong
+									><span class="glyphicon glyphicon-log-out" style="margin-left: 0.5em"></span>
+								</button>
+							</li>
+						</div>
+						<div ng-if="!currentUser">
+							<li>
+								<button type="button" class="btn btn-success" ng-click="logout()">
+									<strong>LOGIN </strong><span class="glyphicon glyphicon-log-in"></span>
+								</button>
+							</li>
+						</div>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
 
-    <!-- TESTING -->
-    <!--
+		<!-- Main title -->
+		<div ng-controller="MainCtrl" class="title text-center">
+			<div ng-if="!currentUser">
+				<h3>Welcome to</h3>
+			</div>
+			<h1>
+				<strong>{{ title }}</strong>
+			</h1>
+		</div>
+
+		<!-- Login container -->
+		<div ng-if="!currentUser" class="container text-center">
+			<div class="col-xs-1 col-sm-4"></div>
+			<div class="well col-xs-10 col-sm-4">
+				<br />
+				<p>
+					<strong>Currently not logged in.</strong>
+				</p>
+				<br />
+				<p>Please click login to continue.</p>
+				<button id="btn-signin" type="button" class="btn btn-success" ng-click="logout()">
+					<strong>LOGIN </strong
+					><span class="glyphicon glyphicon-log-in" style="padding-right: .1em"></span>
+				</button>
+			</div>
+			<div class="col-xs-1 col-sm-4"></div>
+		</div>
+
+		<!-- User welcome -->
+		<div ng-if="currentUser" class="container text-center">
+			<span
+				>Welcome, <strong>{{ currentUser.username }}</strong></span
+			>
+			<hr style="width: 50%;" />
+			<!--<div ui-view></div>-->
+			<br />
+		</div>
+
+		<!-- TESTING -->
+		<!--
     <div class="container text-center" ng-if="currentUser">
       <div class="col-xs-1 col-sm-3"></div>
       <div class="well col-xs-10 col-sm-6">
@@ -129,147 +138,171 @@
     <br />
     -->
 
-    <!-- Road Directory -->
-    <div class="container text-center" ng-if="currentUser" ng-controller="RoadDirCtrl">
-      <div class="col-xs-0 col-sm-2"></div>
-      <div class="well col-xs-12 col-sm-8">
-        <h4><strong>ROAD DIRECTORY</strong></h4>
-        <h6>Select or search to view more information for a given road:</h6>
-        <select id="selectRoad" class="show-tick" 
-                data-header="Road Directory" title="Select a location"
-                data-live-search="true" data-live-search-placeholder="Search for a location" 
-                data-width="175px">
-        </select>
-        <br />
-        <button id="btn-search-road" 
-          type="button" class="btn btn-success ng-hide"
-          ng-click="searchRoad()">
-          <strong>SEARCH </strong><span class="glyphicon glyphicon-search" style="margin-left: 0.5em"></span>
-        </button>
-        
-        <!-- Road Info Panel -->
-        <div id="road-info" class="ng-hide col-xs-12">
-          <br />
-          <div class="panel panel-success text-left">
-            <div class="panel-heading text-center"><strong>Road Information</strong></div>
-            <table id="road-info-table"></table>
-          </div>
-        </div>
-        <!-- END of RoadInfoPanel -->
+		<!-- Road Directory -->
+		<div class="container text-center" ng-if="currentUser" ng-controller="RoadDirCtrl">
+			<div class="col-xs-0 col-sm-2"></div>
+			<div class="well col-xs-12 col-sm-8">
+				<h4><strong>ROAD DIRECTORY</strong></h4>
+				<h6>Select a road to view more information:</h6>
+				<select
+					id="selectRoad"
+					class="show-tick"
+					data-header="Road Directory"
+					title="Select a location"
+					data-live-search="true"
+					data-live-search-placeholder="Search for a location"
+					data-width="175px"
+				>
+				</select>
+				<br />
+				<button
+					id="btn-search-road"
+					type="button"
+					class="btn btn-success ng-hide"
+					ng-click="searchRoad()"
+				>
+					<strong>SELECT </strong
+					><span class="glyphicon glyphicon-search" style="margin-left: 0.5em"></span>
+				</button>
 
-        <!-- Manager Options -->
-        <div class="container-fluid" ng-if="currentUser.userRole === 'manager'">
-          <p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
-          <div class="row text-center">
-            <button type="button" class="btn btn-warning road-manager-option" ng-if="selectedRoad" ng-click="archiveSelectedRoad()">
-              <strong>Archive</strong><span class="glyphicon glyphicon-remove" style="margin-left: 0.5em"></span>
-            </button>
-            <button type="button" class="btn btn-primary road-manager-option" ng-if="selectedRoad" ng-click="updateSelectedRoad()">
-              <strong>Update</strong><span class="glyphicon glyphicon-circle-arrow-right" style="margin-left: 0.5em"></span>
-            </button>
-            <button type="button" class="btn btn-success road-manager-option" ng-click="createNewRoad()">
-              <strong>New</strong><span class="glyphicon glyphicon-plus" style="margin-left: 0.5em"></span>
-            </button>
-          </div>
-        </div>
-        <!-- END of ManagerOptions -->
+				<!-- Road Info Panel -->
+				<div id="road-info" class="ng-hide col-xs-12">
+					<br />
+					<div class="panel panel-success text-left">
+						<div class="panel-heading text-center"><strong>Road Information</strong></div>
+						<table id="road-info-table"></table>
+					</div>
+				</div>
+				<!-- END of RoadInfoPanel -->
 
-        <br />
+				<!-- Manager Options -->
+				<div class="container-fluid" ng-if="currentUser.userRole === 'manager'">
+					<p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
+					<div class="row text-center">
+						<button
+							type="button"
+							class="btn btn-warning road-manager-option"
+							ng-if="selectedRoad"
+							ng-click="archiveSelectedRoad()"
+						>
+							<strong>Archive</strong
+							><span class="glyphicon glyphicon-remove" style="margin-left: 0.5em"></span>
+						</button>
+						<button
+							type="button"
+							class="btn btn-primary road-manager-option"
+							ng-if="selectedRoad"
+							ng-click="updateSelectedRoad()"
+						>
+							<strong>Update</strong
+							><span
+								class="glyphicon glyphicon-circle-arrow-right"
+								style="margin-left: 0.5em"
+							></span>
+						</button>
+						<button
+							type="button"
+							class="btn btn-success road-manager-option"
+							ng-click="createNewRoad()"
+						>
+							<strong>New</strong
+							><span class="glyphicon glyphicon-plus" style="margin-left: 0.5em"></span>
+						</button>
+					</div>
+				</div>
+				<!-- END of ManagerOptions -->
 
-      </div>
-    </div>
-    <!-- END of RoadDirectory -->
+				<br />
+			</div>
+		</div>
+		<!-- END of RoadDirectory -->
 
-    <!-- TODO: implement project directory -->
-    <div class="container text-center" ng-if="currentUser">
-      <div class="col-xs-0 col-sm-1 col-md-2"></div>
-      
-      <div class="well col-xs-12 col-sm-10 col-md-8">
-        <h4><strong>PROJECT DIRECTORY</strong></h4>
-        <p>----------</p>
-        <div class="col-sm-0 col-md-1"></div>
-        <div class="col-xs-12 col-sm-4 col-md-4">
-            <p>All Projects</p>
-            <div class="list-group">
-              <button type="button" class="list-group-item">Victoria St. upgrades</button>
-              <button type="button" class="list-group-item">The Terrace 155-300</button>
-              <button type="button" class="list-group-item">10/05/2019 - Bond St.</button>
-            </div>
-        </div>
+		<!-- TODO: implement project directory -->
+		<div class="container text-center" ng-if="currentUser">
+			<div class="col-xs-0 col-sm-1 col-md-2"></div>
 
-        <div class="col-xs-12 col-sm-4 col-md-6">
-          <p>Latest Updates</p>
-          <div class="list-group">
-            <a class="list-group-item active">
-              <h6 class="list-group-item-heading">Victoria St. upgrades</h6>
-              <p class="list-group-item-text">10/06/2019 - Works along lower victoria street</p>
-            </a>
-            <a class="list-group-item">
-              <h6 class="list-group-item-heading">The Terrace 155-300</h6>
-              <p class="list-group-item-text">14/06/2019 - Overnight resurfacing</p>
-            </a>
-          </div>
-        </div>
-      
-      </div>
-    </div>
+			<div class="well col-xs-12 col-sm-10 col-md-8">
+				<h4><strong>PROJECT DIRECTORY</strong></h4>
+				<p>----------</p>
+				<div class="col-sm-0 col-md-1"></div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<p>All Projects</p>
+					<div class="list-group">
+						<button type="button" class="list-group-item">Victoria St. upgrades</button>
+						<button type="button" class="list-group-item">The Terrace 155-300</button>
+						<button type="button" class="list-group-item">10/05/2019 - Bond St.</button>
+					</div>
+				</div>
 
-    <div class="container">
-      <div ng-if="currentUser">
-        <p> --- PROJECTS --- </p>
-        <div class="well col-xs-12">
-          <p> --- PROJECTS LIST --- </p>
-        </div>
-        <div class="well col-xs-12">
-          <p> --- PROJECT INFO --- </p>
-        </div>
-      </div>
-    </div>
-    
-    <br />
-    
-    <!-- EXTERNAL LIBRARIES -->
-    <!-- Production scripts -->
-    <!-- JQuery JS -->
-    <!--<script data-require="jquery@3.2.1" data-semver="3.2.1" 
+				<div class="col-xs-12 col-sm-4 col-md-6">
+					<p>Latest Updates</p>
+					<div class="list-group">
+						<a class="list-group-item active">
+							<h6 class="list-group-item-heading">Victoria St. upgrades</h6>
+							<p class="list-group-item-text">10/06/2019 - Works along lower victoria street</p>
+						</a>
+						<a class="list-group-item">
+							<h6 class="list-group-item-heading">The Terrace 155-300</h6>
+							<p class="list-group-item-text">14/06/2019 - Overnight resurfacing</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div ng-if="currentUser">
+				<p>--- PROJECTS ---</p>
+				<div class="well col-xs-12">
+					<p>--- PROJECTS LIST ---</p>
+				</div>
+				<div class="well col-xs-12">
+					<p>--- PROJECT INFO ---</p>
+				</div>
+			</div>
+		</div>
+
+		<br />
+
+		<!-- EXTERNAL LIBRARIES -->
+		<!-- Production scripts -->
+		<!-- JQuery JS -->
+		<!--<script data-require="jquery@3.2.1" data-semver="3.2.1" 
             src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>-->
-    <!-- Bootstrap 3 JS -->
-    <!--<script data-require="bootstrap@3.3.7" data-semver="3.3.7" 
+		<!-- Bootstrap 3 JS -->
+		<!--<script data-require="bootstrap@3.3.7" data-semver="3.3.7" 
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-    <!-- Bootstrap Select JS -->
-    <!--<script data-require="bootstrap-select@1.13.9" data-semver="1.13.9" 
+		<!-- Bootstrap Select JS -->
+		<!--<script data-require="bootstrap-select@1.13.9" data-semver="1.13.9" 
             src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>-->
-    <!-- Angularjs -->
-    <!--
+		<!-- Angularjs -->
+		<!--
     <script data-require="angular.js@1.4.9" data-semver="1.4.9" 
             src="https://code.angularjs.org/1.4.9/angular.js"></script>-->
-    <!-- Angular-ui-bootstrap -->
-    <!--<script data-require="angular-ui-bootstrap@*" data-semver="1.3.3" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.js"></script>-->
-    <!--<script data-require="angular-ui-bootstrap@1.3.3" data-semver="1.3.3" 
+		<!-- Angular-ui-bootstrap -->
+		<!--<script data-require="angular-ui-bootstrap@*" data-semver="1.3.3" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.js"></script>-->
+		<!--<script data-require="angular-ui-bootstrap@1.3.3" data-semver="1.3.3" 
             src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>-->
 
-    <!-- Development scripts -->
-    <script src="lib/jquery/dist/jquery.min.js"></script>    
-    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+		<!-- Development scripts -->
+		<script src="lib/jquery/dist/jquery.min.js"></script>
+		<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+		<script src="lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
+		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 
-    <!-- Angularjs root module -->
-    <script src="script.js"></script>
-    <!-- angularjs scripts -->
-    <script src="js/globalFunctions.js"></script>
-    <script src="js/parentController.js"></script>
-    <!-- Authentication scripts -->
-    <script src="js/Authentication/auth.js"></script>
-    <script src="js/Authentication/authInterceptor.js"></script>
-    <script src="js/Authentication/login.js"></script>
-    <script src="js/Authentication/session.js"></script>
-    <!-- RoadDirectory scripts -->
-    <script src="js/RoadDirectory/roadDirectory.js"></script>
-    <script src="js/RoadDirectory/roadUpdate.js"></script>
-  
-  </body>
-
+		<!-- Angularjs root module -->
+		<script src="script.js"></script>
+		<!-- angularjs scripts -->
+		<script src="js/globalFunctions.js"></script>
+		<script src="js/parentController.js"></script>
+		<!-- Authentication scripts -->
+		<script src="js/Authentication/auth.js"></script>
+		<script src="js/Authentication/authInterceptor.js"></script>
+		<script src="js/Authentication/login.js"></script>
+		<script src="js/Authentication/session.js"></script>
+		<!-- RoadDirectory scripts -->
+		<script src="js/RoadDirectory/roadDirectory.js"></script>
+	</body>
 </html>
