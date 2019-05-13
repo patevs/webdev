@@ -6,7 +6,7 @@
 
 angular
 	.module("trackrApp")
-	.controller("RoadDirCtrl", function($scope, $http, $uibModal, $log) {
+	.controller("RoadDirCtrl", function($scope, $http, $uibModal, $log, $timeout) {
 		// view model
 		var vm = this;
 		vm.scope = $scope;
@@ -15,7 +15,7 @@ angular
 		vm.scope.roadSelectPicker = angular.element("#selectRoad").selectpicker();
 
 		/**
-		 * Updates the local road diectory list using
+		 * Updates the local road directory list using
 		 * get request for road data from the server
 		 */
 		let updateRoadDirectory = function() {
@@ -64,8 +64,8 @@ angular
 			vm.scope.roadSelectPicker.html(selectRoadOptions).selectpicker("refresh");
 		};
 
-		// update the road directory
-		vm.scope.allRoads = updateRoadDirectory();
+		// update the local road directory
+		updateRoadDirectory();
 
 		// road directory select picker on change event
 		vm.scope.roadSelectPicker.on("changed.bs.select", function() {
@@ -176,8 +176,7 @@ angular
 			modalInstance.result.then(
 				function() {
 					$log.info("Modal dismissed at: " + new Date());
-					//vm.scope.
-					updateRoadDirectory();
+					//$timeout(updateRoadDirectory(), 2000);
 				},
 				function() {
 					$log.info("Modal dismissed at: " + new Date());
@@ -199,8 +198,6 @@ angular
 			modalInstance.result.then(
 				function() {
 					$log.info("Modal dismissed at: " + new Date());
-					//vm.scope.
-					updateRoadDirectory();
 				},
 				function() {
 					$log.info("Modal dismissed at: " + new Date());
@@ -258,7 +255,7 @@ angular
 			$log.info("Opening creating new road modal...");
 			vm.scope.openNewRoadModal();
 			// TODO: wait some time before update
-			vm.scope.allRoads = updateRoadDirectory();
+			//$timeout(updateRoadDirectory(), 3000);
 		};
 	})
 	.controller("UpdateRoadModalInstanceCtrl", function(
@@ -291,7 +288,6 @@ angular
 					$log.log("object data: " + object);
 				},
 				function errorCall() {
-					//vm.scope.feedback = "Error updating road";
 					$log.error("Error updating road");
 				}
 			);
@@ -350,7 +346,6 @@ angular
 
 		// update road via api post request to server
 		const UPDATE_ROAD_TARGET = "https://track.sim.vuw.ac.nz/api/evanspatr/update.road.json";
-		//var object = null;
 
 		// send new road data to server
 		vm.scope.addNewRoad = function(data) {
@@ -360,7 +355,6 @@ angular
 					$log.log("object data: " + object);
 				},
 				function errorCall() {
-					//vm.scope.feedback = "Error updating road";
 					$log.error("Error updating road");
 				}
 			);
