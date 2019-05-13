@@ -78,31 +78,16 @@ angular
 			}
 		});
 
-		// search road called on submit
-		vm.scope.searchRoad = function() {
-			// get road info panel element
-			let roadInfoPanel = angular.element("#road-info");
-			let selectedRoadID = _roadSelectPicker.val();
-			// show road info panel
-			if (selectedRoadID !== "") {
-				roadInfoPanel.removeClass("ng-hide");
-			}
-			// get road information
-			let road;
-			for (let i = 0; i < vm.scope.allRoads.length; i++) {
-				let currentRoad = vm.scope.allRoads[i];
-				let roadID = currentRoad.ID;
-				if (roadID === selectedRoadID) {
-					road = currentRoad;
-				}
-			}
+		// get road info data element
+		let roadInfoTable = angular.element("#road-info-table");
 
-			// get road info data element
-			let roadInfoTable = angular.element("#road-info-table");
-
-			// destroy old table
+		let _clearRoadInfo = function() {
 			roadInfoTable.bootstrapTable("destroy");
+		};
 
+		let _displayRoadInfo = function(roadData) {
+			// clear old table
+			_clearRoadInfo();
 			// create bootstrap table
 			roadInfoTable.bootstrapTable({
 				columns: [
@@ -133,15 +118,37 @@ angular
 				],
 				data: [
 					{
-						id: road.ID,
-						code: road.Code,
-						type: road.Type,
-						section: road.Section,
-						location: road.Location,
-						gps: road.GPS
+						id: roadData.ID,
+						code: roadData.Code,
+						type: roadData.Type,
+						section: roadData.Section,
+						location: roadData.Location,
+						gps: roadData.GPS
 					}
 				]
 			});
+		};
+
+		// search road called on submit
+		vm.scope.searchRoad = function() {
+			// get road info panel element
+			let roadInfoPanel = angular.element("#road-info");
+			let selectedRoadID = _roadSelectPicker.val();
+			// show road info panel
+			if (selectedRoadID !== "") {
+				roadInfoPanel.removeClass("ng-hide");
+			}
+			// get road information
+			let road;
+			for (let i = 0; i < vm.scope.allRoads.length; i++) {
+				let currentRoad = vm.scope.allRoads[i];
+				let roadID = currentRoad.ID;
+				if (roadID === selectedRoadID) {
+					road = currentRoad;
+				}
+			}
+
+			_displayRoadInfo(road);
 		};
 
 		// open create new road modal
