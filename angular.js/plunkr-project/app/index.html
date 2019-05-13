@@ -146,12 +146,22 @@
     <br />
     -->
 
-		<!-- Road Directory -->
-		<div class="container text-center" ng-if="currentUser" ng-controller="RoadDirCtrl">
+		<!-- Road Directory ng-controller="RoadDirCtrl" -->
+		<div class="container text-center" ng-if="currentUser" ng-controller="GETroadDirCtrl">
 			<div class="col-xs-0 col-sm-2"></div>
 			<div class="well col-xs-12 col-sm-8">
 				<h4><strong>ROAD DIRECTORY</strong></h4>
 				<h6>Select a road to view more information:</h6>
+				<!-- Road Directory error -->
+				<span id="selectRoadError" class="ng-hide">
+					<div class="alert alert-warning alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<strong>WARNING!</strong> No valid roads were returned by the server.
+					</div>
+				</span>
+				<!-- road directory select picker -->
 				<select
 					id="selectRoad"
 					class="show-tick"
@@ -163,6 +173,28 @@
 				>
 				</select>
 				<br />
+				<!-- update road directory button -->
+				<button
+					id="btn-update-roads"
+					type="button"
+					class="btn btn-info road-manager-option"
+					ng-click="updateRoadDir()"
+				>
+					<strong>UPDATE </strong
+					><span class="glyphicon glyphicon-search" style="margin-left: 0.5em;"></span>
+				</button>
+				<!-- create new road button -->
+				<button
+					type="button"
+					class="btn btn-success road-manager-option"
+					ng-controller="UpdateRoadCtrl"
+					ng-click="createNewRoad()"
+				>
+					<strong>NEW </strong>
+					<span class="glyphicon glyphicon-plus-sign" style="margin-left: 0.5em"></span>
+				</button>
+				<!--
+				<br />
 				<button
 					id="btn-search-road"
 					type="button"
@@ -172,7 +204,7 @@
 					<strong>SELECT </strong
 					><span class="glyphicon glyphicon-search" style="margin-left: 0.5em"></span>
 				</button>
-
+				-->
 				<!-- Road Info Panel -->
 				<div id="road-info" class="ng-hide col-xs-12">
 					<br />
@@ -181,9 +213,11 @@
 						<table id="road-info-table"></table>
 					</div>
 				</div>
+
 				<!-- END of RoadInfoPanel -->
 
 				<!-- Manager Options -->
+				<!--
 				<div class="container-fluid" ng-if="currentUser.userRole === 'manager'">
 					<p style="margin-top: 1em; margin-bottom: 1em"><strong>MANAGER OPTIONS</strong></p>
 					<div class="row text-center">
@@ -216,9 +250,8 @@
 						</button>
 					</div>
 				</div>
+				-->
 				<!-- END of ManagerOptions -->
-
-				<br />
 			</div>
 		</div>
 		<!-- END of RoadDirectory -->
@@ -323,6 +356,9 @@
 		<script src="js/Authentication/login.js"></script>
 		<script src="js/Authentication/session.js"></script>
 		<!-- RoadDirectory scripts -->
+		<script src="js/RoadDirectory/getRoadDir.js"></script>
+		<script src="js/RoadDirectory/newRoad.js"></script>
+		<!--
 		<script src="js/RoadDirectory/roadDirectory.js"></script>
-	</body>
+		--></body>
 </html>

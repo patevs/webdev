@@ -10,7 +10,7 @@ angular
 		// view model
 		var vm = this;
 		vm.scope = $scope;
-		vm.scope.UID = 0;
+
 		// initialize road directory select picker element
 		let _roadSelectPicker = angular.element("#selectRoad").selectpicker();
 

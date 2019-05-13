@@ -1,7 +1,7 @@
 
 # Plunkr-Project
 
-> 10/05/2019
+> 14/05/2019
 
 ----
 
@@ -12,15 +12,19 @@
 
 ## Documentation
 
-* [Bootstrap 3](https://getbootstrap.com/docs/3.3/)
+* [`JavaScript Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
+### External Libraries
+
+* [`bootstrap3`](https://getbootstrap.com/docs/3.3/)
   * [Components](https://getbootstrap.com/docs/3.3/components/)
 
-* [Bootstrap-Select](https://github.com/snapappointments/bootstrap-select)
+* [`bootstrap-select`](https://github.com/snapappointments/bootstrap-select)
   * [Documentation](https://developer.snapappointments.com/bootstrap-select/)
 
-* [Bootstrap-Table](https://github.com/wenzhixin/bootstrap-table)
+* [`bootstrap-table`](https://github.com/wenzhixin/bootstrap-table)
   * [Documentation](https://bootstrap-table.com/docs/getting-started/introduction/)
 
-* [Angular UI Bootstrap](https://angular-ui.github.io/bootstrap/)
+* [`angular-ui-bootstrap`](https://angular-ui.github.io/bootstrap/)
 
 ----
