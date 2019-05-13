@@ -12,7 +12,8 @@ angular
 		vm.scope = $scope;
 
 		// initialize road directory select picker element
-		vm.scope.roadSelectPicker = angular.element("#selectRoad").selectpicker();
+		// TODO: remove this from scope
+		let _roadSelectPicker = angular.element("#selectRoad").selectpicker();
 
 		/**
 		 * Updates the local road directory list using
@@ -35,7 +36,6 @@ angular
 				},
 				function errorCall() {
 					$log.error("Error reading road directory list from server");
-					//vm.scope.feedback = "Error reading road directory list.";
 				}
 			);
 		};
@@ -54,6 +54,7 @@ angular
 			var selectRoadOptions = "";
 			// iterate over all roads
 			for (var i = 0; i < vm.scope.numRoads; i++) {
+				// TODO: check road id is not null
 				var road = vm.scope.allRoads[i];
 				$log.log(road);
 				let roadID = road.ID;
@@ -61,16 +62,17 @@ angular
 				selectRoadOptions += "<option value=" + roadID + ">" + roadLocation + "</option>";
 			}
 			// add all options to select picker
-			vm.scope.roadSelectPicker.html(selectRoadOptions).selectpicker("refresh");
+			_roadSelectPicker.html(selectRoadOptions).selectpicker("refresh");
 		};
 
 		// update the local road directory
 		updateRoadDirectory();
 
 		// road directory select picker on change event
-		vm.scope.roadSelectPicker.on("changed.bs.select", function() {
+		// ! TODO: fix this method to not show roads with error values
+		_roadSelectPicker.on("changed.bs.select", function() {
 			// update selected road
-			vm.scope.selectedRoadID = vm.scope.roadSelectPicker.val();
+			vm.scope.selectedRoadID = _roadSelectPicker.val();
 			$log.log("Selected road id: " + vm.scope.selectedRoadID);
 
 			// iterate over all roads
@@ -160,31 +162,8 @@ angular
 			});
 		};
 
-		// open update road modal
-		vm.scope.openUpdateRoadModal = function() {
-			var selectedRoad = vm.scope.allRoads[vm.scope.selectedRoadIndex];
-			$log.log("updating road: " + selectedRoad.Location);
-			var modalInstance = $uibModal.open({
-				templateUrl: "partials/updateRoadModal.html",
-				controller: "UpdateRoadModalInstanceCtrl",
-				resolve: {
-					selectedRoad: function() {
-						return selectedRoad;
-					}
-				}
-			});
-			modalInstance.result.then(
-				function() {
-					$log.info("Modal dismissed at: " + new Date());
-					//$timeout(updateRoadDirectory(), 2000);
-				},
-				function() {
-					$log.info("Modal dismissed at: " + new Date());
-				}
-			);
-		};
-
 		// open create new road modal
+		// TODO: remove this and generically use update road function
 		vm.scope.openNewRoadModal = function() {
 			var modalInstance = $uibModal.open({
 				templateUrl: "partials/newRoadModal.html",
@@ -213,27 +192,57 @@ angular
 		 *******************/
 
 		/**
+		 * helper function used to send a delete request
+		 * 	to server to archive a road with the given id.
+		 * @param { road id to archive } roadID
+		 */
+		let _archiveRoad = function(roadID) {
+			// delete road target url
+			let target = "https://track.sim.vuw.ac.nz/api/evanspatr/delete.road." + roadID + ".json";
+			// road delete request
+			$http.delete(target).then(
+				function sucessCall(response) {
+					var object = response.data;
+					$log.log("Sucessfully deleted road id: " + roadID + "\n" + object);
+				},
+				function errorCall() {
+					$log.error("Error deleting road id: " + roadID);
+				}
+			);
+		};
+
+		/**
+		 *
+		 */
+		let _openUpdateRoadModal = function() {
+			// get currently selected road
+			var selectedRoad = vm.scope.allRoads[vm.scope.selectedRoadIndex];
+			$log.log("updating road: " + selectedRoad.Location);
+			var modalInstance = $uibModal.open({
+				templateUrl: "partials/updateRoadModal.html",
+				controller: "UpdateRoadModalInstanceCtrl",
+				resolve: {
+					selectedRoad: function() {
+						return selectedRoad;
+					}
+				}
+			});
+			modalInstance.result.then(
+				function() {
+					$log.info("Modal dismissed at: " + new Date());
+				},
+				function() {
+					$log.info("Modal dismissed at: " + new Date());
+				}
+			);
+		};
+
+		/**
 		 * Archive the currently selected road
 		 */
 		vm.scope.archiveSelectedRoad = function() {
-			// delete road target url
-			const DELETE_ROAD_TARGET =
-				"https://track.sim.vuw.ac.nz/api/evanspatr/delete.road." +
-				vm.scope.selectedRoadID +
-				".json";
-			$log.info("Archiving selected road... road id: " + vm.scope.selectedRoadID);
-			// road delete request
-			$http.delete(DELETE_ROAD_TARGET).then(
-				function sucessCall(response) {
-					var object = response.data;
-					$log.log("object data: " + object);
-					updateRoadDirectory();
-				},
-				function errorCall() {
-					$log.error("Error deleting road");
-					//vm.scope.feedback = "Error deleting road.";
-				}
-			);
+			var roadID = vm.scope.selectedRoadID;
+			_archiveRoad(roadID);
 		};
 
 		/**
@@ -242,7 +251,7 @@ angular
 		 */
 		vm.scope.updateSelectedRoad = function() {
 			$log.info("Updating selected road...");
-			vm.scope.openUpdateRoadModal();
+			_openUpdateRoadModal();
 		};
 
 		/**
