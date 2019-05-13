@@ -10,7 +10,7 @@ angular
 		// view model
 		var vm = this;
 		vm.scope = $scope;
-
+		vm.scope.UID = 0;
 		// initialize road directory select picker element
 		let _roadSelectPicker = angular.element("#selectRoad").selectpicker();
 
@@ -65,24 +65,12 @@ angular
 		// update the local road directory
 		updateRoadDirectory();
 
-		// road directory select picker on change event
-		// ! TODO: fix this method to not show roads with error values
-		_roadSelectPicker.on("changed.bs.select", function() {
-			// update selected road
-			let selectedRoadID = _roadSelectPicker.val();
-			$log.log("Selected road value: " + selectedRoadID);
-			// show search button
-			var btnSearchRoad = angular.element("#btn-search-road");
-			if (selectedRoadID !== "") {
-				btnSearchRoad.removeClass("ng-hide");
-			}
-		});
-
 		// get road info data element
 		let roadInfoTable = angular.element("#road-info-table");
 
 		let _clearRoadInfo = function() {
 			roadInfoTable.bootstrapTable("destroy");
+			//roadInfoPanel.addClass("ng-hide");
 		};
 
 		let _displayRoadInfo = function(roadData) {
@@ -129,13 +117,29 @@ angular
 			});
 		};
 
+		// show search button
+		var btnSearchRoad = angular.element("#btn-search-road");
+
+		// road directory select picker on change event
+		// ! TODO: fix this method to not show roads with error values
+		_roadSelectPicker.on("changed.bs.select", function() {
+			// update selected road
+			let selectedRoadID = _roadSelectPicker.val();
+			$log.log("Selected road value: " + selectedRoadID);
+			if (selectedRoadID !== "") {
+				btnSearchRoad.removeClass("ng-hide");
+			}
+			_clearRoadInfo();
+		});
+
+		// get road info panel element
+		let roadInfoPanel = angular.element("#road-info");
 		// search road called on submit
 		vm.scope.searchRoad = function() {
-			// get road info panel element
-			let roadInfoPanel = angular.element("#road-info");
 			let selectedRoadID = _roadSelectPicker.val();
 			// show road info panel
 			if (selectedRoadID !== "") {
+				btnSearchRoad.addClass("ng-hide");
 				roadInfoPanel.removeClass("ng-hide");
 			}
 			// get road information
@@ -166,10 +170,11 @@ angular
 			modalInstance.result.then(
 				function() {
 					$log.log("Modal dismissed at: " + new Date());
-					//updateRoadDirectory();
+					updateRoadDirectory();
 				},
 				function() {
 					$log.warn("Modal dismissed at: " + new Date());
+					updateRoadDirectory();
 				}
 			);
 		};
@@ -195,6 +200,7 @@ angular
 					var object = response.data;
 					$log.log("Sucessfully deleted road id: " + roadID + "\n" + object);
 					updateRoadDirectory();
+					_clearRoadInfo();
 				},
 				function errorCall() {
 					$log.error("Error deleting road id: " + roadID);
@@ -206,15 +212,12 @@ angular
 		 *
 		 */
 		let _openUpdateRoadModal = function(oldRoadData) {
-			// get currently selected road
-			var selectedRoad = oldRoadData;
-			$log.log("updating road: " + selectedRoad.Location);
 			var modalInstance = $uibModal.open({
 				templateUrl: "partials/updateRoadModal.html",
 				controller: "UpdateRoadModalInstanceCtrl",
 				resolve: {
 					selectedRoad: function() {
-						return selectedRoad;
+						return oldRoadData; // TODO: implement
 					}
 				}
 			});
@@ -225,6 +228,7 @@ angular
 				},
 				function() {
 					$log.info("Modal dismissed at: " + new Date());
+					updateRoadDirectory();
 				}
 			);
 		};
@@ -235,6 +239,7 @@ angular
 		vm.scope.archiveSelectedRoad = function() {
 			//var roadID = vm.scope.selectedRoadID;
 			let selectedRoadID = _roadSelectPicker.val();
+			$log.info("Archiving selected road... " + selectedRoadID);
 			_archiveRoad(selectedRoadID);
 		};
 
@@ -244,7 +249,8 @@ angular
 		 */
 		vm.scope.updateSelectedRoad = function() {
 			$log.info("Updating selected road...");
-			_openUpdateRoadModal();
+			let selectedRoadID = _roadSelectPicker.val();
+			_openUpdateRoadModal(selectedRoadID);
 		};
 
 		/**
@@ -283,7 +289,7 @@ angular
 		const UPDATE_ROAD_TARGET = "https://track.sim.vuw.ac.nz/api/evanspatr/update.road.json";
 
 		// send new road data to server
-		vm.scope.addNewRoad = function(data) {
+		vm.scope.updateRoad = function(data) {
 			$http.post(UPDATE_ROAD_TARGET, data).then(
 				function sucessCall(response) {
 					var object = response.data;
@@ -318,7 +324,7 @@ angular
 				Location: vm.scope.data.location,
 				GPS: vm.scope.data.gps
 			};
-			vm.scope.addNewRoad(roadData);
+			vm.scope.updateRoad(roadData);
 			$uibModalInstance.close();
 		};
 
