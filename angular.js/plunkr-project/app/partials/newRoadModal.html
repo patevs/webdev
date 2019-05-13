@@ -2,106 +2,167 @@
 
 <!-- new road modal -->
 <div class="mainbox col-md-12">
-    
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h3 class="panel-title"><strong>CREATE A NEW ROAD</strong></h3>
-    </div>
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h3 class="panel-title"><strong>CREATE A NEW ROAD</strong></h3>
+		</div>
 
-    <div style="padding-top: 1em" class="panel-body">
+		<div style="padding-top: 1em" class="panel-body">
+			<form
+				name="newRoadForm"
+				class="form-horizontal"
+				method="post"
+				ng-submit="submit()"
+				novalidate
+				form-autofill-fix
+			>
+				<!-- road id form input -->
+				<div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
+					<span class="input-group-addon" id="basic-addon1">ID: </span>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="{{ newIndex }}"
+						name="id"
+						ng-model="data.id"
+						aria-describedby="basic-addon1"
+						readonly
+					/>
+				</div>
 
-        <form 
-            name="newRoadForm" 
-            class="form-horizontal" 
-            method="post"
-            ng-submit="submit()" 
-            novalidate form-autofill-fix
-        >
-            <!-- road id form input -->
-            <div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
-                <span class="input-group-addon" id="basic-addon1">ID: </span>
-                <input 
-                    type="text" class="form-control" 
-                    placeholder="{{newIndex}}" name="id" ng-model="data.id"
-                    aria-describedby="basic-addon1" readonly>
-            </div>
+				<!-- road code form input -->
+				<div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
+					<span class="input-group-addon" id="basic-addon2">Code: </span>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Code"
+						name="code"
+						ng-model="data.code"
+						aria-describedby="basic-addon2"
+						required
+					/>
+				</div>
+				<div
+					style="margin-top: .5em; margin-left: 10vw;"
+					class="error"
+					ng-show="(submitted || newRoadForm.code.$dirty) && newRoadForm.code.$invalid"
+				>
+					<p class="error" ng-show="newRoadForm.code.$error.required" style="color: red">
+						'Code' is mandatory
+					</p>
+				</div>
 
-            <!-- road code form input -->
-            <div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
-                <span class="input-group-addon" id="basic-addon2">Code: </span>
-                <input 
-                    type="text" class="form-control" 
-                    placeholder="Code" name="code" ng-model="data.code" 
-                    aria-describedby="basic-addon2" required>
-            </div>
-            <div style="margin-top: .5em; margin-left: 10vw;" class="error"
-                ng-show="(submitted || newRoadForm.code.$dirty) && newRoadForm.code.$invalid">
-                <p class="error" ng-show="newRoadForm.code.$error.required" style="color: red">'Code' is mandatory</p>
-            </div>
+				<!-- road type form input -->
+				<div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
+					<span class="input-group-addon" id="basic-addon3">Type: </span>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Type"
+						name="type"
+						ng-model="data.type"
+						aria-describedby="basic-addon3"
+						required
+					/>
+				</div>
+				<div
+					style="margin-top: .5em; margin-left: 10vw;"
+					class="error"
+					ng-show="(submitted || newRoadForm.type.$dirty) && newRoadForm.type.$invalid"
+				>
+					<p class="error" ng-show="newRoadForm.type.$error.required" style="color: red">
+						'Type' is mandatory
+					</p>
+				</div>
 
-            <!-- road type form input -->
-            <div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Type: </span>
-                <input 
-                    type="text" class="form-control" 
-                    placeholder="Type" name="type" ng-model="data.type" 
-                    aria-describedby="basic-addon3" required>
-            </div>
-            <div style="margin-top: .5em; margin-left: 10vw;" class="error"
-                ng-show="(submitted || newRoadForm.type.$dirty) && newRoadForm.type.$invalid">
-                <p class="error" ng-show="newRoadForm.type.$error.required" style="color: red">'Type' is mandatory</p>
-            </div>
+				<!-- road section form input -->
+				<div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
+					<span class="input-group-addon" id="basic-addon4">Section: </span>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Section"
+						name="section"
+						ng-model="data.section"
+						aria-describedby="basic-addon4"
+						required
+					/>
+				</div>
+				<div
+					style="margin-top: .5em; margin-left: 10vw;"
+					class="error"
+					ng-show="(submitted || newRoadForm.section.$dirty) && newRoadForm.section.$invalid"
+				>
+					<p class="error" ng-show="newRoadForm.section.$error.required" style="color: red">
+						'Section' is mandatory
+					</p>
+				</div>
 
-            <!-- road section form input -->
-            <!--
-            <div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
-                <span class="input-group-addon" id="basic-addon4">Section: </span>
-                <input type="text" class="form-control" placeholder="Section" aria-describedby="basic-addon4" required>
-            </div>
-            -->
+				<!-- road location form input -->
+				<div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
+					<span class="input-group-addon" id="basic-addon5">Location: </span>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Location"
+						name="location"
+						ng-model="data.location"
+						aria-describedby="basic-addon5"
+						required
+					/>
+				</div>
+				<div
+					style="margin-top: .5em; margin-left: 10vw;"
+					class="error"
+					ng-show="(submitted || newRoadForm.location.$dirty) && newRoadForm.location.$invalid"
+				>
+					<p class="error" ng-show="newRoadForm.location.$error.required" style="color: red">
+						'Location' is mandatory
+					</p>
+				</div>
 
-            <!-- road location form input -->
-            <div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
-                <span class="input-group-addon" id="basic-addon5">Location: </span>
-                <input 
-                    type="text" class="form-control" 
-                    placeholder="Location" name="location" ng-model="data.location" 
-                    aria-describedby="basic-addon5" required>
-            </div>
-            <div style="margin-top: .5em; margin-left: 10vw;" class="error"
-                ng-show="(submitted || newRoadForm.location.$dirty) && newRoadForm.location.$invalid">
-                <p class="error" ng-show="newRoadForm.location.$error.required" style="color: red">'Location' is mandatory</p>
-            </div>
+				<!-- road gps form input -->
+				<div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
+					<span class="input-group-addon" id="basic-addon6">GPS: </span>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="GPS"
+						name="gps"
+						ng-model="data.gps"
+						aria-describedby="basic-addon6"
+						required
+					/>
+				</div>
+				<div
+					style="margin-top: .5em; margin-left: 10vw;"
+					class="error"
+					ng-show="(submitted || newRoadForm.gps.$dirty) && newRoadForm.gps.$invalid"
+				>
+					<p class="error" ng-show="newRoadForm.gps.$error.required" style="color: red">
+						'GPS' is mandatory
+					</p>
+				</div>
 
-            <!-- road gps form input -->
-            <!--
-            <div style="margin-top: 1em; margin-left: 5vw; margin-right: 5vw" class="input-group">
-                <span class="input-group-addon" id="basic-addon6">GPS: </span>
-                <input type="text" class="form-control" placeholder="GPS" aria-describedby="basic-addon6" required>
-            </div>
-            -->
-
-            <div style="margin-top: 2em" class="form-group">
-                <!-- Submit Button -->
-                <div class="col-sm-12 controls">
-                    <!--
+				<div style="margin-top: 2em" class="form-group">
+					<!-- Submit Button -->
+					<div class="col-sm-12 controls">
+						<!--
                     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
                     <button class="btn btn-primary" type="button" ng-click="ok()">Submit</button>
                     -->
-                    <input
-                        style="float: right; margin-right: 5vw" 
-                        type="submit" class="btn btn-success" value="SUBMIT" />
-                </div>
-            </div>
-
-        </form>
-
-    </div>
-
+						<input
+							style="float: right; margin-right: 5vw"
+							type="submit"
+							class="btn btn-success"
+							value="SUBMIT"
+						/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
-
-</div>
-
 
 <!-- EOF -->
-

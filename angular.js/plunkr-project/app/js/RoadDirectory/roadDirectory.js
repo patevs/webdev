@@ -205,7 +205,6 @@ angular
 				function sucessCall(response) {
 					var object = response.data;
 					$log.log("object data: " + object);
-					//vm.scope.
 					updateRoadDirectory();
 				},
 				function errorCall() {
@@ -232,6 +231,8 @@ angular
 		vm.scope.createNewRoad = function() {
 			$log.info("Opening creating new road modal...");
 			vm.scope.openNewRoadModal();
+			// TODO: wait some time before update
+			vm.scope.allRoads = updateRoadDirectory();
 		};
 	})
 	.controller("NewRoadModalInstanceCtrl", function(
@@ -245,6 +246,7 @@ angular
 		var vm = this;
 		vm.scope = $scope;
 
+		// new road data
 		vm.scope.data = {};
 		vm.scope.newRoadForm = {};
 		vm.scope.error = false;
@@ -288,20 +290,22 @@ angular
 			let roadID = vm.scope.newIndex;
 			let roadCode = vm.scope.data.code;
 			let roadType = vm.scope.data.type;
+			let roadSection = vm.scope.data.section;
 			let roadLocation = vm.scope.data.location;
+			let roadGPS = vm.scope.data.GPS;
 			let roadData = {
 				ID: roadID,
 				Code: roadCode,
 				Type: roadType,
-				Section: roadLocation,
+				Section: roadSection,
 				Location: roadLocation,
-				GPS: roadLocation
+				GPS: roadGPS
 			};
 			$log.info(
 				"id: " + roadID + " code: " + roadCode + " type: " + roadType + " location: " + roadLocation
 			);
-			$uibModalInstance.close();
 			vm.scope.addNewRoad(roadData);
+			$uibModalInstance.close();
 		};
 
 		vm.scope.cancel = function() {
