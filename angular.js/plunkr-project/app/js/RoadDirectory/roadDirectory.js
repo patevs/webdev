@@ -11,53 +11,61 @@ angular
 		var vm = this;
 		vm.scope = $scope;
 
-		// currently selected road
-		vm.scope.selectedRoad = undefined;
+		// initialize road directory select picker element
+		vm.scope.roadSelectPicker = angular.element("#selectRoad").selectpicker();
 
-		// get road directory select picker element
-		vm.scope.roadSelectPicker = angular.element("#selectRoad");
-		// initialize select picker element
-		//vm.scope.roadSelectPicker.selectpicker();
-
-		//Get list of roads via api request to server
-		const ROAD_DIR_TARGET = "https://track.sim.vuw.ac.nz/api/evanspatr/road_dir.json";
-		var object = null;
-
-		// update road directory list
-		vm.scope.updateRoadDirectory = function() {
-			$log.info("Updating road directory...");
-			// road directory list get request
+		/**
+		 * Updates the local road diectory list using
+		 * get request for road data from the server
+		 */
+		let updateRoadDirectory = function() {
+			//Get list of roads via api request to server
+			const ROAD_DIR_TARGET = "https://track.sim.vuw.ac.nz/api/evanspatr/road_dir.json";
+			// response object to store data returned from server
+			var object = null;
+			// make get request for road directory list
 			$http.get(ROAD_DIR_TARGET).then(
 				function sucessCall(response) {
 					// get json response data
 					object = response.data;
 					// json object containing all roads
-					vm.scope.allRoads = object.Roads;
-					// total number of roads
-					vm.scope.numRoads = vm.scope.allRoads.length;
-					$log.info("Successfully retrived road list\nNumber of roads: " + vm.scope.numRoads);
-					// select picker options
-					var selectRoadOptions = "";
-					// iterate over all roads
-					for (var i = 0; i < vm.scope.numRoads; i++) {
-						var road = vm.scope.allRoads[i];
-						$log.log(road);
-						let roadID = road.ID;
-						let roadLocation = road.Location;
-						selectRoadOptions += "<option value=" + roadID + ">" + roadLocation + "</option>";
-					}
-					// add all options to select picker
-					vm.scope.roadSelectPicker.html(selectRoadOptions).selectpicker("refresh");
+					var allRoads = object.Roads;
+					// update road directory with road data
+					_updateRoads(allRoads);
 				},
 				function errorCall() {
-					$log.error("Error reading road directory list");
+					$log.error("Error reading road directory list from server");
 					//vm.scope.feedback = "Error reading road directory list.";
 				}
 			);
 		};
+		/**
+		 * Helper function used to update the road directory
+		 * select picker element with the road data returned
+		 * from the server
+		 */
+		let _updateRoads = function(roadData) {
+			// json object containing all roads
+			vm.scope.allRoads = roadData;
+			// total number of roads
+			vm.scope.numRoads = vm.scope.allRoads.length;
+			$log.info("Successfully retrived road list\nNumber of roads: " + vm.scope.numRoads);
+			// select picker options
+			var selectRoadOptions = "";
+			// iterate over all roads
+			for (var i = 0; i < vm.scope.numRoads; i++) {
+				var road = vm.scope.allRoads[i];
+				$log.log(road);
+				let roadID = road.ID;
+				let roadLocation = road.Location;
+				selectRoadOptions += "<option value=" + roadID + ">" + roadLocation + "</option>";
+			}
+			// add all options to select picker
+			vm.scope.roadSelectPicker.html(selectRoadOptions).selectpicker("refresh");
+		};
 
 		// update the road directory
-		vm.scope.updateRoadDirectory();
+		vm.scope.allRoads = updateRoadDirectory();
 
 		// road directory select picker on change event
 		vm.scope.roadSelectPicker.on("changed.bs.select", function() {
@@ -67,6 +75,7 @@ angular
 
 			// iterate over all roads
 			for (let i = 0; i < vm.scope.numRoads; i++) {
+				// !BUG cannot make delete request when ID is null
 				// TODO: get road index & fix error when ID is null
 				var road = vm.scope.allRoads[i];
 				var currentID = road.ID;
@@ -152,7 +161,7 @@ angular
 		};
 
 		// open create new road modal
-		vm.scope.open = function() {
+		vm.scope.openNewRoadModal = function() {
 			var modalInstance = $uibModal.open({
 				templateUrl: "partials/newRoadModal.html",
 				controller: "NewRoadModalInstanceCtrl",
@@ -165,7 +174,8 @@ angular
 			modalInstance.result.then(
 				function() {
 					$log.info("Modal dismissed at: " + new Date());
-					vm.scope.updateRoadDirectory();
+					//vm.scope.
+					updateRoadDirectory();
 				},
 				function() {
 					$log.info("Modal dismissed at: " + new Date());
@@ -173,13 +183,16 @@ angular
 			);
 		};
 
-		// create new road
-		vm.scope.createNewRoad = function() {
-			$log.info("Opening creating new road modal...");
-			vm.scope.open();
-		};
+		/*******************
+		 * MANAGER OPTIONS *
+		 * - archive       *
+		 * - update        *
+		 * - create new    *
+		 *******************/
 
-		// archive selected road
+		/**
+		 * Archive the currently selected road
+		 */
 		vm.scope.archiveSelectedRoad = function() {
 			// delete road target url
 			const DELETE_ROAD_TARGET =
@@ -190,9 +203,10 @@ angular
 			// road delete request
 			$http.delete(DELETE_ROAD_TARGET).then(
 				function sucessCall(response) {
-					object = response.data;
+					var object = response.data;
 					$log.log("object data: " + object);
-					vm.scope.updateRoadDirectory();
+					//vm.scope.
+					updateRoadDirectory();
 				},
 				function errorCall() {
 					$log.error("Error deleting road");
@@ -201,17 +215,31 @@ angular
 			);
 		};
 
-		// update selected road
+		/**
+		 * Update the currently selected road
+		 * TODO: implement this function
+		 */
 		vm.scope.updateSelectedRoad = function() {
 			$log.info("Updating selected road...");
+		};
+
+		/**
+		 * Create new road opens a create new road
+		 * modal element asking user for road data.
+		 * A new road will always be created with a
+		 * unique id.
+		 */
+		vm.scope.createNewRoad = function() {
+			$log.info("Opening creating new road modal...");
+			vm.scope.openNewRoadModal();
 		};
 	})
 	.controller("NewRoadModalInstanceCtrl", function(
 		$scope,
 		$http,
 		$uibModalInstance,
-		newRoadIndex,
-		$log
+		$log,
+		newRoadIndex
 	) {
 		// view modal
 		var vm = this;
@@ -226,13 +254,13 @@ angular
 
 		// update road via api post request to server
 		const UPDATE_ROAD_TARGET = "https://track.sim.vuw.ac.nz/api/evanspatr/update.road.json";
-		var object = null;
+		//var object = null;
 
 		// send new road data to server
 		vm.scope.addNewRoad = function(data) {
 			$http.post(UPDATE_ROAD_TARGET, data).then(
 				function sucessCall(response) {
-					object = response.data;
+					var object = response.data;
 					$log.log("object data: " + object);
 				},
 				function errorCall() {
