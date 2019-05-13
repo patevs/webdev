@@ -292,7 +292,7 @@ angular
 			let roadType = vm.scope.data.type;
 			let roadSection = vm.scope.data.section;
 			let roadLocation = vm.scope.data.location;
-			let roadGPS = vm.scope.data.GPS;
+			let roadGPS = vm.scope.data.gps;
 			let roadData = {
 				ID: roadID,
 				Code: roadCode,
