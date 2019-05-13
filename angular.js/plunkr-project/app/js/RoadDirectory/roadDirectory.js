@@ -160,6 +160,31 @@ angular
 			});
 		};
 
+		// open update road modal
+		vm.scope.openUpdateRoadModal = function() {
+			var selectedRoad = vm.scope.allRoads[vm.scope.selectedRoadIndex];
+			$log.log("updating road: " + selectedRoad.Location);
+			var modalInstance = $uibModal.open({
+				templateUrl: "partials/updateRoadModal.html",
+				controller: "UpdateRoadModalInstanceCtrl",
+				resolve: {
+					selectedRoad: function() {
+						return selectedRoad;
+					}
+				}
+			});
+			modalInstance.result.then(
+				function() {
+					$log.info("Modal dismissed at: " + new Date());
+					//vm.scope.
+					updateRoadDirectory();
+				},
+				function() {
+					$log.info("Modal dismissed at: " + new Date());
+				}
+			);
+		};
+
 		// open create new road modal
 		vm.scope.openNewRoadModal = function() {
 			var modalInstance = $uibModal.open({
@@ -220,6 +245,7 @@ angular
 		 */
 		vm.scope.updateSelectedRoad = function() {
 			$log.info("Updating selected road...");
+			vm.scope.openUpdateRoadModal();
 		};
 
 		/**
@@ -233,6 +259,74 @@ angular
 			vm.scope.openNewRoadModal();
 			// TODO: wait some time before update
 			vm.scope.allRoads = updateRoadDirectory();
+		};
+	})
+	.controller("UpdateRoadModalInstanceCtrl", function(
+		$scope,
+		$http,
+		$uibModalInstance,
+		$log,
+		selectedRoad
+	) {
+		// view modal
+		var vm = this;
+		vm.scope = $scope;
+
+		// new road data
+		vm.scope.data = {};
+		vm.scope.updateRoadForm = {};
+		vm.scope.error = false;
+
+		// old road data
+		vm.scope.road = selectedRoad;
+
+		// update road via api post request to server
+		const UPDATE_ROAD_TARGET = "https://track.sim.vuw.ac.nz/api/evanspatr/update.road.json";
+
+		// send new road data to server
+		vm.scope.addNewRoad = function(data) {
+			$http.post(UPDATE_ROAD_TARGET, data).then(
+				function sucessCall(response) {
+					var object = response.data;
+					$log.log("object data: " + object);
+				},
+				function errorCall() {
+					//vm.scope.feedback = "Error updating road";
+					$log.error("Error updating road");
+				}
+			);
+		};
+
+		//when the form is submitted
+		vm.scope.submit = function() {
+			vm.scope.submitted = true;
+			if (!vm.scope.updateRoadForm.$invalid) {
+				vm.scope.ok();
+			} else {
+				vm.scope.error = true;
+				return;
+			}
+		};
+
+		// valid form submission
+		vm.scope.ok = function() {
+			vm.scope.error = false;
+			// get submitted road data
+			let roadData = {
+				ID: vm.scope.road.ID,
+				Code: vm.scope.data.code,
+				Type: vm.scope.data.type,
+				Section: vm.scope.data.section,
+				Location: vm.scope.data.location,
+				GPS: vm.scope.data.gps
+			};
+			vm.scope.addNewRoad(roadData);
+			$uibModalInstance.close();
+		};
+
+		vm.scope.cancel = function() {
+			vm.scope.error = true;
+			$uibModalInstance.dismiss("cancel");
 		};
 	})
 	.controller("NewRoadModalInstanceCtrl", function(
