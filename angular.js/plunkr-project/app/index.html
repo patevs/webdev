@@ -181,7 +181,7 @@
 					ng-click="updateRoadDir()"
 				>
 					<strong>UPDATE </strong
-					><span class="glyphicon glyphicon-search" style="margin-left: 0.5em;"></span>
+					><span class="glyphicon glyphicon-circle-arrow-up" style="margin-left: 0.5em;"></span>
 				</button>
 				<!-- create new road button -->
 				<button
@@ -196,11 +196,12 @@
 				<button
 					id="btn-select-road"
 					type="button"
-					class="btn btn-success ng-hide"
+					class="btn btn-success ng-hide road-manager-option"
+					ng-controller="SelectRoadCtrl"
 					ng-click="selectRoad()"
 				>
 					<strong>SELECT </strong
-					><span class="glyphicon glyphicon-search" style="margin-left: 0.5em"></span>
+					><span class="glyphicon glyphicon-circle-arrow-right" style="margin-left: 0.5em"></span>
 				</button>
 				<!--
 				<br />
@@ -367,6 +368,7 @@
 		<!-- RoadDirectory scripts -->
 		<script src="js/RoadDirectory/getRoadDir.js"></script>
 		<script src="js/RoadDirectory/newRoad.js"></script>
+		<script src="js/RoadDirectory/selectRoad.js"></script>
 		<!--
 		<script src="js/RoadDirectory/roadDirectory.js"></script>
 		--></body>
