@@ -71,7 +71,7 @@ angular
 		vm.scope.error = false;
 
 		// index of new road
-		vm.scope.newIndex = newRoadIndex;
+		vm.scope.validID = newRoadIndex;
 
 		// update road via api post request to server
 		const UPDATE_ROAD_TARGET = "https://track.sim.vuw.ac.nz/api/evanspatr/update.road.json";
@@ -113,7 +113,7 @@ angular
 			vm.scope.error = false;
 			// get submitted road data
 			let roadData = {
-				ID: vm.scope.newIndex,
+				ID: vm.scope.data.ID,
 				Code: vm.scope.data.code,
 				Type: vm.scope.data.type,
 				Section: vm.scope.data.section,

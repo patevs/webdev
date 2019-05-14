@@ -14,12 +14,12 @@ angular.module("trackrApp").controller("SelectRoadCtrl", function($scope, $log) 
 	let vm = this;
 	vm.scope = $scope;
 
-	// get road info data element
-	let _roadInfoTable = angular.element("#road-info-table");
-	// show select road button
-	let _btnSelectRoad = angular.element("#btn-select-road");
 	// initialize road directory select picker element
 	let _roadSelectPicker = angular.element("#selectRoad").selectpicker();
+	// get road info data element
+	let _roadInfoTable = angular.element("#road-info-table");
+	// update road directory button element
+	let _btnUpdateRoads = angular.element("#btn-update-roads");
 
 	/* METHOD CALLS */
 	_roadSelectPicker.on("changed.bs.select", function() {
@@ -27,7 +27,8 @@ angular.module("trackrApp").controller("SelectRoadCtrl", function($scope, $log) 
 		let selectedRoadID = _roadSelectPicker.val();
 		$log.log("Selected road value: " + selectedRoadID);
 		if (selectedRoadID !== "") {
-			_btnSelectRoad.removeClass("ng-hide");
+			_btnUpdateRoads.removeClass("ng-hide");
+			//_btnUpdateRoads.addClass("ng-hide");
 		}
 	});
 
@@ -89,7 +90,7 @@ angular.module("trackrApp").controller("SelectRoadCtrl", function($scope, $log) 
 		});
 	};
 
-	vm.scope.selectRoad = function() {};
+	//vm.scope.selectRoad = function() {};
 });
 
 /* EOF */

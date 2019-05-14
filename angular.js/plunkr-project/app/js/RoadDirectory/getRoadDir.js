@@ -21,9 +21,7 @@ angular.module("trackrApp").controller("GETroadDirCtrl", function($scope, $http,
 	// road directory error alert element
 	let _roadSelectError = angular.element("#selectRoadError");
 	// update road directory button element
-	//let _btnUpdateRoads = angular.element("#btn-update-roads");
-	// show select road button
-	let _btnSelectRoad = angular.element("#btn-select-road");
+	let _btnUpdateRoads = angular.element("#btn-update-roads");
 
 	/* FUNCTIONS */
 
@@ -80,15 +78,13 @@ angular.module("trackrApp").controller("GETroadDirCtrl", function($scope, $http,
 						"\n Number of valid roads: " +
 						numValidRoads
 				);
-				// hide select button
-				_btnSelectRoad.addClass("ng-hide");
 				// display warning if no valid roads were retrieved from server
 				if (numValidRoads === 0) {
 					_roadSelectPicker.addClass("ng-hide").selectpicker("refresh");
 					_roadSelectError.removeClass("ng-hide");
 				} else {
 					_roadSelectPicker.removeClass("ng-hide").selectpicker("refresh");
-					//_btnUpdateRoads.addClass("ng-hide");
+					_btnUpdateRoads.addClass("ng-hide");
 				}
 			},
 			function errorCall() {

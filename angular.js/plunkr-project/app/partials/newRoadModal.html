@@ -22,12 +22,21 @@
 					<input
 						type="text"
 						class="form-control"
-						placeholder="{{ newIndex }}"
+						placeholder="{{ validID }}"
 						name="id"
-						ng-model="data.id"
+						ng-model="data.ID"
 						aria-describedby="basic-addon1"
-						readonly
+						required
 					/>
+				</div>
+				<div
+					style="margin-top: .5em; margin-left: 10vw;"
+					class="error"
+					ng-show="(submitted || newRoadForm.id.$dirty) && newRoadForm.id.$invalid"
+				>
+					<p class="error" ng-show="newRoadForm.id.$error.required" style="color: red">
+						'ID' is mandatory
+					</p>
 				</div>
 
 				<!-- road code form input -->
