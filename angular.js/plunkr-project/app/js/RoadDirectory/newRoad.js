@@ -60,6 +60,7 @@ angular
 		$log,
 		newRoadIndex
 	) {
+		/* FIELDS */
 		// view modal
 		var vm = this;
 		vm.scope = $scope;
@@ -75,18 +76,26 @@ angular
 		// update road via api post request to server
 		const UPDATE_ROAD_TARGET = "https://track.sim.vuw.ac.nz/api/evanspatr/update.road.json";
 
-		// send new road data to server
-		vm.scope.addNewRoad = function(data) {
+		/* FUNCTIONS */
+
+		/**
+		 * Send road data to server
+		 * @param {new road data} data
+		 */
+		let addNewRoad = function(data) {
 			$http.post(UPDATE_ROAD_TARGET, data).then(
 				function sucessCall(response) {
 					var object = response.data;
-					$log.log("object data: " + object);
+					// response is empty?
+					//$log.log("object data: " + object);
 				},
 				function errorCall() {
 					$log.error("Error updating road");
 				}
 			);
 		};
+
+		/* METHOD CALLS */
 
 		//when the form is submitted
 		vm.scope.submit = function() {
@@ -103,24 +112,15 @@ angular
 		vm.scope.ok = function() {
 			vm.scope.error = false;
 			// get submitted road data
-			let roadID = vm.scope.newIndex;
-			let roadCode = vm.scope.data.code;
-			let roadType = vm.scope.data.type;
-			let roadSection = vm.scope.data.section;
-			let roadLocation = vm.scope.data.location;
-			let roadGPS = vm.scope.data.gps;
 			let roadData = {
-				ID: roadID,
-				Code: roadCode,
-				Type: roadType,
-				Section: roadSection,
-				Location: roadLocation,
-				GPS: roadGPS
+				ID: vm.scope.newIndex,
+				Code: vm.scope.data.code,
+				Type: vm.scope.data.type,
+				Section: vm.scope.data.section,
+				Location: vm.scope.data.location,
+				GPS: vm.scope.data.gps
 			};
-			$log.info(
-				"id: " + roadID + " code: " + roadCode + " type: " + roadType + " location: " + roadLocation
-			);
-			vm.scope.addNewRoad(roadData);
+			addNewRoad(roadData);
 			$uibModalInstance.close();
 		};
 
