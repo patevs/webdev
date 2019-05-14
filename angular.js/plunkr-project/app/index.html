@@ -147,7 +147,7 @@
     -->
 
 		<!-- Road Directory ng-controller="RoadDirCtrl" -->
-		<div class="container text-center" ng-if="currentUser" ng-controller="GETroadDirCtrl">
+		<div class="container text-center" ng-if="currentUser" ng-controller="UpdateRoadsDirCtrl">
 			<div class="col-xs-0 col-sm-2"></div>
 			<div class="well col-xs-12 col-sm-8">
 				<h4><strong>ROAD DIRECTORY</strong></h4>
@@ -161,6 +161,17 @@
 						<strong>WARNING!</strong> No valid roads were returned by the server.
 					</div>
 				</span>
+				<!-- update road directory button -->
+				<button
+					id="btn-update-roads"
+					type="button"
+					class="btn btn-info road-manager-option"
+					ng-click="updateRoadDir()"
+				>
+					<strong>REFRESH </strong
+					><span class="glyphicon glyphicon-circle-arrow-up" style="margin-left: 0.5em;"></span>
+				</button>
+				<br />
 				<!-- road directory select picker -->
 				<select
 					id="selectRoad"
@@ -173,16 +184,6 @@
 				>
 				</select>
 				<br />
-				<!-- update road directory button -->
-				<button
-					id="btn-update-roads"
-					type="button"
-					class="btn btn-info road-manager-option"
-					ng-click="updateRoadDir()"
-				>
-					<strong>REFRESH </strong
-					><span class="glyphicon glyphicon-circle-arrow-up" style="margin-left: 0.5em;"></span>
-				</button>
 				<!-- create new road button -->
 				<button
 					type="button"
@@ -193,6 +194,17 @@
 					<strong>ADD </strong>
 					<span class="glyphicon glyphicon-plus-sign" style="margin-left: 0.5em"></span>
 				</button>
+				<!-- archive road button -->
+				<button
+					type="button"
+					class="btn btn-warning road-manager-option"
+					ng-controller="ArchiveRoadCtrl"
+					ng-click="archiveRoad()"
+				>
+					<strong>ARCHIVE </strong>
+					<span class="glyphicon glyphicon-minus-sign" style="margin-left: 0.5em"></span>
+				</button>
+
 				<!--
 				<button
 					id="btn-select-road"
@@ -368,7 +380,8 @@
 		<script src="js/Authentication/login.js"></script>
 		<script src="js/Authentication/session.js"></script>
 		<!-- RoadDirectory scripts -->
-		<script src="js/RoadDirectory/getRoadDir.js"></script>
+		<script src="js/RoadDirectory/archiveRoad.js"></script>
+		<script src="js/RoadDirectory/updateRoads.js"></script>
 		<script src="js/RoadDirectory/newRoad.js"></script>
 		<script src="js/RoadDirectory/selectRoad.js"></script>
 		<!--

@@ -10,7 +10,7 @@
  *  and display retrieved road directory to the user. Road data sanity and
  *  validity checks are done within this controller.
  */
-angular.module("trackrApp").controller("GETroadDirCtrl", function($scope, $http, $log) {
+angular.module("trackrApp").controller("UpdateRoadsDirCtrl", function($scope, $http, $log) {
 	/* FIELDS */
 	// view model
 	let vm = this;
@@ -84,7 +84,6 @@ angular.module("trackrApp").controller("GETroadDirCtrl", function($scope, $http,
 					_roadSelectError.removeClass("ng-hide");
 				} else {
 					_roadSelectPicker.removeClass("ng-hide").selectpicker("refresh");
-					_btnUpdateRoads.addClass("ng-hide");
 				}
 			},
 			function errorCall() {

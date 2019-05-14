@@ -90,7 +90,10 @@ angular.module("trackrApp").controller("SelectRoadCtrl", function($scope, $log) 
 		});
 	};
 
-	//vm.scope.selectRoad = function() {};
+	vm.scope.selectRoad = function() {
+		let selectedRoadID = _roadSelectPicker.val();
+		_displayRoadInfo(selectedRoadID);
+	};
 });
 
 /* EOF */
