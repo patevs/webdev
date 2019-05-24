@@ -5,7 +5,7 @@
 "use strict";
 
 // IMPORTS
-import $ from "jquery";
+//import $ from "jquery";
 
 // Data structure containing information about the products
 const PRODUCTS_DATA = {
@@ -482,28 +482,38 @@ const SHOPPING_DATA = {
  * Event handler for searching products by name and keyword
  * This function should populate the SHOPPING_DATA.searchResults array
  */
-$("#search").on("click", function search(text) {
+let _search = function() {
+	//..
+	// get searchbox text value
+	let searchQuery = $("#searchbox").val();
+	// Display search query for testing
+	$("#query").html(searchQuery);
+
 	// Remove all elements in the SHOPPING_DATA.searchResults array
 	SHOPPING_DATA.searchResults.length = 0;
 
 	// Get the search query from an input HTML element
-	let searchQuery = $("#searchbox");
-	// Find all products in the PRODUCTS_DATA.PRODUCTS object with a name
-	// that matches the search query
+	//let searchQuery = $("#searchbox");
+
+	// Find all products in the PRODUCTS_DATA.PRODUCTS object
+	// with a name that matches the search query
+
+	// Iterate over all products in PRODUCTS_DATA array
+	/*
 	for (let product of PRODUCTS_DATA) {
 		if (product.name === searchQuery.text) {
 			SHOPPING_DATA.searchResults.push(product);
 		}
 	}
 	return SHOPPING_DATA;
-
+  */
 	// Find all products in the PRODUCTS_DATA.PRODUCTS object with any keyword
 	// that matches the search query
 
 	// Populate the SHOPPING_DATA.searchResults with all matched products
 
 	// Display the search results by calling displaySearchResults()
-});
+};
 
 /* Event handler for recommending products
    This function should populate the SHOPPING_DATA.recommendations array */
@@ -555,13 +565,15 @@ function addProduct() {
 //function displayRecommendations() {}
 
 /**
- * Registers the search event handler on an HTML item with id = search
+ * Registers the search event handler on an HTML item with id = searchbtn
  */
 function init() {
 	// $("#search").on("click", search);
+	// bind the _search function to the search btn click event
+	$("#searchbtn").on("click", _search);
 }
 
-// Call init function
+// Finally, call the init function
 init();
 
 /* EOF */
