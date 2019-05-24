@@ -11,5 +11,8 @@
 	"license": "UNLICENSED",
 	"dependencies": {
 		"jquery": "^3.4.1"
+	},
+	"devDependencies": {
+		"eslint": "^5.16.0"
 	}
 }
