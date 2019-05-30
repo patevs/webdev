@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Online Shopping Centre</title>
+		<meta name="description" content="DYLS-A2" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="apple-touch-icon" href="icon.png" />
+		<link rel="shortcut icon" type="image/png" href="icon.png" />
+		<!-- Bootstrap 3.4.1 CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
+			integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE="
+			crossorigin="anonymous"
+		/>
+		<!-- GLOBAL STYLES -->
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<div class="text-center" style="margin-top: 1em;">
+			<h4>INFOSYS 280 Assignment #2:</h4>
+			<h1>Online Supermarket Page</h1>
+			<hr style="width: 33%" />
+			<form>
+				<div class="col-md-4 col-md-offset-4">
+					<div class="input-group">
+						<input
+							id="searchbox"
+							type="text"
+							class="form-control"
+							placeholder="Search for a product"
+						/>
+						<span class="input-group-btn">
+							<button id="searchbtn" class="btn btn-success" type="button">SEARCH</button>
+						</span>
+					</div>
+					<!-- /input-group -->
+				</div>
+				<!-- /.col-md-4 -->
+			</form>
+		</div>
+
+		<br />
+		<br />
+
+		<div class="col-lg-4 col-lg-offset-4 text-center" style="margin-top: 1em">
+			<p>Search Query: <span id="query"></span></p>
+		</div>
+
+		<br />
+		<br />
+
+		<div class="text-center" style="margin: 1em;">
+			<h2>Products:</h2>
+			<ul id="products">
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/broccoli.jpg" />
+					<figcaption>Broccoli $4</figcaption>
+				</li>
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/grape.jpg" />
+					<figcaption>Grapes $5</figcaption>
+				</li>
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/strawberry.jpg" />
+					<figcaption>Strawberries $6</figcaption>
+				</li>
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/cheese2.png" />
+					<figcaption>Cheese $5</figcaption>
+				</li>
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/yoghurt.png" />
+					<figcaption>Yoghurt $3</figcaption>
+				</li>
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/toothpaste.png" />
+					<figcaption>Toothpaste $10</figcaption>
+				</li>
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/shampoo.png" />
+					<figcaption>Shampoo $15</figcaption>
+				</li>
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/soap.jpg" />
+					<figcaption>Soap $2</figcaption>
+				</li>
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/wine.png" />
+					<figcaption>Wine $12</figcaption>
+				</li>
+				<li>
+					<img src="https://cdn.jsdelivr.net/gh/josecarlosgt/infosys280/napkin.png" />
+					<figcaption>Napkins $4</figcaption>
+				</li>
+			</ul>
+		</div>
+
+		<!-- JQuery 3.4.1 JS -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous"
+		></script>
+		<!-- Bootstrap 3.4.1 JS -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"
+			integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4="
+			crossorigin="anonymous"
+		></script>
+		<!-- Main Javascript -->
+		<script src="js/main.js"></script>
+	</body>
+</html>

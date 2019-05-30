@@ -1,0 +1,31 @@
+ul {
+	border: 2px solid grey;
+	border-radius: 5px;
+	padding: 1em;
+}
+
+li {
+	display: inline-block;
+	padding: 0.5em;
+}
+
+li:hover {
+	cursor: pointer;
+}
+
+img {
+	height: 100px;
+}
+
+figcaption {
+	text-align: center;
+}
+
+body {
+	background-color: paleturquoise;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+h4 {
+	text-align: right;
+}
