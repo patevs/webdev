@@ -460,6 +460,10 @@ const PRODUCTS_DATA = {
 	}
 };
 
+/**********************
+ * * CODE STARTS HERE *
+ **********************/
+
 // Threshold for filtering products to recommend in the co-occurrence matrix
 const RECOMMENDATION_THRESHOLD = 50;
 
@@ -469,6 +473,7 @@ const SHOPPING_DATA = {
 	cart: [],
 	recommendations: []
 };
+
 //THE FOLLOWING CREATES CONTAINERS FOR THE ABOVE ARRAYS TO APPEND TO
 let resultsContainer = $("#products");
 let recommendationContainer = $("#recommended");
@@ -535,54 +540,6 @@ function getRecommendations(productKey) {
 
 ////////////////////////////////////////////////////////////////////////
 
-/* Generates the HTML required to visualize a product
-   The parameter "clickable" specifies whether the generated item should 
-   react to the click event */
-function generateItemHTML(product, clickable = false) {
-	//	let allProducts = PRODUCTS_DATA.PRODUCTS
-	// 	let theProduct =  allProducts[product];
-	let theProductHTML = $(
-		"<li id=" +
-			product.key +
-			"><img src=" +
-			product.imageURL +
-			"><figcaption>" +
-			product.name +
-			" $" +
-			product.price +
-			"</figcaption>" +
-			"</li>"
-	);
-
-	/*  //ASSIGNS VARIABLE OF VALUE INPUT STRING TO LOWERCASE;
-  let productLowerCase = product.toLowerCase();
-  // CREATES OBJECT PATHWAY SHORCUT = 'allProducts';
-  let allProducts = PRODUCTS_DATA.PRODUCTS;
-  CREATED VALUE-STORAGE ARRAY TO CONTAIN ALL MY STUFF  ;-P  LOL
-  let arrayProductHTML = [];
-  
-  //ITERATES OVER EACH PRODUCT AND ASSIGNING A 
-  for (let productKey in allProducts) {
-    //get the current product
-    let product = allProducts[productKey];
-    //ASSIGNS VARIABLE TO DATA VALUE
-    let productImg = product.imageURL;
-      //CONDITIONAL STATEMENT
-    if (productLowerCase === productKey || product.keywords.includes(productLowerCase)) {
-  
-      let productItem = $("<li id=" + productKey + "><img src=" + productImg + "><figcaption>" + product.name + " $" + product.price + "</figcaption>" + "</li>");
-  
-      arrayProductHTML.push(productItem);
-      //productItem.on("click", addProduct);
-    } */
-
-	//console.log(arrayProductHTML);
-	//return arrayProductHTML;
-	return theProductHTML;
-}
-
-////////////////////////////////////////////////////////////////////////
-
 // Displays all products matching the search query
 function displaySearchResults() {
 	// Empty the container holding all search results
@@ -600,40 +557,6 @@ function displaySearchResults() {
 
 ////////////////////////////////////////////////////////////////////////
 
-// Event handler for adding a product to the shopping cart
-//$("li").on('click', addProduct);
-// This function should populate the SHOPPING_DATA.cart array
-function addProduct() {
-	let selectedProduct = $(this);
-	console.log(selectedProduct);
-	// Get the product key from the clicked item
-	let selectedProductID = selectedProduct.attr("id");
-
-	let selectedProductObj = findObject(selectedProductID);
-	SHOPPING_DATA.cart.push(selectedProductObj);
-
-	// Display the shopping cart by calling displayCart()
-	displayCart();
-	// Get product recommendations by calling getRecommendations()
-	getRecommendations(selectedProductID);
-
-	console.log(SHOPPING_DATA);
-}
-//addProduct();
-///////////////////////////////////////////////////////////////////////////////////
-
-// Displays all products in the shopping cart <== USES VALUE FROM THE ARRAY
-function displayCart() {
-	cartContainer.empty();
-	for (let product of SHOPPING_DATA.cart) {
-		let cartProductHTML = generateItemHTML(product);
-		cartContainer.append(cartProductHTML);
-	}
-}
-//displayCart();
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-
 // Displays all recommended products <== USES VALUE FROM THE ARRAY
 function displayRecommendations() {
 	recommendationContainer.empty();
@@ -650,51 +573,6 @@ function displayRecommendations() {
 //THE FOLLOWING ADDS A BUTTON THAT ALLOWS THE USER TO RETURN TO THE HOME SCREEN WITH VIEW OF ALL ITEMS
 $("#home").on("click", initProducts);
 
-function initProducts() {
-	resultsContainer.empty();
-
-	//obtain product list
-	//let resultContainer = $('#products');
-	//otain a product from PRODUCTS_DATA
-	let allProductsObject = PRODUCTS_DATA.PRODUCTS;
-	/* NOTE: SHOULD I PARSE THIS STRING AND EVALUATE IF 'productButton' ( AKA "$(this)") APPEARS IN THE 'arrayTextHTML' 	ARRAY <====> IF SO,  */
-	// let symbols = ['<', "'", '>', '=', '$', '"'];
-
-	//iterate over all products
-	for (let productKey in allProductsObject) {
-		//get the current product
-		let product = allProductsObject[productKey];
-		//let productImg = product.imageURL;
-
-		let productItem = generateItemHTML(product);
-
-		/*   let productItem = $("<li id = " + productKey + "><img src=" + productImg + "><figcaption>" + product.name + " $" + product.price + "</figcaption>" + "</li>"); */
-
-		//console.log(productItem)
-		resultsContainer.append(productItem);
-		//THE FOLLOWING ADDS AN EVENT HANDLER TO RUN THE FUNCTION UPON CLICKING
-		productItem.on("click", addProduct);
-	}
-}
-
-//THE FOLLOOWING FUNCTION WILL FIND THE CORRESPONDING DATA OBJECT
-function findObject(identifier) {
-	let query = identifier.toLowerCase();
-	let allProducts = PRODUCTS_DATA.PRODUCTS;
-	let objectHolder = [];
-
-	for (let productKey in allProducts) {
-		let product = allProducts[productKey];
-
-		if (query === product.key) {
-			objectHolder.push(product);
-		}
-	}
-
-	return objectHolder;
-}
-
-findObject("Brocoli");
 //THE FOLLOWIG CREATES A CLICK EVENT TO THE EMPTY CART BUTTON
 $("#emptycart").on("click", emptyCart);
 
@@ -704,11 +582,143 @@ function emptyCart() {
 	SHOPPING_DATA.cart.length = 0;
 }
 
+/**
+ * displayCart function used to display the
+ * products in the shopping cart to the user
+ */
+function displayCart() {
+	// Empty the shopping cart
+	cartContainer.empty();
+	// Iterate over all products in the shopping cart
+	for (let product of SHOPPING_DATA.cart) {
+		// Generate the HTML for the current product
+		let productHTML = generateItemHTML(product, false);
+		// Append the product HTML to the shopping cart
+		cartContainer.append(productHTML);
+	}
+}
+
+/**
+ * Helper function used to find and return a
+ * product object with the given productKey.
+ *
+ * @param { unique product ID } productKey
+ * @returns { product object }
+ */
+function findProduct(productKey) {
+	// Object containing all products
+	let allProducts = PRODUCTS_DATA.PRODUCTS;
+	// product to return
+	let product = allProducts[productKey];
+	// return the product object
+	return product;
+}
+
+/**
+ *  addProductToCart function is an event handler which
+ *  will bind to each product element on click event and
+ *  will add the given product to the shopping cart.
+ */
+function addProductToCart(productElem) {
+	// Get the product key for the selected product
+	let productKey = $(productElem).attr("id");
+	// Get the product object for the selected product
+	let product = findProduct(productKey);
+	// Append the product to the shopping cart
+	SHOPPING_DATA.cart.push(product);
+	// Display the shopping cart
+	displayCart();
+	// Get product recommendations by calling getRecommendations()
+	//getRecommendations(product);
+}
+
+/**
+ * generateItemHTML helper function used to generate the
+ *  HTML required to visualize a given product on the page.
+ * This function takes a product object as a parameter and returns the
+ *  generated HTML for that given product.
+ * The parameter "clickable" specifies whether the generated item should
+ *  react to the click event, false (not clickable) by default.
+ *
+ * @param { product object } product
+ * @returns { HTML for given product }
+ */
+function generateItemHTML(product, clickable = false) {
+	// product HTML to return
+	let productHTML = "";
+	// Check if the product should be clickable
+	if (clickable) {
+		// Create the HTML for a clickable product
+		productHTML =
+			"<li onclick='addProductToCart(" +
+			product.key +
+			")' id=" +
+			product.key +
+			"><img src=" +
+			product.imageURL +
+			"><figcaption>" +
+			product.name +
+			" $" +
+			product.price +
+			"</figcaption>" +
+			"</li>";
+	} else {
+		// Create the HTML for an unclickable product
+		productHTML =
+			"<li id=" +
+			product.key +
+			"><img src=" +
+			product.imageURL +
+			"><figcaption>" +
+			product.name +
+			" $" +
+			product.price +
+			"</figcaption>" +
+			"</li>";
+	}
+	// Return the generated product HTML
+	return productHTML;
+}
+
+/**
+ * initProducts helper function used to initialize the products
+ *  list by iterating over all the products in PRODUCT_DATA.PRODUCTS,
+ *  generating HTML for each product, and displaying the generated HTML
+ *  to the user.
+ */
+function initProducts() {
+	// Clear the results container
+	resultsContainer.empty();
+	// Get the object containing all products
+	let allProductsObject = PRODUCTS_DATA.PRODUCTS;
+	// Iterate over all products
+	for (let productKey in allProductsObject) {
+		// Get the current product
+		let product = allProductsObject[productKey];
+		// Generate the HTML for the current product
+		let productItemHTML = generateItemHTML(product, true);
+		// Append the generated productHTML to the results container
+		resultsContainer.append(productItemHTML);
+	}
+}
+
 // Registers the search event handler on an HTML item with id = search
+/**
+ *  Init function registers the search button on click event
+ *  handler and binds its to the search function. This function
+ *  also calls initProducts function used to initialize the products
+ *  list and display the products to the user.
+ */
 function init() {
+	// bind the search function to the search button element on click event
 	$("#search").on("click", search);
+	// initialize the products list
 	initProducts();
 }
+
+// Finally, call the init function.
 init();
 
-/////////////FUNCTION TO ENABLE TEXT
+//
+/* EOF */
+//
