@@ -532,8 +532,8 @@ function getRecommendations(productKey) {
 ////////////////////////////////////////////////////////////////////////
 
 /* Generates the HTML required to visualize a product
-   The parameter "clickable" specifies whether the generated item should 
-   react to the click event */
+		The parameter "clickable" specifies whether the generated item should 
+   	react to the click event */
 function generateItemHTML(product, clickable = false) {
 	//ASSIGNS VARIABLE OF VALUE INPUT STRING TO LOWERCASE;
 	let productLowerCase = product.toLowerCase();
@@ -597,9 +597,7 @@ function addProduct() {
 	console.log(selectedProduct);
 	// Get the product key from the clicked item
 	let selectedProductID = selectedProduct.attr("id");
-	/*  if (SHOPPING_DATA.cart.includes(selectedProductID)) {
-   
-   } */
+	/*  if (SHOPPING_DATA.cart.includes(selectedProductID)) { } */
 	//let productItem = generateItemHTML(selectedProductID);
 	SHOPPING_DATA.cart.push(selectedProductID);
 
