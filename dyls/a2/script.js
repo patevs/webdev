@@ -1,5 +1,7 @@
 // INFOSYS 280 - Assignment #2: Scaffolding Code
 
+"use strict";
+
 // Data structure containing information about the products
 const PRODUCTS_DATA = {
 	PRODUCTS: {
