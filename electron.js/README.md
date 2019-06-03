@@ -19,6 +19,7 @@ $ npm i -D electron@latest
 
 * [`ElectronJS`](https://electronjs.org/)
   * [Documentation](https://electronjs.org/docs)
+  * [GitHub Repo](https://github.com/electron/electron)
 
 * [Quick Start App](https://github.com/electron/electron-quick-start)
   * [Tutorial](https://electronjs.org/docs/tutorial/quick-start)
