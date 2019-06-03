@@ -1,10 +1,14 @@
 # ElectronJS
 
-> Build cross platform desktop apps with JavaScript, HTML, and CSS
+Build cross platform desktop apps with JavaScript, HTML, and CSS
+
+> Electron is an open-source framework developed and maintained by GitHub. Electron allows for the development of desktop GUI applications using web technologies: It combines the Chromium rendering engine and the Node.js runtime.
 
 ---
 
 ## Installation
+
+* [Tutorial/Installation](https://electronjs.org/docs/tutorial/installation)
 
 ```bash
 $ npm i -D electron@latest
@@ -26,11 +30,9 @@ your-app/
 
 ## Links and Resources
 
-* [`ElectronJS`](https://electronjs.org/)
+* [`ElectronJS`](https://github.com/electron/electron)
   * [Documentation](https://electronjs.org/docs)
-  * [GitHub Repo](https://github.com/electron/electron)
 
-* [Quick Start App](https://github.com/electron/electron-quick-start)
-  * [Tutorial](https://electronjs.org/docs/tutorial/quick-start)
+* [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start)
 
 ---
