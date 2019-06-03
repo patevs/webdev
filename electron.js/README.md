@@ -13,6 +13,15 @@ $ npm i -D electron@latest
 # Chromium   73.0.3683.121
 ```
 
+A basic Electron app would have the following folder structure:
+
+```text
+your-app/
+├── package.json
+├── main.js
+└── index.html
+```
+
 ---
 
 ## Links and Resources
