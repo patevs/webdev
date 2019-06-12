@@ -17,9 +17,14 @@
 * [Evergreen UI](https://evergreen.segment.com/)
 * [ReactStrap](https://reactstrap.github.io/)
 
-### Linting
+### Linting Setup
 
 * [Eslint Install](https://manavsehgal.com/eslint-install-and-configure-for-react-apps-f7c3a28c5573)
 * [Eslint Setup](https://medium.com/@RossWhitehouse/setting-up-eslint-in-react-c20015ef35f7)
 * [Eslint + Prettier](https://blog.gojekengineering.com/eslint-prettier-for-a-consistent-react-codebase-eaa673debb1d)
+
+### Examples
+
+* [`react-firebase-authentication`](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication)
+
 ---
