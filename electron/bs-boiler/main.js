@@ -3,18 +3,17 @@
  * 	main.js
  */
 
-'use strict';
+"use strict";
 
 // IMPORTS
 const { app, BrowserWindow } = require("electron");
 
-// require('electron-reload')(__dirname);
-
 // Enable live reloading in development
 try {
-	require('electron-reloader')(module);
-} catch (_) { }
-
+	require("electron-reloader")(module);
+} catch (_) {
+	//...
+}
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -33,8 +32,6 @@ function createWindow() {
 
 	// and load the index.html of the app.
 	win.loadFile("index.html");
-	// load with electron-reload
-	// win.loadURL(`file://${__dirname}/index.html`);
 
 	// Open the DevTools.
 	win.webContents.openDevTools();
