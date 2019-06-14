@@ -1,7 +1,7 @@
 {
-  "name": "bored-app",
+  "name": "bs-boiler",
   "version": "0.1.0",
-  "description": "Electron quick start app",
+  "description": "Electron bootstrap boilerplate",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -11,7 +11,6 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "electron": "^5.0.2",
-    "electron-reload": "^1.4.0",
     "eslint": "^5.16.0"
   }
 }
