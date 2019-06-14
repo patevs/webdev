@@ -3,18 +3,23 @@
  * 	main.js
  */
 
+'use strict';
+
 // IMPORTS
 const { app, BrowserWindow } = require("electron");
+
+require('electron-reload')(__dirname);
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 
+// Application ready function
 function createWindow() {
 	// Create the browser window.
 	win = new BrowserWindow({
 		width: 800,
-		height: 600,
+		height: 800,
 		webPreferences: {
 			nodeIntegration: true
 		}
@@ -22,6 +27,8 @@ function createWindow() {
 
 	// and load the index.html of the app.
 	win.loadFile("index.html");
+	// load with electron-reload
+	//win.loadURL(`file://${__dirname}/index.html`);
 
 	// Open the DevTools.
 	win.webContents.openDevTools();
