@@ -14,5 +14,9 @@
     "electron": "^5.0.2",
     "electron-reloader": "^0.3.0",
     "eslint": "^5.16.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.4.1"
   }
 }
