@@ -1,9 +1,10 @@
 {
   "name": "bs-boiler",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Electron bootstrap boilerplate",
   "main": "main.js",
   "scripts": {
+    "clean": "rm -rf node_modules",
     "prestart": "npm install",
     "start": "electron .",
     "lint": "eslint .",
