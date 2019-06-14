@@ -21,37 +21,24 @@
       <hr style="width:75%; border: 1px solid green" />
     </div>
     <!-- END of page-header -->
-    <!-- Content Panel -->
-    <div class="panel panel-success">
-      <div class="panel-heading">Running with:</div>
-      <div class="panel-body">
-        <table class="table">
-          <tr>
-            <th>Program</th>
-            <th>Version</th>
-          </tr>
-          <tr>
-            <td>Node</td>
-            <td>
-              <script>document.write(process.versions.node);</script>
-            </td>
-          </tr>
-          <tr>
-            <td>Chrome</td>
-            <td>
-              <script>document.write(process.versions.chrome);</script>
-            </td>
-          </tr>
-          <tr>
-            <td>Electron</td>
-            <td>
-              <script>document.write(process.versions.electron);</script>.
-            </td>
-          </tr>
-        </table>
-      </div>
+
+    <div class="container-fluid text-center">
+      <span>Node:
+        <span class="label label-default">
+          <script>document.write(process.versions.node);</script>
+        </span>
+      </span>
+      <span style="margin-left: 1em; margin-right: 1em">Chrome:
+        <span class="label label-default">
+          <script>document.write(process.versions.chrome);</script>
+        </span>
+      </span>
+      <span>Electron:
+        <span class="label label-default">
+          <script>document.write(process.versions.electron);</script>
+        </span>
+      </span>
     </div>
-    <!-- END of CONTENT PANEL -->
 
     <hr style="width:75%; border: 1px solid green" />
 
