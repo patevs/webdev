@@ -1,0 +1,12 @@
+{
+  "name": "html5-boiler",
+  "version": "0.1.0",
+  "description": "html5 boilerplate",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PatEvs",
+  "license": "ISC",
+  "devDependencies": {}
+}
