@@ -13,6 +13,7 @@
   "author": "PatEvs",
   "license": "ISC",
   "devDependencies": {
+    "cpx": "^1.5.0",
     "live-server": "^1.2.1"
   },
   "dependencies": {
