@@ -1,0 +1,25 @@
+{
+  "name": "profile",
+  "version": "0.1.0",
+  "description": "profile",
+  "private": true,
+  "main": "index.html",
+  "scripts": {
+    "clean": "rm -rf node_modules package-lock.json lib",
+    "postinstall": "npm run copy-libs",
+    "copy-libs": "cpx \"node_modules/{jquery,bootstrap}/dist/**\" lib -C",
+    "prestart": "npm install",
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PatEvs",
+  "license": "ISC",
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.4.1"
+  }
+}
