@@ -17,4 +17,4 @@ node_modules/
 .env.test
 
 # Development libraries
-js/lib
+lib
