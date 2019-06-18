@@ -2,11 +2,21 @@
   "name": "html5-boiler",
   "version": "0.1.0",
   "description": "html5 boilerplate",
+  "private": true,
   "main": "index.html",
   "scripts": {
+    "clean": "rm -rf node_modules package-lock.json",
+    "prestart": "npm install",
+    "start": "live-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "PatEvs",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.4.1"
+  }
 }
