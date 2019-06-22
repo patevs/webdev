@@ -14,6 +14,9 @@
 	},
 	"scripts": {
 		"clean": "rm -rf node_modules",
+		"start:server": "start cmd /k mongod --dbpath=./data/db",
+		"prestart": "npm run start:server",
+		"start": "node index.js",
 		"test": "eslint . --fix && echo Test Complete"
 	},
 	"files": [
