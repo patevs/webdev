@@ -12,12 +12,15 @@
   - [Get Started](https://docs.mongodb.com/manual/tutorial/getting-started/)
   - [Installation](https://docs.mongodb.com/manual/installation/#tutorial-installation)
     - [Windows Install](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+  - [Tutorials](https://github.com/mongodb/node-mongodb-native/tree/master/docs/reference/content/tutorials)
 
 - [`mongoose`](https://github.com/Automattic/mongoose)
 
+---
+
 ## MongoDB Installation & Setup
 
-A standalone installer can be found at: [mongodb/download-center](https://www.mongodb.com/download-center/community)
+Install either programatically with `chocolately` or using the standalone installer which can be found at: [mongodb/download-center](https://www.mongodb.com/download-center/community)
 
 1. Install `MongoDB`
 
