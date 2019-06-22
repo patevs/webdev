@@ -1,0 +1,25 @@
+{
+	"name": "mongo-boiler",
+	"version": "0.0.0",
+	"description": "Mongo database boilerplate",
+	"license": "MIT",
+	"repository": "PatEvs/mongo-boiler",
+	"author": {
+		"name": "patevs",
+		"email": "ppevans11@gmail.com",
+		"url": "https://github.com/patevs"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"clean": "rm -rf node_modules",
+		"test": "xo"
+	},
+	"files": [
+		"index.js"
+	],
+	"devDependencies": {
+		"xo": "^0.24.0"
+	}
+}
