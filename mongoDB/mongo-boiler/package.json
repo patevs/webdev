@@ -14,12 +14,15 @@
 	},
 	"scripts": {
 		"clean": "rm -rf node_modules",
-		"test": "xo"
+		"test": "eslint . --fix && echo Test Complete"
 	},
 	"files": [
 		"index.js"
 	],
 	"devDependencies": {
-		"xo": "^0.24.0"
+		"eslint": "^6.0.0"
+	},
+	"dependencies": {
+		"mongodb": "^3.2.7"
 	}
 }
