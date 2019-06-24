@@ -23,6 +23,7 @@
 		"test": "eslint . --fix && echo Test Complete"
 	},
 	"dependencies": {
+		"chalk": "^2.4.2",
 		"mongodb": "^3.2.7"
 	},
 	"devDependencies": {
