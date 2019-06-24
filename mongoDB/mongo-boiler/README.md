@@ -34,7 +34,7 @@ Install either programatically with `chocolatey` or using the standalone install
 
     ```powershell
     # Default data path: 'C:\ProgramData\MongoDB\data\db'
-    $ mkdir data/db
+    $ mkdir data\db
     ```
 
 3. Start `MongoDB`
