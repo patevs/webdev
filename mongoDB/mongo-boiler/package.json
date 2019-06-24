@@ -1,6 +1,6 @@
 {
 	"name": "mongo-boiler",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Mongo database boilerplate",
 	"license": "MIT",
 	"repository": "PatEvs/mongo-boiler",
@@ -20,7 +20,7 @@
 		"start:server": "start cmd /k mongod --dbpath=./data/db",
 		"prestart": "npm run start:server",
 		"start": "node index.js",
-		"test": "eslint . --fix && echo Test Complete"
+		"test": "eslint . --fix && echo Test Complete!"
 	},
 	"dependencies": {
 		"chalk": "^2.4.2",

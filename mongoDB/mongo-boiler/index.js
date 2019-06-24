@@ -14,6 +14,8 @@ const chalk = require("chalk");
 // Chalk Theme
 const log = console.log;
 const title = chalk.bold.underline.green;
+const success = chalk.green;
+const info = chalk.blue;
 
 /***************
  * * CONSTANTS *
@@ -37,7 +39,7 @@ const insertDocuments = function (db, callback) {
 		assert.equal(err, null);
 		assert.equal(3, result.result.n);
 		assert.equal(3, result.ops.length);
-		log("Inserted 3 documents into the collection");
+		log(info("Inserted 3 documents into the collection"));
 		callback(result);
 	});
 };
@@ -49,17 +51,18 @@ const findDocuments = function (db, callback) {
 	// Find some documents
 	collection.find({}).toArray(function (err, docs) {
 		assert.equal(err, null);
-		log("Found the following records");
+		log(info("Found the following records"));
 		log(docs);
 		callback(docs);
 	});
 };
 
+// Connect to database and do some things
 function run() {
 	// Use connect method to connect to the server
 	MongoClient.connect(url, function (err, client) {
 		assert.equal(null, err);
-		log("Connected successfully to server");
+		log(success("Connected successfully to server"));
 
 		const db = client.db(dbName);
 
@@ -70,8 +73,6 @@ function run() {
 		});
 	});
 }
-
-
 
 /**
  * Application entry point
