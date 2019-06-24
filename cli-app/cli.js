@@ -11,6 +11,8 @@
  *************/
 const inquirer = require("inquirer");
 const chalk = require("chalk");
+const ora = require("ora");
+
 // const meow = require("meow");
 // const cliApp = require(".");
 
@@ -35,17 +37,29 @@ function cli() {
 		])
 		.then(answers => {
 			// Use user feedback for... whatever!!
-			console.log("\nOrder receipt:");
-			console.log(JSON.stringify(answers, null, "  "));
+			log("\nOrder receipt:");
+			log(JSON.stringify(answers, null, "  "));
 		});
 }
+
+/*
+const spinner = ora("Loading unicorns").start();
+setTimeout(() => {
+	spinner.color = "yellow";
+	spinner.text = "Loading rainbows";
+}, 1000);
+*/
 
 /**
  * Application entry point
  */
 (function () {
 	log(title("\nWELCOME TO CLI-APP\n"));
-	cli();
+	const spinner = ora("Loading CLI...").start();
+	setTimeout(() => {
+		spinner.succeed();
+		cli();
+	}, 2000);
 })();
 
 /*
