@@ -78,7 +78,7 @@ function run() {
  * Application entry point
  */
 (function () {
-	log(title("MongoDB Boilerplate"));
+	log(title("\nMongoDB Boilerplate\n"));
 	run();
 })();
 
