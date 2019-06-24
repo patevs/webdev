@@ -20,26 +20,26 @@
 
 ## MongoDB Installation & Setup
 
-Install either programatically with `chocolately` or using the standalone installer which can be found at: [mongodb/download-center](https://www.mongodb.com/download-center/community)
+Install either programatically with `chocolatey` or using the standalone installer which can be found at: [mongodb/download-center](https://www.mongodb.com/download-center/community)
 
 1. Install `MongoDB`
 
-    ```sh
-    # Install with chocolately
+    ```powershell
+    # Install with chocolatey
     $ choco install mongodb -y
     # Installs to: 'C:\Program Files\MongoDB\'
     ```
 
 2. Create data directory
 
-    ```sh
+    ```powershell
     # Default data path: 'C:\ProgramData\MongoDB\data\db'
     $ mkdir data/db
     ```
 
 3. Start `MongoDB`
 
-    ```sh
+    ```powershell
     # Run MongoDB server
     $ "C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe" --dbpath="C:\ProgramData\MongoDB\data\db"
     # [initandlisten] waiting for connections
@@ -47,7 +47,7 @@ Install either programatically with `chocolately` or using the standalone instal
 
 4. Connect to `MongoDB`
 
-    ```sh
+    ```powershell
     # In a new terminal window with admin privileges
     $ "C:\Program Files\MongoDB\Server\4.0\bin\mongo.exe"
     ```
