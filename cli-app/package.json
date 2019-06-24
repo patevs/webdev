@@ -1,0 +1,33 @@
+{
+	"name": "cli-app",
+	"version": "0.0.1",
+	"description": "CLI app",
+	"license": "MIT",
+	"repository": "PatEvs/cli-app",
+	"author": {
+		"name": "patevs",
+		"email": "ppevans11@gmail.com",
+		"url": "https://github.com/patevs"
+	},
+	"bin": "cli.js",
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"clean": "rm -rf node_modules",
+		"test": "eslint . --fix && echo Test Complete!"
+	},
+	"files": [
+		"cli.js"
+	],
+	"keywords": [
+		"cli-app",
+		"cli"
+	],
+	"dependencies": {
+		"meow": "^5.0.0"
+	},
+	"devDependencies": {
+		"eslint": "^6.0.0"
+	}
+}
