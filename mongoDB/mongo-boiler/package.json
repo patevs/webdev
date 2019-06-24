@@ -12,6 +12,9 @@
 	"engines": {
 		"node": ">=8"
 	},
+	"files": [
+		"index.js"
+	],
 	"scripts": {
 		"clean": "rm -rf node_modules",
 		"start:server": "start cmd /k mongod --dbpath=./data/db",
@@ -19,13 +22,10 @@
 		"start": "node index.js",
 		"test": "eslint . --fix && echo Test Complete"
 	},
-	"files": [
-		"index.js"
-	],
-	"devDependencies": {
-		"eslint": "^6.0.0"
-	},
 	"dependencies": {
 		"mongodb": "^3.2.7"
+	},
+	"devDependencies": {
+		"eslint": "^6.0.0"
 	}
 }

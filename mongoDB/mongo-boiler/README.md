@@ -18,7 +18,7 @@
 
 ---
 
-## MongoDB Installation & Setup
+## `MongoDB` Installation & Setup
 
 Install either programatically with `chocolatey` or using the standalone installer which can be found at: [mongodb/download-center](https://www.mongodb.com/download-center/community)
 
@@ -51,5 +51,13 @@ Install either programatically with `chocolatey` or using the standalone install
     # In a new terminal window with admin privileges
     $ "C:\Program Files\MongoDB\Server\4.0\bin\mongo.exe"
     ```
+
+---
+
+## Databases Structure & Usage
+
+- [Databases & Collections](https://docs.mongodb.com/manual/core/databases-and-collections/)
+
+- [Documents](https://docs.mongodb.com/manual/core/document/)
 
 ---
