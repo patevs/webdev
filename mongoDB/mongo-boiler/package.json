@@ -1,6 +1,6 @@
 {
 	"name": "mongo-boiler",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Mongo database boilerplate",
 	"license": "MIT",
 	"repository": "PatEvs/mongo-boiler",
@@ -16,9 +16,8 @@
 		"index.js"
 	],
 	"scripts": {
-		"clean": "rm -rf node_modules",
+		"clean": "rm -rf node_modules data",
 		"start:server": "start cmd /k mongod --dbpath=./data/db",
-		"prestart": "npm run start:server",
 		"start": "node index.js",
 		"test": "eslint . --fix && echo Test Complete!"
 	},

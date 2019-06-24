@@ -30,7 +30,7 @@ const dbName = "myproject";
  * * FUNCTIONS *
  ***************/
 
-// insert documents into database
+// Insert documents into database
 const insertDocuments = function (db, callback) {
 	// Get the documents collection
 	const collection = db.collection("documents");
@@ -44,7 +44,7 @@ const insertDocuments = function (db, callback) {
 	});
 };
 
-// find all documents in database
+// Find all documents in database
 const findDocuments = function (db, callback) {
 	// Get the documents collection
 	const collection = db.collection("documents");
@@ -57,6 +57,19 @@ const findDocuments = function (db, callback) {
 	});
 };
 
+// Remove a document for database
+const removeDocument = function (db, callback) {
+	// Get the documents collection
+	const collection = db.collection("documents");
+	// Delete document where a is 3
+	collection.deleteOne({ a: 3 }, function (err, result) {
+		assert.equal(err, null);
+		assert.equal(1, result.result.n);
+		log(info("Removed the document with the field a equal to 3"));
+		callback(result);
+	});
+}
+
 // Connect to database and do some things
 function run() {
 	// Use connect method to connect to the server
@@ -68,6 +81,14 @@ function run() {
 
 		insertDocuments(db, function () {
 			findDocuments(db, function () {
+				log(success("Insert done"));
+				// client.close();
+			});
+		});
+
+		removeDocument(db, function () {
+			findDocuments(db, function () {
+				log(success("Remove done"));
 				client.close();
 			});
 		});
