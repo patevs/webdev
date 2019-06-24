@@ -12,6 +12,7 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const ora = require("ora");
+// const logUpdate = require("log-update");
 
 // const meow = require("meow");
 // const cliApp = require(".");
@@ -42,12 +43,27 @@ function cli() {
 		});
 }
 
-/*
+/* ora usage
 const spinner = ora("Loading unicorns").start();
 setTimeout(() => {
 	spinner.color = "yellow";
 	spinner.text = "Loading rainbows";
 }, 1000);
+*/
+
+/* log-update usage
+const frames = ["-", "\\", "|", "/"];
+let i = 0;
+setInterval(() => {
+	const frame = frames[i = ++i % frames.length];
+
+	logUpdate(
+		`
+        ♥♥
+   ${frame} unicorns ${frame}
+        ♥♥
+`);
+}, 80);
 */
 
 /**
