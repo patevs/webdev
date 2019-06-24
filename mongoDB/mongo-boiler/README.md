@@ -16,6 +16,8 @@
 
 - [`mongoose`](https://github.com/Automattic/mongoose)
 
+- [API Reference](http://mongodb.github.io/node-mongodb-native/3.1/api/)
+
 ---
 
 ## `MongoDB` Installation & Setup
