@@ -1,5 +1,5 @@
 {
-	"name": "mongo-boiler",
+	"name": "mongodb-boiler",
 	"version": "0.0.4",
 	"description": "Mongo database boilerplate",
 	"license": "MIT",

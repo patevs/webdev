@@ -1,5 +1,5 @@
 
-# Mongo-Boiler
+# MongoDB Boilerplate
 
 > Mongo database quick-start boilerplate
 
