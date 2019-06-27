@@ -1,3 +1,8 @@
+
+/**
+ * 	`index.js`
+ */
+
 "use strict";
 
 module.exports = (input, options = {}) => {
@@ -7,3 +12,7 @@ module.exports = (input, options = {}) => {
 
 	return input + " & " + (options.postfix || "rainbows");
 };
+
+
+// EOF //
+
