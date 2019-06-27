@@ -1,6 +1,6 @@
 {
 	"name": "cli-log",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "CLI Logging",
 	"license": "MIT",
 	"repository": "PatEvs/cli-log",
@@ -15,6 +15,7 @@
 	},
 	"scripts": {
 		"clean": "rm -rf node_modules",
+		"start": "node cli.js",
 		"test": "eslint . --fix && echo Test Complete!"
 	},
 	"files": [

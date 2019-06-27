@@ -6,25 +6,32 @@
 
 "use strict";
 
-/* meow usage
-const meow = require("meow");
-const cliLog = require(".");
+/*************
+ * * IMPORTS *
+ *************/
 
-const cli = meow(`
-	Usage
-		$ cli-log [input]
+// const inquirer = require("inquirer");
+// const signale = require("signale");
+const chalk = require("chalk");
 
-	Options
-		--foo  Lorem ipsum [Default: false]
+/***********
+ * * THEME *
+ ***********/
 
-	Examples
-		$ cli-log
-		unicorns & rainbows
-		$ cli-log ponies
-		ponies & rainbows
-`);
+const log = console.log;
+const green = chalk.green;
 
-console.log(cliLog(cli.input[0] || "unicorns"));
-*/
+/***************
+ * * FUNCTIONS *
+ ***************/
+
+/**
+ * Application entry point
+ */
+(function () {
+	//..
+	log(green("WELCOME TO CLI LOG"));
+	//..
+})();
 
 // EOF //
