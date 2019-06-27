@@ -10,7 +10,6 @@
  * * IMPORTS *
  *************/
 
-// const inquirer = require("inquirer");
 const { Signale } = require("signale");
 const chalk = require("chalk");
 

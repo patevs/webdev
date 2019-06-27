@@ -1,6 +1,6 @@
 {
 	"name": "cli-log",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "CLI Logging",
 	"license": "MIT",
 	"repository": "PatEvs/cli-log",
@@ -19,12 +19,12 @@
 		"test": "eslint . --fix && echo Test Complete!"
 	},
 	"files": [
-		"index.js",
 		"cli.js"
 	],
 	"keywords": [
 		"cli-app",
 		"cli",
+		"log",
 		"logging",
 		"console",
 		"shell",
@@ -32,7 +32,6 @@
 	],
 	"dependencies": {
 		"chalk": "^2.4.2",
-		"inquirer": "^6.4.1",
 		"signale": "^1.4.0"
 	},
 	"devDependencies": {
