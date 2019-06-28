@@ -12,10 +12,10 @@
 	"engines": {
 		"node": ">=8"
 	},
-	"main": "index.js",
+	"main": "app.js",
 	"scripts": {
 		"clean": "rm -rf node_modules",
-		"start": "nodemon index.js",
+		"start": "nodemon app.js",
 		"test": "eslint . --fix && echo Test Complete!"
 	},
 	"files": [
