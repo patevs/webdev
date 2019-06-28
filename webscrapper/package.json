@@ -1,6 +1,6 @@
 {
 	"name": "webscrapper",
-	"version": "0.0.1",
+	"version": "0.1.1",
 	"description": "NodeJS WebScrapper",
 	"license": "MIT",
 	"repository": "PatEvs/webscrapper",
