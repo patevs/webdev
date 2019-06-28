@@ -1,0 +1,30 @@
+{
+	"name": "webscrapper",
+	"version": "0.0.0",
+	"description": "NodeJS WebScrapper",
+	"license": "MIT",
+	"repository": "PatEvs/webscrapper",
+	"author": {
+		"name": "PatEvs",
+		"email": "ppevans11@gmail.com",
+		"url": "https://github.com/patevs"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"nodejs",
+		"webscrapper"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"ava": "^1.4.1",
+		"xo": "^0.24.0"
+	}
+}
