@@ -19,11 +19,17 @@
 		"test": "eslint . --fix && echo Test Complete!"
 	},
 	"files": [
-		"index.js"
+		"app.js"
 	],
 	"keywords": [
 		"nodejs",
-		"webscrapper"
+		"webscrapper",
+		"indeed",
+		"job",
+		"jobs",
+		"express",
+		"axios",
+		"handlebars"
 	],
 	"dependencies": {
 		"axios": "^0.19.0",

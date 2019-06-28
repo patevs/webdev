@@ -28,8 +28,13 @@ app.use(express.static(path.join(__dirname, "assets")));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", ".hbs");
 
+/*
 app.get("/", function (req, res) {
-	// res.render("index", { title: "Jobby" });
+	res.render("index", { title: "Jobby" });
+});
+*/
+
+app.get("/", function (req, res) {
 	let url = "https://indreed.herokuapp.com/api/jobs?q=web+developer&limit=50";
 	axios({
 		method: "get",
@@ -49,7 +54,6 @@ app.listen(app.get("PORT"), function () {
 	console.log("Express started on http://localhost:" +
 		app.get("PORT") + "; press Ctrl-C to terminate.");
 });
-
 
 /*
 module.exports = (input, options = {}) => {
