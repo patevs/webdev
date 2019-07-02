@@ -19,13 +19,14 @@ const chalk = require("chalk");
 
 const log = console.log;
 const green = chalk.green;
+const title = green.underline.bold;
 
 /***************
  * * FUNCTIONS *
  ***************/
 
 /**
- *	Signale logging examples
+ *	* Signale logging examples
  */
 function runLogging() {
 	//..
@@ -61,9 +62,10 @@ function runLogging() {
 }
 
 /**
- * interactive logging example
+ *	* Interactive logging example
  */
 function runIteractiveLog() {
+	//..
 	const interactive = new Signale({ interactive: true, scope: "interactive" });
 	interactive.await("[%d/4] - Process A", 1);
 	setTimeout(() => {
@@ -76,14 +78,15 @@ function runIteractiveLog() {
 			}, 1000);
 		}, 1000);
 	}, 1000);
+	//..
 }
 
 /**
- * Application entry point
+ *	* CLI-Log application entry point
  */
 (function () {
 	//..
-	log(green("WELCOME TO CLI LOG"));
+	log(title("\nWELCOME TO CLI-LOG\n"));
 	runLogging();
 	runIteractiveLog();
 	//..
