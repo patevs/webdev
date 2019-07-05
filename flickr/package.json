@@ -1,0 +1,25 @@
+{
+	"name": "flickr",
+	"version": "0.0.1",
+	"description": "Flickr Image Scraper",
+	"license": "MIT",
+	"repository": "patevs/flickr",
+	"author": "patevs",
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"clean": "trash node_modules",
+		"test": "eslint . --fix && echo Test Complete!"
+	},
+	"files": [
+		"index.js"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"eslint": "^6.0.1",
+		"eslint-config-prettier": "^6.0.0",
+		"eslint-plugin-prettier": "^3.1.0",
+		"prettier": "^1.18.2"
+	}
+}
