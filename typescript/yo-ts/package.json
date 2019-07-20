@@ -11,7 +11,7 @@
   "main": "lib/index",
   "types": "lib/index",
   "scripts": {
-    "clean": "rimraf lib && rimraf coverage",
+    "clean": "rimraf lib && rimraf coverage && rimraf node_modules",
     "format": "prettier --write \"{src,__tests__}/**/*.ts\" --single-quote --trailing-comma es5",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "prepublishOnly": "npm run build",
