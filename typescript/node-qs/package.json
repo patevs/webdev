@@ -1,0 +1,11 @@
+{
+  "name": "ts-node",
+  "version": "0.1.0",
+  "description": "TypeScript NodeJS Quickstart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PatEvs <ppevans11@gmail.com> (https://github.com/patevs)",
+  "license": "MIT"
+}
