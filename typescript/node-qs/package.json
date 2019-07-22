@@ -12,6 +12,7 @@
   "author": "PatEvs <ppevans11@gmail.com> (https://github.com/patevs)",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^12.6.8",
     "typescript": "^3.5.3"
   }
 }
