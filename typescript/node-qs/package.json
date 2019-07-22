@@ -1,5 +1,5 @@
 {
-  "name": "ts-node",
+  "name": "ts-node-qs",
   "version": "0.1.0",
   "description": "TypeScript NodeJS Quickstart",
   "private": true,
