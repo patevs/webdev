@@ -5,9 +5,13 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "clean": "trash node_modules",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "PatEvs <ppevans11@gmail.com> (https://github.com/patevs)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  }
 }
