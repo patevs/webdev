@@ -9,7 +9,7 @@
 	},
 	"plugins": ["prettier"],
 	"rules": {
-		"indent": ["error", "tab"],
+		"indent": ["error", 4],
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"]
 	}

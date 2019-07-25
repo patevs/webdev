@@ -4,7 +4,7 @@
  */
 
 (function () {
-  console.log("\n --- CLI LISTR --- \n");
+    console.log('\n --- CLI LISTR --- \n');
 })();
 
 // EOF //
