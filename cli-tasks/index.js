@@ -3,7 +3,27 @@
  *  `cli-listr/index.js`
  */
 
+'use strict';
+
+// IMPORTS //
+
+const Spinners = require('spinnies');
+
 const Listr = require('listr');
+
+// CONSTANTS //
+
+const fruits = {
+    interval: 150,
+    frames: ['🍇', '🍈', '🍉', '🍋']
+}
+const spinners = new Spinners({
+    spinner: fruits,
+    color: 'blue',
+    succeedColor: 'green',
+    failColor: 'red',
+    spinnerColor: 'blueBright'
+});
 
 const tasks = new Listr([
     {
@@ -18,8 +38,62 @@ const tasks = new Listr([
     }
 ]);
 
+// FUNCTIONS //
+
+const runSpinners = () => {
+
+    spinners.add('first-spinner', { text: 'Lorem Ipsum is simply dummy text', color: 'white' });
+
+    setTimeout(() => {
+        spinners.add('second-spinner', { text: 'I\'m line 2' });
+    }, 3000);
+
+    setTimeout(() => {
+        spinners.add('third-spinner', { text: 'And I\'m ironman', color: 'yellowBright' });
+    }, 5000);
+
+    setTimeout(() => {
+        spinners.add('spinner-that-changes', { text: 'I am another spinner that would love to make some friends! Also I am very long, but I break into two or more lines if needed' });
+    }, 7000);
+
+    setTimeout(() => {
+        spinners.add('non-spinnable', { text: 'Im a non-spinnable line', status: 'non-spinnable' });
+    }, 8000);
+
+    setTimeout(() => {
+        spinners.fail('second-spinner', { text: 'And I failed :\\' });
+    }, 9000);
+
+    setTimeout(() => {
+        spinners.succeed('first-spinner', { text: 'I\'m the updated (and optional) success message', color: 'magenta' });
+    }, 10000);
+
+    setTimeout(() => {
+        spinners.update('third-spinner', { text: 'I have been updated :D', color: 'yellow', spinnerColor: 'blue' });
+    }, 12000);
+
+    setTimeout(() => {
+        spinners.update('third-spinner', { text: 'I have been updated again :D', color: 'cyan' });
+    }, 14500);
+
+    setTimeout(() => {
+        spinners.update('third-spinner', { text: 'Again, with fancy colors!', color: 'magenta' });
+    }, 17000);
+
+    setTimeout(() => {
+        spinners.succeed('third-spinner');
+    }, 20000);
+
+    setTimeout(() => {
+        spinners.succeed('spinner-that-changes', { text: 'Bye!', succeedColor: 'blue' });
+    }, 18000);
+};
+
 (function () {
-    console.log('\n --- CLI LISTR --- \n');
+    console.log('\n --- CLI TASKS --- \n');
+    console.log('\n ---- SPINNIES ---- \n');
+    runSpinners();
+    console.log('\n ----- LISTR ----- \n');
     tasks.run().catch(err => {
         console.error(err);
     });
