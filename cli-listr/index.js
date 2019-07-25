@@ -13,7 +13,7 @@ const tasks = new Listr([
     {
         title: 'Failure',
         task: () => {
-            throw new Error('Bar')
+            throw new Error('Bar');
         }
     }
 ]);
