@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "PatEvs <ppevans11@gmail.com> (https://github.com/patevs)",
   "license": "MIT",
+  "private": true,
   "directories": {
     "doc": "docs"
   },
