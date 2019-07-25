@@ -11,5 +11,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "listr": "^0.14.3"
   }
 }
