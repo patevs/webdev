@@ -11,13 +11,13 @@
         "start": "node index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
+    "dependencies": {
+        "multispinner": "^0.2.1"
+    },
     "devDependencies": {
         "eslint": "^6.1.0",
         "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-prettier": "^3.1.0",
         "prettier": "^1.18.2"
-    },
-    "dependencies": {
-        "multispinner": "^0.2.1"
     }
 }
