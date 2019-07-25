@@ -12,7 +12,9 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "listr": "^0.14.3"
+        "listr": "^0.14.3",
+        "spinnies": "^0.4.3",
+        "taskz": "^1.3.0"
     },
     "devDependencies": {
         "eslint": "^6.1.0",
