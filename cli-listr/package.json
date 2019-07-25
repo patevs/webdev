@@ -1,0 +1,14 @@
+{
+  "name": "cli-listr",
+  "version": "1.0.0",
+  "description": "CLI Task List",
+  "main": "index.js",
+  "author": "PatEvs <ppevans11@gmail.com> (https://github.com/patevs)",
+  "license": "MIT",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
