@@ -1,0 +1,13 @@
+{
+  "name": "cli-multispinner",
+  "version": "1.0.0",
+  "description": "CLI Multispinner",
+  "author": "PatEvs <ppevans11@gmail.com> (https://github.com/patevs)",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "clean": "trash node_modules",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
