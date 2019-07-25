@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "CLI Multispinner",
   "author": "PatEvs <ppevans11@gmail.com> (https://github.com/patevs)",
+  "private": true,
   "license": "MIT",
   "main": "index.js",
   "scripts": {
