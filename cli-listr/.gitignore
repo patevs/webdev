@@ -3,6 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=node
 
 ### Node ###
+
 # Logs
 logs
 *.log
@@ -19,5 +20,8 @@ node_modules/
 # dotenv environment variables file
 .env
 .env.test
+
+# lock files
+*.lock
 
 # End of https://www.gitignore.io/api/node
