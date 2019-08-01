@@ -4,6 +4,7 @@
   "description": "Listr",
   "author": "PatEvs <ppevans11@gmail.com> (https://github.com/patevs)",
   "license": "MIT",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
