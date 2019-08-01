@@ -3,6 +3,7 @@
  */
 
 const Listr = require('listr');
+const Observable = require('rxjs').Observable;
 
 const tasks = new Listr([
   {
@@ -12,7 +13,7 @@ const tasks = new Listr([
 ]);
 
 tasks.run().catch(error => {
-	console.error(error.message);
+  console.error(error.message);
 });
 
 // EOF //
