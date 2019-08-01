@@ -1,7 +1,7 @@
 {
-  "name": "listr",
+  "name": "task-listr",
   "version": "0.1.0",
-  "description": "Listr",
+  "description": "Listr Task List",
   "author": "PatEvs <ppevans11@gmail.com> (https://github.com/patevs)",
   "license": "MIT",
   "private": true,
