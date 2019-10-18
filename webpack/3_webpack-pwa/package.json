@@ -10,11 +10,10 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 0",
-		"watch": "webpack --watch --config webpack.config.js",
+		"build": "webpack --config webpack.dev.js",
 		"start": "http-server dist",
 		"start:dev": "webpack-dev-server --open --config webpack.dev.js",
-		"server": "node server.js",
-		"build": "webpack --config webpack.prod.js"
+		"server": "node server.js"
 	},
 	"dependencies": {
 		"lodash": "^4.17.15"
