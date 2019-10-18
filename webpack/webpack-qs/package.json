@@ -9,9 +9,10 @@
 		"node": ">=8"
 	},
 	"scripts": {
-		"prelint": "prettier src/*.js",
+		"prelint": "prettier --write src/*.js",
 		"lint": "eslint --fix src/*.js && echo Lint Complete!",
-		"test": "echo No Tests!"
+		"test": "echo \"Error: no test specified\" && exit 0",
+		"build": "webpack"
 	},
 	"dependencies": {
 		"lodash": "^4.17.15"
