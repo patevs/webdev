@@ -11,7 +11,9 @@
 	"scripts": {
 		"test": "echo No Tests!"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"lodash": "^4.17.15"
+	},
 	"devDependencies": {
 		"webpack": "^4.41.2",
 		"webpack-cli": "^3.3.9"
