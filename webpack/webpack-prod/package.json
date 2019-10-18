@@ -1,0 +1,22 @@
+{
+	"name": "webpack-prod",
+	"version": "0.0.0",
+	"description": "Webpack ProductionQuickstart Demo",
+	"license": "UNLICENSED",
+	"repository": "patevs/webdev",
+	"author": "patevs",
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 0",
+		"build": "webpack --config webpack.config.js"
+	},
+	"dependencies": {
+		"lodash": "^4.17.15"
+	},
+	"devDependencies": {
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.9"
+	}
+}
