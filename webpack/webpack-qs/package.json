@@ -9,6 +9,8 @@
 		"node": ">=8"
 	},
 	"scripts": {
+		"prelint": "prettier src/*.js",
+		"lint": "eslint --fix src/*.js && echo Lint Complete!",
 		"test": "echo No Tests!"
 	},
 	"dependencies": {
