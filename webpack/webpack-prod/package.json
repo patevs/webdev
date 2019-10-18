@@ -1,7 +1,7 @@
 {
 	"name": "webpack-prod",
 	"version": "0.0.0",
-	"description": "Webpack ProductionQuickstart Demo",
+	"description": "Webpack Production Quickstart Demo",
 	"license": "UNLICENSED",
 	"repository": "patevs/webdev",
 	"author": "patevs",
@@ -16,6 +16,9 @@
 		"lodash": "^4.17.15"
 	},
 	"devDependencies": {
+		"css-loader": "^3.2.0",
+		"file-loader": "^4.2.0",
+		"style-loader": "^1.0.0",
 		"webpack": "^4.41.2",
 		"webpack-cli": "^3.3.9"
 	}
