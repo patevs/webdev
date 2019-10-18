@@ -2,28 +2,15 @@
 	"name": "webpack-qs",
 	"version": "0.0.0",
 	"description": "Webpack Quickstart Demo",
-	"license": "MIT",
-	"repository": "patevs/webpack-qs",
-	"author": {
-		"name": "patevs",
-		"email": "ppevans11@gmail.com",
-		"url": "github.com/patevs"
-	},
+	"license": "UNLICENSED",
+	"repository": "patevs/webdev",
+	"author": "patevs",
 	"engines": {
 		"node": ">=8"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"test": "echo No Tests!"
 	},
-	"files": [
-		"index.js"
-	],
-	"keywords": [
-		""
-	],
-	"dependencies": {},
-	"devDependencies": {
-		"ava": "^2.1.0",
-		"xo": "^0.24.0"
-	}
+	"dependencies": { },
+	"devDependencies": { }
 }
