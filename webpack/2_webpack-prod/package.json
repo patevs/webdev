@@ -1,7 +1,7 @@
 {
-	"name": "webpack-dev",
+	"name": "webpack-prod",
 	"version": "0.0.0",
-	"description": "Webpack Development Quickstart Demo",
+	"description": "Webpack Production Demo",
 	"license": "UNLICENSED",
 	"repository": "patevs/webdev",
 	"author": "patevs",
