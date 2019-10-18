@@ -11,6 +11,9 @@
 	"scripts": {
 		"test": "echo No Tests!"
 	},
-	"dependencies": { },
-	"devDependencies": { }
+	"dependencies": {},
+	"devDependencies": {
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.9"
+	}
 }
